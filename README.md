@@ -2,51 +2,75 @@
 
 This repo holds the Python pipeline code for **Aditya**, **Anshdeep**, and **Aryan**. It's cloned inside a larger local `Project_Root` folder that also holds the shared virtual environment and the images (which are **not** pushed to GitHub).
 
+---
+
+## 📑 Contents
+
+- [About the Project](#0-about-the-project)
+- [Folder Structure](#1-folder-structure-project_root)
+- [First-Time Setup](#2-first-time-setup)
+- [Running Code](#3-running-code)
+- [Converting Your Own Code to Fit This Structure](#4-converting-your-own-code-to-fit-this-structure)
+- [Do's and Don'ts](#5-dos-and-donts)
+- [Team](#6-team)
+
+---
+
 ## 0. About the Project
 
 This is a **Research Methodology (RM) course project** on task-based object detection using a knowledge graph.
 
-**Problem statement:** How can we enable a resource-constrained device (like a Raspberry Pi) to intelligently identify objects in an image that can be used to perform a specific human task, using only local, offline AI models?
+> **Problem statement:** How can we enable a resource-constrained device (like a Raspberry Pi) to intelligently identify objects in an image that can be used to perform a specific human task, using only local, offline AI models?
 
-**Why it matters:**
+**Why it matters**
 - Assistive technology — helping visually impaired individuals identify tools
 - Robotics — helping a robot choose the right tool for a job
 - Independent living / elderly care
 - Education — tool safety and object recognition
 
-**Approach:** Each member is exploring their own combination of models/approaches under a shared module structure (`Module_1`, `Module_2`, ...), all standardized to the same input/output format (see below) so results are directly comparable. The exact knowledge graph design and the specific models used are still being finalized and may differ across members — check each member's module for their current implementation.
+**Approach:** each member explores their own combination of models/approaches under their own set of module folders, all standardized to the same input/output format (see below) so results are directly comparable. The exact knowledge graph design and the specific models used are still being finalized and may differ across members — check each member's own folder for their current implementation.
 
 **Target deployment:** Raspberry Pi (resource-constrained, offline).
 
+---
+
 ## 1. Folder Structure (Project_Root)
 
-```
-Project_Root/
-├── .venv/                          # Shared virtual environment (NOT in repo)
-├── Input_Images/                   # All input images go here (NOT in repo)
-│   └── [input images]
-├── RM/                              # This GitHub repo (clone here)
-│   ├── Aditya/
-│   │   ├── Module_1/
-│   │   │   ├── script1.py
-│   │   │   ├── script2.py
-│   │   │   └── config_or_kg.json
-│   │   ├── Module_2/
-│   │   │   └── ...
-│   │   └── Module_N/
-│   │       └── ...
-│   ├── Anshdeep/                    # Same structure as Aditya (TBD)
-│   │   └── [Module_1, Module_2, ...]
-│   ├── Aryan/                       # Same structure as Aditya (TBD)
-│   │   └── [Module_1, Module_2, ...]
-│   └── README.md
-└── Output_Images/                   # All outputs go here (NOT in repo)
-    ├── Aditya/<module_name>/<task_name or timestamp>/
-    ├── Anshdeep/<module_name>/<task_name or timestamp>/
-    └── Aryan/<module_name>/<task_name or timestamp>/
+```mermaid
+flowchart TD
+    Root["Project_Root/"]
+    Root --> Venv[".venv/ — shared virtual env<br/><i>not in repo</i>"]
+    Root --> Input["Input_Images/ — all input images<br/><i>not in repo</i>"]
+    Root --> RM["RM/ — this GitHub repo (clone here)"]
+    Root --> Output["Output_Images/ — all outputs<br/><i>not in repo</i>"]
+
+    RM --> A["Aditya/<br/>own module folders"]
+    RM --> B["Anshdeep/<br/>own module folders"]
+    RM --> C["Aryan/<br/>own module folders"]
+    RM --> D["README.md"]
+
+    Output --> OA["Aditya/&lt;module&gt;/&lt;task or timestamp&gt;/"]
+    Output --> OB["Anshdeep/&lt;module&gt;/&lt;task or timestamp&gt;/"]
+    Output --> OC["Aryan/&lt;module&gt;/&lt;task or timestamp&gt;/"]
 ```
 
-**Rule of thumb:** everything that reads or writes *images* is centralized outside the repo. Everything that's *code* (and small config/JSON files like knowledge graphs) lives inside the repo, in your own member folder.
+**Rule of thumb:** everything that reads or writes *images* is centralized outside the repo. Everything that's *code* (and small config/JSON files like knowledge graphs) lives inside the repo, in your own member folder — organized into as many module subfolders as you need.
+
+Each member's folder follows the same pattern, regardless of how many modules it grows to:
+
+```
+RM/<Your_Name>/
+├── <Module_1>/
+│   ├── script1.py
+│   ├── script2.py
+│   └── config_or_kg.json
+├── <Module_2>/
+│   └── ...
+└── <Module_N>/
+    └── ...
+```
+
+---
 
 ## 2. First-Time Setup
 
@@ -69,6 +93,8 @@ Project_Root/
    *(`requirements.txt` is coming soon — once it's added to the repo, use it to install everything needed to run any member's code.)*
 5. Inside `RM/`, make sure you have your own folder named after you (`Aditya/`, `Anshdeep/`, or `Aryan/`) with your module subfolders inside it, matching the structure above.
 
+---
+
 ## 3. Running Code
 
 Always run from `Project_Root` with the venv active:
@@ -79,10 +105,12 @@ source .venv/bin/activate
 python RM/<Your_Name>/<Module_Name>/<script>.py
 ```
 
-Example:
+**Example**
 ```bash
 python RM/Aditya/Hash_Map/pipeline_with_kg.py
 ```
+
+---
 
 ## 4. Converting Your Own Code to Fit This Structure
 
@@ -107,48 +135,36 @@ Project_Root/
 ├── Input_Images/                   # Standard input folder
 │   └── [all input images go here]
 ├── RM/                             # GitHub repository clone
-│   ├── Aditya/                     # Team member 1 folder
-│   │   ├── [Module_1]/             # Module 1 (e.g., Hash_Map)
+│   ├── <Team_Member_1>/            # Team member folder
+│   │   ├── <Module_1>/             # A module (own pipeline approach)
 │   │   │   ├── [main_pipeline_file].py
 │   │   │   ├── [kg_manager_file].py
 │   │   │   ├── [llm_fallback_file].py
 │   │   │   └── [knowledge_graph_file].json
-│   │   ├── [Module_2]/             # Module 2 (e.g., Hierarchical_KG)
-│   │   │   ├── [main_pipeline_file].py
-│   │   │   ├── [kg_manager_file].py
-│   │   │   ├── [llm_fallback_file].py
-│   │   │   └── [knowledge_graph_file].json
-│   │   ├── [Module_3]/             # Module 3 (e.g., Attribute_KG)
-│   │   │   ├── [main_pipeline_file].py
-│   │   │   ├── [kg_manager_file].py
-│   │   │   └── [knowledge_graph_file].json
-│   │   └── [Module_4]/             # Module 4 (e.g., Scene_graph)
-│   │       └── [main_pipeline_file].py
-│   ├── Aryan/                      # Team member 2 folder
-│   │   └── [their code files]
-│   ├── Anshdeep/                   # Team member 3 folder
-│   │   └── [their code files]
+│   │   ├── <Module_2>/
+│   │   │   └── ...
+│   │   └── <Module_N>/
+│   │       └── ...
+│   ├── <Team_Member_2>/
+│   │   └── [their module folders]
+│   ├── <Team_Member_3>/
+│   │   └── [their module folders]
 │   └── README.md
 └── Output_Images/                  # Standard output folder
-    ├── Aditya/                     # Team member 1 outputs
-    │   ├── [Module_1]/             # Outputs from Module 1
-    │   │   ├── [task_name]/        # Task-specific subfolder
-    │   │   │   └── [annotated images]
-    │   ├── [Module_2]/             # Outputs from Module 2
-    │   │   ├── [task_name]/        # Task-specific subfolder
-    │   │   │   └── [annotated images]
-    │   ├── [Module_3]/             # Outputs from Module 3
-    │   │   ├── [task_name]/        # Task-specific subfolder
-    │   │   │   └── [annotated images]
-    │   └── [Module_4]/             # Outputs from Module 4
-    │       └── [timestamp]/        # Timestamp-based subfolder
-    │           └── [annotated images & JSON]
-    ├── Aryan/
-    │   └── [Module_Name]/
-    │       └── [task_name]/
-    └── Anshdeep/
-        └── [Module_Name]/
-            └── [task_name]/
+    ├── <Team_Member_1>/
+    │   ├── <Module_1>/
+    │   │   └── [task_name or timestamp]/
+    │   │       └── [annotated images & JSON]
+    │   ├── <Module_2>/
+    │   │   └── [task_name or timestamp]/
+    │   └── <Module_N>/
+    │       └── [task_name or timestamp]/
+    ├── <Team_Member_2>/
+    │   └── <Module_Name>/
+    │       └── [task_name or timestamp]/
+    └── <Team_Member_3>/
+        └── <Module_Name>/
+            └── [task_name or timestamp]/
 
 Task Requirements
 
@@ -157,7 +173,7 @@ For each code file you receive, you MUST:
 
     Determine the exact path of the file within the repository
 
-    Example: Project_Root/RM/Aditya/[Module_1]/[main_pipeline_file].py
+    Example: Project_Root/RM/<Team_Member>/<Module_Name>/[main_pipeline_file].py
 
     Calculate the correct number of .parent calls needed to reach Project_Root
 
@@ -190,10 +206,10 @@ INPUT_FOLDER = SCRIPT_DIR / "Input_Images"
 python
 
 # [PATH CHANGE] Team member name (from folder structure)
-TEAM_MEMBER = "Aditya"  # or "Aryan", "Anshdeep"
+TEAM_MEMBER = "<Team_Member>"  # e.g. "Aditya", "Aryan", "Anshdeep"
 
 # [PATH CHANGE] Module name (the folder containing this code)
-MODULE_NAME = "[Module_1]"  # e.g., "Hash_Map", "Hierarchical_KG", "Attribute_KG", "Scene_graph"
+MODULE_NAME = "<Module_Name>"  # the name of the folder this script lives in
 
 # [PATH CHANGE] Output base directory
 OUTPUT_BASE = SCRIPT_DIR / "Output_Images" / TEAM_MEMBER / MODULE_NAME
@@ -214,7 +230,7 @@ print(f"[*] Output will be saved to: {OUTPUT_FOLDER}")
 Example: If user inputs "open the parcel", outputs go to:
 text
 
-Project_Root/Output_Images/Aditya/[Module_1]/open_the_parcel/
+Project_Root/Output_Images/<Team_Member>/<Module_Name>/open_the_parcel/
 
 For Modules Without User Query Input (Timestamp-Based):
 python
@@ -229,7 +245,7 @@ print(f"[*] Output will be saved to: {OUTPUT_FOLDER}")
 Example: Outputs go to:
 text
 
-Project_Root/Output_Images/Aditya/[Module_4]/20240115_143022/
+Project_Root/Output_Images/<Team_Member>/<Module_Name>/20240115_143022/
 
 4. HANDLE MODULE-SPECIFIC RESOURCES
 
@@ -237,7 +253,7 @@ Project_Root/Output_Images/Aditya/[Module_4]/20240115_143022/
 
     These stay in their original module folders
 
-    For example: knowledge_graph.json stays in Project_Root/RM/Aditya/[Module_1]/
+    For example: knowledge_graph.json stays in Project_Root/RM/<Team_Member>/<Module_Name>/
 
     Only change image input/output paths
 
@@ -263,7 +279,7 @@ Project_Root/Output_Images/Aditya/[Module_4]/20240115_143022/
 
     If the code saves outputs to sub-folders like Annotated_KG/ or Results/, maintain that structure
 
-    Example: Project_Root/Output_Images/Aditya/[Module_1]/open_the_parcel/Annotated_KG/
+    Example: Project_Root/Output_Images/<Team_Member>/<Module_Name>/open_the_parcel/Annotated_KG/
 
 8. ADD OUTPUT LOCATION INDICATOR
 
@@ -277,10 +293,10 @@ Path Resolution Guide
 For Files in Team Member Subfolders (Module Folders):
 text
 
-File: Project_Root/RM/Aditya/[Module_1]/[main_pipeline_file].py
+File: Project_Root/RM/<Team_Member>/<Module_Name>/[main_pipeline_file].py
 Path calculation:
-.parent              → [Module_1]/
-.parent.parent       → Aditya/
+.parent              → <Module_Name>/
+.parent.parent       → <Team_Member>/
 .parent.parent.parent → RM/
 .parent.parent.parent.parent → Project_Root/
 
@@ -289,9 +305,9 @@ SCRIPT_DIR = Path(__file__).parent.parent.parent.parent
 For Files Directly in Team Member Folder:
 text
 
-File: Project_Root/RM/Aditya/[main_code_file].py
+File: Project_Root/RM/<Team_Member>/[main_code_file].py
 Path calculation:
-.parent      → Aditya/
+.parent      → <Team_Member>/
 .parent.parent → RM/
 .parent.parent.parent → Project_Root/
 
@@ -300,9 +316,9 @@ SCRIPT_DIR = Path(__file__).parent.parent.parent
 For Shared Module Folders (outside team member folders):
 text
 
-File: Project_Root/RM/[Shared_Module]/[main_pipeline_file].py
+File: Project_Root/RM/<Shared_Module>/[main_pipeline_file].py
 Path calculation:
-.parent      → [Shared_Module]/
+.parent      → <Shared_Module>/
 .parent.parent → RM/
 .parent.parent.parent → Project_Root/
 
@@ -321,7 +337,7 @@ OUTPUT_FOLDER.mkdir(parents=True, exist_ok=True)
 Example: If user inputs "open the parcel", outputs go to:
 text
 
-Project_Root/Output_Images/Aditya/[Module_1]/open_the_parcel/
+Project_Root/Output_Images/<Team_Member>/<Module_Name>/open_the_parcel/
 
 Modules Without User Query Input (Timestamp-Based):
 
@@ -336,7 +352,7 @@ OUTPUT_FOLDER.mkdir(parents=True, exist_ok=True)
 Example: Outputs go to:
 text
 
-Project_Root/Output_Images/Aditya/[Module_4]/20240115_143022/
+Project_Root/Output_Images/<Team_Member>/<Module_Name>/20240115_143022/
 
 What to Output
 
@@ -369,7 +385,7 @@ def main():
     user_query = input("Enter task: ").strip()
     # ... rest of code
 
-Modified Code (for Aditya/[Module_1] with task-based folder):
+Modified Code (for a task-based module inside a team member's folder):
 python
 
 from pathlib import Path
@@ -381,8 +397,8 @@ SCRIPT_DIR = Path(__file__).parent.parent.parent.parent
 INPUT_FOLDER = SCRIPT_DIR / "Input_Images"
 
 # [PATH CHANGE] Team-specific output directory
-TEAM_MEMBER = "Aditya"
-MODULE_NAME = "[Module_1]"
+TEAM_MEMBER = "<Team_Member>"
+MODULE_NAME = "<Module_Name>"
 OUTPUT_BASE = SCRIPT_DIR / "Output_Images" / TEAM_MEMBER / MODULE_NAME
 OUTPUT_BASE.mkdir(parents=True, exist_ok=True)
 
@@ -397,7 +413,7 @@ def main():
     
     # ... rest of code
 
-Modified Code (for Aditya/[Module_4] without task input):
+Modified Code (for a timestamp-based module without task input):
 python
 
 from pathlib import Path
@@ -410,8 +426,8 @@ SCRIPT_DIR = Path(__file__).parent.parent.parent.parent
 INPUT_FOLDER = SCRIPT_DIR / "Input_Images"
 
 # [PATH CHANGE] Team-specific output directory
-TEAM_MEMBER = "Aditya"
-MODULE_NAME = "[Module_4]"
+TEAM_MEMBER = "<Team_Member>"
+MODULE_NAME = "<Module_Name>"
 OUTPUT_BASE = SCRIPT_DIR / "Output_Images" / TEAM_MEMBER / MODULE_NAME
 OUTPUT_BASE.mkdir(parents=True, exist_ok=True)
 
@@ -487,22 +503,25 @@ cd /path/to/Project_Root
 source .venv/bin/activate
 
 # Run the script
-python RM/Aditya/[Module_1]/[main_pipeline_file].py
+python RM/<Team_Member>/<Module_Name>/[main_pipeline_file].py
 
 Please provide the code files one by one for modification.
 ```
 
 </details>
 
+---
+
 ## 5. Do's and Don'ts
 
-- ✅ Do put your code (scripts, module-local JSON/config files) inside `RM/<Your_Name>/<Module_Name>/`
-- ✅ Do read images only from `Project_Root/Input_Images/`
-- ✅ Do write output images only to `Project_Root/Output_Images/<Your_Name>/<Module_Name>/...`
-- ❌ Don't commit images to the repo
-- ❌ Don't commit `.venv/`
-- ❌ Don't rename functions, variables, classes, or files while doing the path conversion
-- ❌ Don't touch other members' folders
+| ✅ Do | ❌ Don't |
+|---|---|
+| Put your code (scripts, module-local JSON/config files) inside `RM/<Your_Name>/<Module_Name>/` | Commit images to the repo |
+| Read images only from `Project_Root/Input_Images/` | Commit `.venv/` |
+| Write output images only to `Project_Root/Output_Images/<Your_Name>/<Module_Name>/...` | Rename functions, variables, classes, or files while doing the path conversion |
+| | Touch other members' folders |
+
+---
 
 ## 6. Team
 
@@ -511,6 +530,8 @@ Please provide the code files one by one for modification.
 | Aditya | `RM/Aditya/` |
 | Anshdeep | `RM/Anshdeep/` |
 | Aryan | `RM/Aryan/` |
+
+Each member's folder holds as many module subfolders as their own work needs — see their folder for details on what's currently implemented.
 
 ---
 *Requirements file (`requirements.txt`) to be added — once available, install with `pip install -r RM/requirements.txt` after activating the venv.*
