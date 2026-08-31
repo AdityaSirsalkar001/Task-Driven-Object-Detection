@@ -1,0 +1,7 @@
+__pycache__/
+qwen_bounding_boxes_dataset.csv
+qwen+florence_v2.jsonl
+qwen+slm+florence_v3.jsonl
+Open_Parcel/
+Annotated_Images/
+Annotated_Attribute_KG/

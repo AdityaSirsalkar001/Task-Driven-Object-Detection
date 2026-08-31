@@ -1,0 +1,71 @@
+{
+    "small handheld object with sharp blades": [
+        "scissors",
+        "knife",
+        "box cutter",
+        "blade",
+        "key",
+        "utility knife"
+    ],
+    "hollow watertight container": [
+        "cup",
+        "glass",
+        "mug",
+        "bottle",
+        "flask",
+        "jug",
+        "bowl"
+    ],
+    "long flat rigid tool for prying": [
+        "screwdriver",
+        "crowbar",
+        "butter knife",
+        "ruler",
+        "coin",
+        "plier"
+    ],
+    "absorbent material for wiping": [
+        "towel",
+        "tissue",
+        "sponge",
+        "cloth",
+        "mop",
+        "rag",
+        "paper towel",
+        "napkin"
+    ],
+    "heavy blunt object for striking": [
+        "hammer",
+        "mallet",
+        "heavy rock",
+        "wrench",
+        "baseball bat",
+        "brick"
+    ],
+    "large rectangular stiff material with tape": [
+        "peeler",
+        "sugar bowl",
+        "pocket knife",
+        "pliers",
+        "red scissors",
+        "none",
+        "scissors",
+        "tempa packet",
+        "salt shaker",
+        "fork",
+        "knife"
+    ],
+    "flat lid; stiff cardboard; tape restraint": [
+        "peeler",
+        "scissors",
+        "tempa packet",
+        "pocket knife",
+        "pliers",
+        "salt shaker",
+        "red scissors",
+        "sugar bowl",
+        "fork",
+        "none",
+        "knife"
+    ]
+}
