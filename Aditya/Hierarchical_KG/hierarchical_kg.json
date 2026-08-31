@@ -1,0 +1,6627 @@
+{
+  "tasks": {
+    "open a parcel": {
+      "REQUIRES_ACTION": [
+        "cut tape",
+        "pry flaps",
+        "remove wrapping"
+      ]
+    },
+    "slice the box": {
+      "REQUIRES_ACTION": [
+        "cut tape",
+        "score cardboard"
+      ]
+    },
+    "cut paper": {
+      "REQUIRES_ACTION": [
+        "shear material",
+        "trim edge"
+      ]
+    },
+    "smear butter": {
+      "REQUIRES_ACTION": [
+        "scoop soft solid",
+        "spread layer",
+        "soften spread"
+      ]
+    },
+    "extinguish fire": {
+      "REQUIRES_ACTION": [
+        "smother flames",
+        "cool fuel",
+        "cut oxygen",
+        "remove heat"
+      ]
+    },
+    "pound carpet": {
+      "REQUIRES_ACTION": [
+        "beat dust",
+        "loosen debris",
+        "agitate fibers"
+      ]
+    },
+    "tighten a screw": {
+      "REQUIRES_ACTION": [
+        "apply torque",
+        "grip fastener",
+        "rotate clockwise"
+      ]
+    },
+    "clean a spill": {
+      "REQUIRES_ACTION": [
+        "absorb liquid",
+        "scrub surface",
+        "wipe residue"
+      ]
+    },
+    "drink water": {
+      "REQUIRES_ACTION": [
+        "hold liquid",
+        "pour into mouth",
+        "contain beverage"
+      ]
+    },
+    "serve wine": {
+      "REQUIRES_ACTION": [
+        "dispense liquid",
+        "pour fluid",
+        "aerate wine"
+      ]
+    },
+    "eat soup": {
+      "REQUIRES_ACTION": [
+        "contain hot liquid",
+        "scoop liquid",
+        "transfer to mouth"
+      ]
+    },
+    "hammer a nail": {
+      "REQUIRES_ACTION": [
+        "deliver blunt force",
+        "drive spike",
+        "impact head"
+      ]
+    },
+    "measure length": {
+      "REQUIRES_ACTION": [
+        "span distance",
+        "compare units",
+        "mark length"
+      ]
+    },
+    "dig hole": {
+      "REQUIRES_ACTION": [
+        "excavate earth",
+        "remove soil",
+        "create cavity"
+      ]
+    },
+    "water plant": {
+      "REQUIRES_ACTION": [
+        "hydrate soil",
+        "dispense water",
+        "moisten roots"
+      ]
+    },
+    "write a note": {
+      "REQUIRES_ACTION": [
+        "mark surface",
+        "deposit pigment",
+        "form characters"
+      ]
+    },
+    "light up a dark room": {
+      "REQUIRES_ACTION": [
+        "illuminate area",
+        "cast light",
+        "brighten space"
+      ]
+    },
+    "sweep the floor": {
+      "REQUIRES_ACTION": [
+        "gather debris",
+        "push particles",
+        "collect dust"
+      ]
+    },
+    "peel vegetable": {
+      "REQUIRES_ACTION": [
+        "remove skin",
+        "pare surface",
+        "shave outer layer"
+      ]
+    },
+    "stir coffee": {
+      "REQUIRES_ACTION": [
+        "agitate liquid",
+        "mix soluble",
+        "blend contents"
+      ]
+    },
+    "chop onion": {
+      "REQUIRES_ACTION": [
+        "slice produce",
+        "dice vegetable",
+        "cut into pieces"
+      ]
+    },
+    "grind coffee beans": {
+      "REQUIRES_ACTION": [
+        "crush solids",
+        "reduce particle size",
+        "mill beans"
+      ]
+    },
+    "toast bread": {
+      "REQUIRES_ACTION": [
+        "apply heat",
+        "brown surface",
+        "crisp slice"
+      ]
+    },
+    "boil water": {
+      "REQUIRES_ACTION": [
+        "heat liquid",
+        "generate steam",
+        "bring to boil"
+      ]
+    },
+    "open bottle": {
+      "REQUIRES_ACTION": [
+        "remove cap",
+        "extract cork",
+        "unscrew lid"
+      ]
+    },
+    "fix shelf": {
+      "REQUIRES_ACTION": [
+        "drive screw",
+        "attach bracket",
+        "level surface"
+      ]
+    },
+    "paint wall": {
+      "REQUIRES_ACTION": [
+        "apply coating",
+        "roll paint",
+        "brush surface"
+      ]
+    },
+    "clean window": {
+      "REQUIRES_ACTION": [
+        "wipe glass",
+        "spray cleaner",
+        "dry surface"
+      ]
+    },
+    "plant flowers": {
+      "REQUIRES_ACTION": [
+        "dig hole",
+        "place seedling",
+        "cover roots"
+      ]
+    },
+    "sharpen pencil": {
+      "REQUIRES_ACTION": [
+        "pare wood",
+        "expose lead",
+        "shave point"
+      ]
+    },
+    "cut wood": {
+      "REQUIRES_ACTION": [
+        "saw plank",
+        "split timber",
+        "score lumber"
+      ]
+    },
+    "sand surface": {
+      "REQUIRES_ACTION": [
+        "abrade material",
+        "smooth finish",
+        "remove roughness"
+      ]
+    },
+    "drill hole": {
+      "REQUIRES_ACTION": [
+        "bore opening",
+        "rotate bit",
+        "penetrate surface"
+      ]
+    },
+    "screw plank": {
+      "REQUIRES_ACTION": [
+        "fasten together",
+        "join pieces",
+        "secure panel"
+      ]
+    },
+    "glue pieces": {
+      "REQUIRES_ACTION": [
+        "apply adhesive",
+        "bond surfaces",
+        "press together"
+      ]
+    },
+    "remove nail": {
+      "REQUIRES_ACTION": [
+        "extract fastener",
+        "pull spike",
+        "lever out"
+      ]
+    },
+    "file metal": {
+      "REQUIRES_ACTION": [
+        "smooth surface",
+        "rasp edge",
+        "remove burr"
+      ]
+    },
+    "sharpen knife": {
+      "REQUIRES_ACTION": [
+        "hone edge",
+        "abrade blade",
+        "restore sharpness"
+      ]
+    },
+    "smoke fish": {
+      "REQUIRES_ACTION": [
+        "cure meat",
+        "apply smoke",
+        "preserve food"
+      ]
+    },
+    "bake cake": {
+      "REQUIRES_ACTION": [
+        "heat batter",
+        "set structure",
+        "brown crust"
+      ]
+    },
+    "mix dough": {
+      "REQUIRES_ACTION": [
+        "knead flour",
+        "combine ingredients",
+        "knead mixture"
+      ]
+    },
+    "roll pastry": {
+      "REQUIRES_ACTION": [
+        "flatten dough",
+        "stretch sheet",
+        "roll flat"
+      ]
+    },
+    "ice cake": {
+      "REQUIRES_ACTION": [
+        "spread frosting",
+        "smooth topping",
+        "decorate surface"
+      ]
+    },
+    "shell nuts": {
+      "REQUIRES_ACTION": [
+        "crack shells",
+        "remove husk",
+        "extract kernel"
+      ]
+    },
+    "squeeze juice": {
+      "REQUIRES_ACTION": [
+        "compress fruit",
+        "extract liquid",
+        "strain pulp"
+      ]
+    },
+    "strain pasta": {
+      "REQUIRES_ACTION": [
+        "drain water",
+        "separate solid",
+        "remove liquid"
+      ]
+    },
+    "grate cheese": {
+      "REQUIRES_ACTION": [
+        "shred solid",
+        "rasp block",
+        "form shreds"
+      ]
+    },
+    "mash potato": {
+      "REQUIRES_ACTION": [
+        "crush soft solid",
+        "smooth paste",
+        "break lumps"
+      ]
+    },
+    "whip cream": {
+      "REQUIRES_ACTION": [
+        "aerate liquid",
+        "incorporate air",
+        "increase volume"
+      ]
+    },
+    "arrange books": {
+      "REQUIRES_ACTION": [
+        "sort volumes",
+        "line up spines",
+        "organize shelf"
+      ]
+    },
+    "hang picture": {
+      "REQUIRES_ACTION": [
+        "drive nail",
+        "level frame",
+        "support art"
+      ]
+    },
+    "clean carpet": {
+      "REQUIRES_ACTION": [
+        "vacuum fibers",
+        "scrub stains",
+        "extract dirt"
+      ]
+    },
+    "wash dishes": {
+      "REQUIRES_ACTION": [
+        "scrub surface",
+        "rinse soap",
+        "remove grease"
+      ]
+    },
+    "dry clothes": {
+      "REQUIRES_ACTION": [
+        "remove moisture",
+        "evaporate water",
+        "hang fabric"
+      ]
+    },
+    "fold laundry": {
+      "REQUIRES_ACTION": [
+        "crease fabric",
+        "stack garments",
+        "neaten pile"
+      ]
+    },
+    "iron shirt": {
+      "REQUIRES_ACTION": [
+        "press fabric",
+        "smooth wrinkles",
+        "heat cloth"
+      ]
+    },
+    "sew button": {
+      "REQUIRES_ACTION": [
+        "thread needle",
+        "stitch fabric",
+        "attach fastener"
+      ]
+    },
+    "patch hole": {
+      "REQUIRES_ACTION": [
+        "cover gap",
+        "seal opening",
+        "apply patch"
+      ]
+    },
+    "measure weight": {
+      "REQUIRES_ACTION": [
+        "balance mass",
+        "read scale",
+        "compare load"
+      ]
+    },
+    "pour concrete": {
+      "REQUIRES_ACTION": [
+        "mix cement",
+        "trowel surface",
+        "fill form"
+      ]
+    },
+    "rake leaves": {
+      "REQUIRES_ACTION": [
+        "gather foliage",
+        "sweep yard",
+        "collect debris"
+      ]
+    },
+    "trim hedge": {
+      "REQUIRES_ACTION": [
+        "cut shrubs",
+        "shape bush",
+        "prune branches"
+      ]
+    },
+    "mow lawn": {
+      "REQUIRES_ACTION": [
+        "cut grass",
+        "level turf",
+        "shear blades"
+      ]
+    },
+    "shovel snow": {
+      "REQUIRES_ACTION": [
+        "clear pathway",
+        "remove ice",
+        "push flakes"
+      ]
+    },
+    "sweep porch": {
+      "REQUIRES_ACTION": [
+        "brush dust",
+        "remove dirt",
+        "gather debris"
+      ]
+    },
+    "light candle": {
+      "REQUIRES_ACTION": [
+        "ignite wick",
+        "apply flame",
+        "melt wax"
+      ]
+    },
+    "extinguish candle": {
+      "REQUIRES_ACTION": [
+        "snuff flame",
+        "cut oxygen",
+        "smother wick"
+      ]
+    },
+    "turn on lamp": {
+      "REQUIRES_ACTION": [
+        "complete circuit",
+        "illuminate bulb",
+        "provide electricity"
+      ]
+    },
+    "turn off lamp": {
+      "REQUIRES_ACTION": [
+        "break circuit",
+        "stop current",
+        "toggle switch"
+      ]
+    },
+    "fix plug": {
+      "REQUIRES_ACTION": [
+        "attach wire",
+        "insulate contact",
+        "crimp terminal"
+      ]
+    },
+    "change bulb": {
+      "REQUIRES_ACTION": [
+        "unscrew old",
+        "insert new",
+        "connect socket"
+      ]
+    },
+    "hammer chisel": {
+      "REQUIRES_ACTION": [
+        "strike tool",
+        "shape stone",
+        "split rock"
+      ]
+    },
+    "saw plank": {
+      "REQUIRES_ACTION": [
+        "cut timber",
+        "split wood",
+        "make board"
+      ]
+    },
+    "plane wood": {
+      "REQUIRES_ACTION": [
+        "shave surface",
+        "smooth timber",
+        "flatten board"
+      ]
+    },
+    "router edge": {
+      "REQUIRES_ACTION": [
+        "shape contour",
+        "cut groove",
+        "trim edge"
+      ]
+    },
+    "sand drywall": {
+      "REQUIRES_ACTION": [
+        "smooth joint",
+        "remove excess",
+        "level surface"
+      ]
+    },
+    "tape drywall": {
+      "REQUIRES_ACTION": [
+        "cover seam",
+        "apply tape",
+        "smooth mud"
+      ]
+    },
+    "grout tile": {
+      "REQUIRES_ACTION": [
+        "fill gaps",
+        "apply slurry",
+        "finish joints"
+      ]
+    },
+    "cut tile": {
+      "REQUIRES_ACTION": [
+        "score surface",
+        "snap piece",
+        "trim ceramic"
+      ]
+    },
+    "weld metal": {
+      "REQUIRES_ACTION": [
+        "melt edges",
+        "fuse parts",
+        "join material"
+      ]
+    },
+    "braze tube": {
+      "REQUIRES_ACTION": [
+        "heat joint",
+        "flow filler",
+        "connect pipe"
+      ]
+    },
+    "solder wire": {
+      "REQUIRES_ACTION": [
+        "melt alloy",
+        "tin tip",
+        "bond conductor"
+      ]
+    },
+    "desolder joint": {
+      "REQUIRES_ACTION": [
+        "remove solder",
+        "heat connection",
+        "free part"
+      ]
+    },
+    "strip wire": {
+      "REQUIRES_ACTION": [
+        "remove insulation",
+        "expose conductor",
+        "trim jacket"
+      ]
+    },
+    "crimp terminal": {
+      "REQUIRES_ACTION": [
+        "deform metal",
+        "attach connector",
+        "compress sleeve"
+      ]
+    },
+    "test voltage": {
+      "REQUIRES_ACTION": [
+        "measure potential",
+        "read meter",
+        "check circuit"
+      ]
+    },
+    "splice wire": {
+      "REQUIRES_ACTION": [
+        "twist strands",
+        "connect leads",
+        "join ends"
+      ]
+    },
+    "clean brush": {
+      "REQUIRES_ACTION": [
+        "remove paint",
+        "wash bristles",
+        "preserve tool"
+      ]
+    },
+    "thin paint": {
+      "REQUIRES_ACTION": [
+        "mix solvent",
+        "dilute color",
+        "reduce viscosity"
+      ]
+    },
+    "scrape old paint": {
+      "REQUIRES_ACTION": [
+        "lift coating",
+        "remove finish",
+        "prepare surface"
+      ]
+    },
+    "apply primer": {
+      "REQUIRES_ACTION": [
+        "seal surface",
+        "coat base",
+        "prepare substrate"
+      ]
+    },
+    "roll ceiling": {
+      "REQUIRES_ACTION": [
+        "paint overhead",
+        "apply coat",
+        "cover sky"
+      ]
+    },
+    "cut wallpaper": {
+      "REQUIRES_ACTION": [
+        "trim sheet",
+        "match pattern",
+        "slice roll"
+      ]
+    },
+    "paste paper": {
+      "REQUIRES_ACTION": [
+        "apply glue",
+        "moisten sheet",
+        "adhere surface"
+      ]
+    },
+    "hang wallpaper": {
+      "REQUIRES_ACTION": [
+        "position sheet",
+        "smooth bubbles",
+        "trim edge"
+      ]
+    },
+    "install shelf": {
+      "REQUIRES_ACTION": [
+        "mount bracket",
+        "level support",
+        "screw plank"
+      ]
+    },
+    "assemble bookcase": {
+      "REQUIRES_ACTION": [
+        "fit pieces",
+        "join parts",
+        "tighten fittings"
+      ]
+    },
+    "slice the parcel": {
+      "REQUIRES_ACTION": [
+        "sub_action_1"
+      ]
+    }
+  },
+  "actions": {
+    "cut tape": {
+      "REQUIRES_ATTRIBUTE": [
+        "sharp edge",
+        "pointed tip"
+      ]
+    },
+    "pry flaps": {
+      "REQUIRES_ATTRIBUTE": [
+        "rigid wedge",
+        "flat edge"
+      ]
+    },
+    "remove wrapping": {
+      "REQUIRES_ATTRIBUTE": [
+        "sharp edge",
+        "pointed tip"
+      ]
+    },
+    "score cardboard": {
+      "REQUIRES_ATTRIBUTE": [
+        "sharp edge",
+        "straight edge"
+      ]
+    },
+    "shear material": {
+      "REQUIRES_ATTRIBUTE": [
+        "bypass blades",
+        "sharp edge"
+      ]
+    },
+    "trim edge": {
+      "REQUIRES_ATTRIBUTE": [
+        "sharp edge",
+        "straight edge"
+      ]
+    },
+    "scoop soft solid": {
+      "REQUIRES_ATTRIBUTE": [
+        "concave surface",
+        "rigid body"
+      ]
+    },
+    "spread layer": {
+      "REQUIRES_ATTRIBUTE": [
+        "flat surface",
+        "smooth edge"
+      ]
+    },
+    "soften spread": {
+      "REQUIRES_ATTRIBUTE": [
+        "warm surface",
+        "pliable edge"
+      ]
+    },
+    "smother flames": {
+      "REQUIRES_ATTRIBUTE": [
+        "airtight barrier",
+        "flame retardant"
+      ]
+    },
+    "cool fuel": {
+      "REQUIRES_ATTRIBUTE": [
+        "liquid coolant",
+        "heat sink"
+      ]
+    },
+    "cut oxygen": {
+      "REQUIRES_ATTRIBUTE": [
+        "airtight cone",
+        "extended handle"
+      ]
+    },
+    "remove heat": {
+      "REQUIRES_ATTRIBUTE": [
+        "liquid coolant",
+        "thermal sink"
+      ]
+    },
+    "beat dust": {
+      "REQUIRES_ATTRIBUTE": [
+        "impact resistant rod",
+        "heavy mass"
+      ]
+    },
+    "loosen debris": {
+      "REQUIRES_ATTRIBUTE": [
+        "impact resistant rod",
+        "heavy mass"
+      ]
+    },
+    "agitate fibers": {
+      "REQUIRES_ATTRIBUTE": [
+        "impact resistant rod",
+        "heavy mass"
+      ]
+    },
+    "apply torque": {
+      "REQUIRES_ATTRIBUTE": [
+        "torsional grip",
+        "rigid wedge"
+      ]
+    },
+    "grip fastener": {
+      "REQUIRES_ATTRIBUTE": [
+        "torsional grip",
+        "rigid body"
+      ]
+    },
+    "rotate clockwise": {
+      "REQUIRES_ATTRIBUTE": [
+        "torsional grip",
+        "rigid wedge"
+      ]
+    },
+    "absorb liquid": {
+      "REQUIRES_ATTRIBUTE": [
+        "absorbent fibers"
+      ]
+    },
+    "scrub surface": {
+      "REQUIRES_ATTRIBUTE": [
+        "abrasive pad",
+        "extended handle"
+      ]
+    },
+    "wipe residue": {
+      "REQUIRES_ATTRIBUTE": [
+        "absorbent fibers",
+        "flat surface"
+      ]
+    },
+    "hold liquid": {
+      "REQUIRES_ATTRIBUTE": [
+        "watertight vessel"
+      ]
+    },
+    "pour into mouth": {
+      "REQUIRES_ATTRIBUTE": [
+        "spout",
+        "watertight vessel"
+      ]
+    },
+    "contain beverage": {
+      "REQUIRES_ATTRIBUTE": [
+        "watertight vessel",
+        "thermal insulator"
+      ]
+    },
+    "dispense liquid": {
+      "REQUIRES_ATTRIBUTE": [
+        "transparent vessel",
+        "spout"
+      ]
+    },
+    "pour fluid": {
+      "REQUIRES_ATTRIBUTE": [
+        "spout",
+        "watertight vessel"
+      ]
+    },
+    "aerate wine": {
+      "REQUIRES_ATTRIBUTE": [
+        "decanter",
+        "glass vessel"
+      ]
+    },
+    "contain hot liquid": {
+      "REQUIRES_ATTRIBUTE": [
+        "thermal insulator",
+        "watertight vessel"
+      ]
+    },
+    "scoop liquid": {
+      "REQUIRES_ATTRIBUTE": [
+        "concave surface",
+        "extended handle"
+      ]
+    },
+    "transfer to mouth": {
+      "REQUIRES_ATTRIBUTE": [
+        "concave surface",
+        "extended handle"
+      ]
+    },
+    "deliver blunt force": {
+      "REQUIRES_ATTRIBUTE": [
+        "heavy mass",
+        "rigid body"
+      ]
+    },
+    "drive spike": {
+      "REQUIRES_ATTRIBUTE": [
+        "heavy mass",
+        "rigid body"
+      ]
+    },
+    "impact head": {
+      "REQUIRES_ATTRIBUTE": [
+        "heavy mass",
+        "rigid body"
+      ]
+    },
+    "span distance": {
+      "REQUIRES_ATTRIBUTE": [
+        "straight edge",
+        "marked increments"
+      ]
+    },
+    "compare units": {
+      "REQUIRES_ATTRIBUTE": [
+        "straight edge",
+        "marked increments"
+      ]
+    },
+    "mark length": {
+      "REQUIRES_ATTRIBUTE": [
+        "straight edge",
+        "pigmented tip"
+      ]
+    },
+    "excavate earth": {
+      "REQUIRES_ATTRIBUTE": [
+        "rigid scoop",
+        "extended handle"
+      ]
+    },
+    "remove soil": {
+      "REQUIRES_ATTRIBUTE": [
+        "rigid scoop",
+        "extended handle"
+      ]
+    },
+    "create cavity": {
+      "REQUIRES_ATTRIBUTE": [
+        "rigid scoop",
+        "extended handle"
+      ]
+    },
+    "hydrate soil": {
+      "REQUIRES_ATTRIBUTE": [
+        "perforated spout",
+        "watertight vessel"
+      ]
+    },
+    "dispense water": {
+      "REQUIRES_ATTRIBUTE": [
+        "spout",
+        "watertight vessel"
+      ]
+    },
+    "moisten roots": {
+      "REQUIRES_ATTRIBUTE": [
+        "perforated spout",
+        "watertight vessel"
+      ]
+    },
+    "mark surface": {
+      "REQUIRES_ATTRIBUTE": [
+        "pigmented tip"
+      ]
+    },
+    "deposit pigment": {
+      "REQUIRES_ATTRIBUTE": [
+        "pigmented tip"
+      ]
+    },
+    "form characters": {
+      "REQUIRES_ATTRIBUTE": [
+        "pigmented tip"
+      ]
+    },
+    "illuminate area": {
+      "REQUIRES_ATTRIBUTE": [
+        "light emitting"
+      ]
+    },
+    "cast light": {
+      "REQUIRES_ATTRIBUTE": [
+        "light emitting"
+      ]
+    },
+    "brighten space": {
+      "REQUIRES_ATTRIBUTE": [
+        "light emitting"
+      ]
+    },
+    "gather debris": {
+      "REQUIRES_ATTRIBUTE": [
+        "bristled edge",
+        "extended handle"
+      ]
+    },
+    "push particles": {
+      "REQUIRES_ATTRIBUTE": [
+        "bristled edge",
+        "extended handle"
+      ]
+    },
+    "collect dust": {
+      "REQUIRES_ATTRIBUTE": [
+        "bristled edge",
+        "extended handle"
+      ]
+    },
+    "remove skin": {
+      "REQUIRES_ATTRIBUTE": [
+        "sharp edge",
+        "narrow blade"
+      ]
+    },
+    "pare surface": {
+      "REQUIRES_ATTRIBUTE": [
+        "sharp edge",
+        "narrow blade"
+      ]
+    },
+    "shave outer layer": {
+      "REQUIRES_ATTRIBUTE": [
+        "sharp edge",
+        "narrow blade"
+      ]
+    },
+    "agitate liquid": {
+      "REQUIRES_ATTRIBUTE": [
+        "extended handle",
+        "concave surface"
+      ]
+    },
+    "mix soluble": {
+      "REQUIRES_ATTRIBUTE": [
+        "extended handle",
+        "concave surface"
+      ]
+    },
+    "blend contents": {
+      "REQUIRES_ATTRIBUTE": [
+        "extended handle",
+        "concave surface"
+      ]
+    },
+    "slice produce": {
+      "REQUIRES_ATTRIBUTE": [
+        "sharp edge",
+        "rigid body"
+      ]
+    },
+    "dice vegetable": {
+      "REQUIRES_ATTRIBUTE": [
+        "sharp edge",
+        "rigid body"
+      ]
+    },
+    "cut into pieces": {
+      "REQUIRES_ATTRIBUTE": [
+        "sharp edge",
+        "rigid body"
+      ]
+    },
+    "crush solids": {
+      "REQUIRES_ATTRIBUTE": [
+        "heavy mass",
+        "rigid body"
+      ]
+    },
+    "reduce particle size": {
+      "REQUIRES_ATTRIBUTE": [
+        "heavy mass",
+        "rigid body"
+      ]
+    },
+    "mill beans": {
+      "REQUIRES_ATTRIBUTE": [
+        "heavy mass",
+        "rigid body"
+      ]
+    },
+    "apply heat": {
+      "REQUIRES_ATTRIBUTE": [
+        "heat source",
+        "thermal conductor"
+      ]
+    },
+    "brown surface": {
+      "REQUIRES_ATTRIBUTE": [
+        "heat source",
+        "thermal conductor"
+      ]
+    },
+    "crisp slice": {
+      "REQUIRES_ATTRIBUTE": [
+        "heat source",
+        "thermal conductor"
+      ]
+    },
+    "heat liquid": {
+      "REQUIRES_ATTRIBUTE": [
+        "heat source",
+        "thermal conductor"
+      ]
+    },
+    "generate steam": {
+      "REQUIRES_ATTRIBUTE": [
+        "heat source",
+        "thermal conductor"
+      ]
+    },
+    "bring to boil": {
+      "REQUIRES_ATTRIBUTE": [
+        "heat source",
+        "thermal conductor"
+      ]
+    },
+    "remove cap": {
+      "REQUIRES_ATTRIBUTE": [
+        "torsional grip",
+        "rigid wedge"
+      ]
+    },
+    "extract cork": {
+      "REQUIRES_ATTRIBUTE": [
+        "screw tip",
+        "extended handle"
+      ]
+    },
+    "unscrew lid": {
+      "REQUIRES_ATTRIBUTE": [
+        "torsional grip",
+        "rigid wedge"
+      ]
+    },
+    "drive screw": {
+      "REQUIRES_ATTRIBUTE": [
+        "torsional grip",
+        "rigid wedge"
+      ]
+    },
+    "attach bracket": {
+      "REQUIRES_ATTRIBUTE": [
+        "torsional grip",
+        "rigid wedge"
+      ]
+    },
+    "level surface": {
+      "REQUIRES_ATTRIBUTE": [
+        "abrasive surface",
+        "extended handle"
+      ]
+    },
+    "apply coating": {
+      "REQUIRES_ATTRIBUTE": [
+        "absorbent surface",
+        "extended handle"
+      ]
+    },
+    "roll paint": {
+      "REQUIRES_ATTRIBUTE": [
+        "absorbent roller",
+        "extended handle"
+      ]
+    },
+    "brush surface": {
+      "REQUIRES_ATTRIBUTE": [
+        "bristled edge",
+        "extended handle"
+      ]
+    },
+    "wipe glass": {
+      "REQUIRES_ATTRIBUTE": [
+        "absorbent fibers",
+        "smooth edge"
+      ]
+    },
+    "spray cleaner": {
+      "REQUIRES_ATTRIBUTE": [
+        "spray nozzle",
+        "watertight vessel"
+      ]
+    },
+    "dry surface": {
+      "REQUIRES_ATTRIBUTE": [
+        "absorbent fibers",
+        "smooth edge"
+      ]
+    },
+    "dig hole": {
+      "REQUIRES_ATTRIBUTE": [
+        "rigid scoop",
+        "extended handle"
+      ]
+    },
+    "place seedling": {
+      "REQUIRES_ATTRIBUTE": [
+        "concave surface",
+        "rigid body"
+      ]
+    },
+    "cover roots": {
+      "REQUIRES_ATTRIBUTE": [
+        "rigid scoop",
+        "extended handle"
+      ]
+    },
+    "pare wood": {
+      "REQUIRES_ATTRIBUTE": [
+        "sharp edge",
+        "rigid body"
+      ]
+    },
+    "expose lead": {
+      "REQUIRES_ATTRIBUTE": [
+        "sharp edge",
+        "rigid body"
+      ]
+    },
+    "shave point": {
+      "REQUIRES_ATTRIBUTE": [
+        "sharp edge",
+        "rigid body"
+      ]
+    },
+    "saw plank": {
+      "REQUIRES_ATTRIBUTE": [
+        "toothed edge",
+        "extended handle"
+      ]
+    },
+    "split timber": {
+      "REQUIRES_ATTRIBUTE": [
+        "toothed edge",
+        "extended handle"
+      ]
+    },
+    "score lumber": {
+      "REQUIRES_ATTRIBUTE": [
+        "toothed edge",
+        "extended handle"
+      ]
+    },
+    "abrade material": {
+      "REQUIRES_ATTRIBUTE": [
+        "abrasive surface",
+        "rigid body"
+      ]
+    },
+    "smooth finish": {
+      "REQUIRES_ATTRIBUTE": [
+        "abrasive surface",
+        "rigid body"
+      ]
+    },
+    "remove roughness": {
+      "REQUIRES_ATTRIBUTE": [
+        "abrasive surface",
+        "rigid body"
+      ]
+    },
+    "bore opening": {
+      "REQUIRES_ATTRIBUTE": [
+        "rotary bit",
+        "extended handle"
+      ]
+    },
+    "rotate bit": {
+      "REQUIRES_ATTRIBUTE": [
+        "rotary bit",
+        "extended handle"
+      ]
+    },
+    "penetrate surface": {
+      "REQUIRES_ATTRIBUTE": [
+        "rotary bit",
+        "extended handle"
+      ]
+    },
+    "fasten together": {
+      "REQUIRES_ATTRIBUTE": [
+        "torsional grip",
+        "rigid wedge"
+      ]
+    },
+    "join pieces": {
+      "REQUIRES_ATTRIBUTE": [
+        "torsional grip",
+        "rigid wedge"
+      ]
+    },
+    "secure panel": {
+      "REQUIRES_ATTRIBUTE": [
+        "torsional grip",
+        "rigid wedge"
+      ]
+    },
+    "apply adhesive": {
+      "REQUIRES_ATTRIBUTE": [
+        "spread tip",
+        "watertight vessel"
+      ]
+    },
+    "bond surfaces": {
+      "REQUIRES_ATTRIBUTE": [
+        "spread tip",
+        "watertight vessel"
+      ]
+    },
+    "press together": {
+      "REQUIRES_ATTRIBUTE": [
+        "heavy mass",
+        "rigid body"
+      ]
+    },
+    "extract fastener": {
+      "REQUIRES_ATTRIBUTE": [
+        "claw tip",
+        "extended handle"
+      ]
+    },
+    "pull spike": {
+      "REQUIRES_ATTRIBUTE": [
+        "claw tip",
+        "extended handle"
+      ]
+    },
+    "lever out": {
+      "REQUIRES_ATTRIBUTE": [
+        "claw tip",
+        "extended handle"
+      ]
+    },
+    "smooth surface": {
+      "REQUIRES_ATTRIBUTE": [
+        "abrasive surface",
+        "rigid body"
+      ]
+    },
+    "rasp edge": {
+      "REQUIRES_ATTRIBUTE": [
+        "abrasive surface",
+        "rigid body"
+      ]
+    },
+    "remove burr": {
+      "REQUIRES_ATTRIBUTE": [
+        "abrasive surface",
+        "rigid body"
+      ]
+    },
+    "hone edge": {
+      "REQUIRES_ATTRIBUTE": [
+        "abrasive surface",
+        "smooth edge"
+      ]
+    },
+    "abrade blade": {
+      "REQUIRES_ATTRIBUTE": [
+        "abrasive surface",
+        "smooth edge"
+      ]
+    },
+    "restore sharpness": {
+      "REQUIRES_ATTRIBUTE": [
+        "abrasive surface",
+        "smooth edge"
+      ]
+    },
+    "cure meat": {
+      "REQUIRES_ATTRIBUTE": [
+        "smoke source",
+        "enclosure"
+      ]
+    },
+    "apply smoke": {
+      "REQUIRES_ATTRIBUTE": [
+        "smoke source",
+        "enclosure"
+      ]
+    },
+    "preserve food": {
+      "REQUIRES_ATTRIBUTE": [
+        "smoke source",
+        "enclosure"
+      ]
+    },
+    "heat batter": {
+      "REQUIRES_ATTRIBUTE": [
+        "heat source",
+        "thermal container"
+      ]
+    },
+    "set structure": {
+      "REQUIRES_ATTRIBUTE": [
+        "heat source",
+        "thermal container"
+      ]
+    },
+    "brown crust": {
+      "REQUIRES_ATTRIBUTE": [
+        "heat source",
+        "thermal container"
+      ]
+    },
+    "knead flour": {
+      "REQUIRES_ATTRIBUTE": [
+        "concave surface",
+        "rigid body"
+      ]
+    },
+    "combine ingredients": {
+      "REQUIRES_ATTRIBUTE": [
+        "concave surface",
+        "rigid body"
+      ]
+    },
+    "knead mixture": {
+      "REQUIRES_ATTRIBUTE": [
+        "concave surface",
+        "rigid body"
+      ]
+    },
+    "flatten dough": {
+      "REQUIRES_ATTRIBUTE": [
+        "cylindrical surface",
+        "extended handle"
+      ]
+    },
+    "stretch sheet": {
+      "REQUIRES_ATTRIBUTE": [
+        "cylindrical surface",
+        "extended handle"
+      ]
+    },
+    "roll flat": {
+      "REQUIRES_ATTRIBUTE": [
+        "cylindrical surface",
+        "extended handle"
+      ]
+    },
+    "spread frosting": {
+      "REQUIRES_ATTRIBUTE": [
+        "flat surface",
+        "smooth edge"
+      ]
+    },
+    "smooth topping": {
+      "REQUIRES_ATTRIBUTE": [
+        "flat surface",
+        "smooth edge"
+      ]
+    },
+    "decorate surface": {
+      "REQUIRES_ATTRIBUTE": [
+        "flat surface",
+        "smooth edge"
+      ]
+    },
+    "crack shells": {
+      "REQUIRES_ATTRIBUTE": [
+        "heavy mass",
+        "rigid body"
+      ]
+    },
+    "remove husk": {
+      "REQUIRES_ATTRIBUTE": [
+        "sharp edge",
+        "rigid body"
+      ]
+    },
+    "extract kernel": {
+      "REQUIRES_ATTRIBUTE": [
+        "pointed tip",
+        "rigid body"
+      ]
+    },
+    "compress fruit": {
+      "REQUIRES_ATTRIBUTE": [
+        "heavy mass",
+        "rigid body"
+      ]
+    },
+    "extract liquid": {
+      "REQUIRES_ATTRIBUTE": [
+        "heavy mass",
+        "rigid body"
+      ]
+    },
+    "strain pulp": {
+      "REQUIRES_ATTRIBUTE": [
+        "perforated surface",
+        "watertight vessel"
+      ]
+    },
+    "drain water": {
+      "REQUIRES_ATTRIBUTE": [
+        "perforated surface",
+        "watertight vessel"
+      ]
+    },
+    "separate solid": {
+      "REQUIRES_ATTRIBUTE": [
+        "perforated surface",
+        "watertight vessel"
+      ]
+    },
+    "remove liquid": {
+      "REQUIRES_ATTRIBUTE": [
+        "perforated surface",
+        "watertight vessel"
+      ]
+    },
+    "shred solid": {
+      "REQUIRES_ATTRIBUTE": [
+        "sharp perforated surface",
+        "rigid body"
+      ]
+    },
+    "rasp block": {
+      "REQUIRES_ATTRIBUTE": [
+        "sharp perforated surface",
+        "rigid body"
+      ]
+    },
+    "form shreds": {
+      "REQUIRES_ATTRIBUTE": [
+        "sharp perforated surface",
+        "rigid body"
+      ]
+    },
+    "crush soft solid": {
+      "REQUIRES_ATTRIBUTE": [
+        "heavy mass",
+        "concave surface"
+      ]
+    },
+    "smooth paste": {
+      "REQUIRES_ATTRIBUTE": [
+        "heavy mass",
+        "concave surface"
+      ]
+    },
+    "break lumps": {
+      "REQUIRES_ATTRIBUTE": [
+        "heavy mass",
+        "concave surface"
+      ]
+    },
+    "aerate liquid": {
+      "REQUIRES_ATTRIBUTE": [
+        "wire whisk",
+        "extended handle"
+      ]
+    },
+    "incorporate air": {
+      "REQUIRES_ATTRIBUTE": [
+        "wire whisk",
+        "extended handle"
+      ]
+    },
+    "increase volume": {
+      "REQUIRES_ATTRIBUTE": [
+        "wire whisk",
+        "extended handle"
+      ]
+    },
+    "sort volumes": {
+      "REQUIRES_ATTRIBUTE": [
+        "flat surface",
+        "rigid body"
+      ]
+    },
+    "line up spines": {
+      "REQUIRES_ATTRIBUTE": [
+        "flat surface",
+        "rigid body"
+      ]
+    },
+    "organize shelf": {
+      "REQUIRES_ATTRIBUTE": [
+        "flat surface",
+        "rigid body"
+      ]
+    },
+    "drive nail": {
+      "REQUIRES_ATTRIBUTE": [
+        "heavy mass",
+        "rigid body"
+      ]
+    },
+    "level frame": {
+      "REQUIRES_ATTRIBUTE": [
+        "spirit level",
+        "straight edge"
+      ]
+    },
+    "support art": {
+      "REQUIRES_ATTRIBUTE": [
+        "rigid body",
+        "hook surface"
+      ]
+    },
+    "vacuum fibers": {
+      "REQUIRES_ATTRIBUTE": [
+        "suction head",
+        "extended handle"
+      ]
+    },
+    "scrub stains": {
+      "REQUIRES_ATTRIBUTE": [
+        "bristled edge",
+        "extended handle"
+      ]
+    },
+    "extract dirt": {
+      "REQUIRES_ATTRIBUTE": [
+        "suction head",
+        "extended handle"
+      ]
+    },
+    "rinse soap": {
+      "REQUIRES_ATTRIBUTE": [
+        "water spray",
+        "absorbent fibers"
+      ]
+    },
+    "remove grease": {
+      "REQUIRES_ATTRIBUTE": [
+        "abrasive pad",
+        "extended handle"
+      ]
+    },
+    "remove moisture": {
+      "REQUIRES_ATTRIBUTE": [
+        "heat source",
+        "airflow"
+      ]
+    },
+    "evaporate water": {
+      "REQUIRES_ATTRIBUTE": [
+        "heat source",
+        "airflow"
+      ]
+    },
+    "hang fabric": {
+      "REQUIRES_ATTRIBUTE": [
+        "clothespin",
+        "suspension line"
+      ]
+    },
+    "crease fabric": {
+      "REQUIRES_ATTRIBUTE": [
+        "flat surface",
+        "smooth edge"
+      ]
+    },
+    "stack garments": {
+      "REQUIRES_ATTRIBUTE": [
+        "flat surface",
+        "smooth edge"
+      ]
+    },
+    "neaten pile": {
+      "REQUIRES_ATTRIBUTE": [
+        "flat surface",
+        "smooth edge"
+      ]
+    },
+    "press fabric": {
+      "REQUIRES_ATTRIBUTE": [
+        "heat source",
+        "flat surface"
+      ]
+    },
+    "smooth wrinkles": {
+      "REQUIRES_ATTRIBUTE": [
+        "heat source",
+        "flat surface"
+      ]
+    },
+    "heat cloth": {
+      "REQUIRES_ATTRIBUTE": [
+        "heat source",
+        "flat surface"
+      ]
+    },
+    "thread needle": {
+      "REQUIRES_ATTRIBUTE": [
+        "thin wire",
+        "pointed tip"
+      ]
+    },
+    "stitch fabric": {
+      "REQUIRES_ATTRIBUTE": [
+        "sharp tip",
+        "thin body"
+      ]
+    },
+    "attach fastener": {
+      "REQUIRES_ATTRIBUTE": [
+        "sharp tip",
+        "thin body"
+      ]
+    },
+    "cover gap": {
+      "REQUIRES_ATTRIBUTE": [
+        "flexible sheet",
+        "adhesive backing"
+      ]
+    },
+    "seal opening": {
+      "REQUIRES_ATTRIBUTE": [
+        "flexible sheet",
+        "adhesive backing"
+      ]
+    },
+    "apply patch": {
+      "REQUIRES_ATTRIBUTE": [
+        "flexible sheet",
+        "adhesive backing"
+      ]
+    },
+    "balance mass": {
+      "REQUIRES_ATTRIBUTE": [
+        "pivot point",
+        "marked increments"
+      ]
+    },
+    "read scale": {
+      "REQUIRES_ATTRIBUTE": [
+        "marked increments",
+        "pointer"
+      ]
+    },
+    "compare load": {
+      "REQUIRES_ATTRIBUTE": [
+        "pivot point",
+        "marked increments"
+      ]
+    },
+    "mix cement": {
+      "REQUIRES_ATTRIBUTE": [
+        "concave surface",
+        "extended handle"
+      ]
+    },
+    "trowel surface": {
+      "REQUIRES_ATTRIBUTE": [
+        "flat surface",
+        "smooth edge"
+      ]
+    },
+    "fill form": {
+      "REQUIRES_ATTRIBUTE": [
+        "rigid scoop",
+        "extended handle"
+      ]
+    },
+    "gather foliage": {
+      "REQUIRES_ATTRIBUTE": [
+        "toothed edge",
+        "extended handle"
+      ]
+    },
+    "sweep yard": {
+      "REQUIRES_ATTRIBUTE": [
+        "toothed edge",
+        "extended handle"
+      ]
+    },
+    "collect debris": {
+      "REQUIRES_ATTRIBUTE": [
+        "toothed edge",
+        "extended handle"
+      ]
+    },
+    "cut shrubs": {
+      "REQUIRES_ATTRIBUTE": [
+        "bypass blades",
+        "extended handle"
+      ]
+    },
+    "shape bush": {
+      "REQUIRES_ATTRIBUTE": [
+        "bypass blades",
+        "extended handle"
+      ]
+    },
+    "prune branches": {
+      "REQUIRES_ATTRIBUTE": [
+        "bypass blades",
+        "extended handle"
+      ]
+    },
+    "cut grass": {
+      "REQUIRES_ATTRIBUTE": [
+        "rotary blade",
+        "wheel assembly"
+      ]
+    },
+    "level turf": {
+      "REQUIRES_ATTRIBUTE": [
+        "rotary blade",
+        "wheel assembly"
+      ]
+    },
+    "shear blades": {
+      "REQUIRES_ATTRIBUTE": [
+        "rotary blade",
+        "wheel assembly"
+      ]
+    },
+    "clear pathway": {
+      "REQUIRES_ATTRIBUTE": [
+        "rigid scoop",
+        "extended handle"
+      ]
+    },
+    "remove ice": {
+      "REQUIRES_ATTRIBUTE": [
+        "rigid scoop",
+        "extended handle"
+      ]
+    },
+    "push flakes": {
+      "REQUIRES_ATTRIBUTE": [
+        "rigid scoop",
+        "extended handle"
+      ]
+    },
+    "brush dust": {
+      "REQUIRES_ATTRIBUTE": [
+        "bristled edge",
+        "extended handle"
+      ]
+    },
+    "remove dirt": {
+      "REQUIRES_ATTRIBUTE": [
+        "bristled edge",
+        "extended handle"
+      ]
+    },
+    "ignite wick": {
+      "REQUIRES_ATTRIBUTE": [
+        "flame source",
+        "ignition strip"
+      ]
+    },
+    "apply flame": {
+      "REQUIRES_ATTRIBUTE": [
+        "flame source",
+        "ignition strip"
+      ]
+    },
+    "melt wax": {
+      "REQUIRES_ATTRIBUTE": [
+        "flame source",
+        "ignition strip"
+      ]
+    },
+    "snuff flame": {
+      "REQUIRES_ATTRIBUTE": [
+        "airtight cone",
+        "extended handle"
+      ]
+    },
+    "smother wick": {
+      "REQUIRES_ATTRIBUTE": [
+        "airtight cone",
+        "extended handle"
+      ]
+    },
+    "complete circuit": {
+      "REQUIRES_ATTRIBUTE": [
+        "conductive contacts",
+        "spring mechanism"
+      ]
+    },
+    "illuminate bulb": {
+      "REQUIRES_ATTRIBUTE": [
+        "conductive contacts",
+        "spring mechanism"
+      ]
+    },
+    "provide electricity": {
+      "REQUIRES_ATTRIBUTE": [
+        "conductive contacts",
+        "spring mechanism"
+      ]
+    },
+    "break circuit": {
+      "REQUIRES_ATTRIBUTE": [
+        "insulated handle",
+        "spring mechanism"
+      ]
+    },
+    "stop current": {
+      "REQUIRES_ATTRIBUTE": [
+        "insulated handle",
+        "spring mechanism"
+      ]
+    },
+    "toggle switch": {
+      "REQUIRES_ATTRIBUTE": [
+        "insulated handle",
+        "spring mechanism"
+      ]
+    },
+    "attach wire": {
+      "REQUIRES_ATTRIBUTE": [
+        "crimping tool",
+        "conductor"
+      ]
+    },
+    "insulate contact": {
+      "REQUIRES_ATTRIBUTE": [
+        "insulating tape",
+        "silicone sleeve"
+      ]
+    },
+    "crimp terminal": {
+      "REQUIRES_ATTRIBUTE": [
+        "crimping tool",
+        "conductor"
+      ]
+    },
+    "unscrew old": {
+      "REQUIRES_ATTRIBUTE": [
+        "torsional grip",
+        "insulated handle"
+      ]
+    },
+    "insert new": {
+      "REQUIRES_ATTRIBUTE": [
+        "torsional grip",
+        "insulated handle"
+      ]
+    },
+    "connect socket": {
+      "REQUIRES_ATTRIBUTE": [
+        "torsional grip",
+        "insulated handle"
+      ]
+    },
+    "strike tool": {
+      "REQUIRES_ATTRIBUTE": [
+        "heavy mass",
+        "impact surface"
+      ]
+    },
+    "shape stone": {
+      "REQUIRES_ATTRIBUTE": [
+        "heavy mass",
+        "impact surface"
+      ]
+    },
+    "split rock": {
+      "REQUIRES_ATTRIBUTE": [
+        "heavy mass",
+        "impact surface"
+      ]
+    },
+    "cut timber": {
+      "REQUIRES_ATTRIBUTE": [
+        "toothed edge",
+        "extended handle"
+      ]
+    },
+    "split wood": {
+      "REQUIRES_ATTRIBUTE": [
+        "toothed edge",
+        "extended handle"
+      ]
+    },
+    "make board": {
+      "REQUIRES_ATTRIBUTE": [
+        "toothed edge",
+        "extended handle"
+      ]
+    },
+    "shave surface": {
+      "REQUIRES_ATTRIBUTE": [
+        "sharp edge",
+        "extended handle"
+      ]
+    },
+    "smooth timber": {
+      "REQUIRES_ATTRIBUTE": [
+        "sharp edge",
+        "extended handle"
+      ]
+    },
+    "flatten board": {
+      "REQUIRES_ATTRIBUTE": [
+        "sharp edge",
+        "extended handle"
+      ]
+    },
+    "shape contour": {
+      "REQUIRES_ATTRIBUTE": [
+        "rotary bit",
+        "extended handle"
+      ]
+    },
+    "cut groove": {
+      "REQUIRES_ATTRIBUTE": [
+        "rotary bit",
+        "extended handle"
+      ]
+    },
+    "smooth joint": {
+      "REQUIRES_ATTRIBUTE": [
+        "abrasive surface",
+        "extended handle"
+      ]
+    },
+    "remove excess": {
+      "REQUIRES_ATTRIBUTE": [
+        "abrasive surface",
+        "extended handle"
+      ]
+    },
+    "cover seam": {
+      "REQUIRES_ATTRIBUTE": [
+        "paper tape",
+        "spread tip"
+      ]
+    },
+    "apply tape": {
+      "REQUIRES_ATTRIBUTE": [
+        "paper tape",
+        "spread tip"
+      ]
+    },
+    "smooth mud": {
+      "REQUIRES_ATTRIBUTE": [
+        "spread tip",
+        "flexible blade"
+      ]
+    },
+    "fill gaps": {
+      "REQUIRES_ATTRIBUTE": [
+        "rubber float",
+        "spread tip"
+      ]
+    },
+    "apply slurry": {
+      "REQUIRES_ATTRIBUTE": [
+        "rubber float",
+        "spread tip"
+      ]
+    },
+    "finish joints": {
+      "REQUIRES_ATTRIBUTE": [
+        "rubber float",
+        "spread tip"
+      ]
+    },
+    "score surface": {
+      "REQUIRES_ATTRIBUTE": [
+        "carbide tip",
+        "straight edge"
+      ]
+    },
+    "snap piece": {
+      "REQUIRES_ATTRIBUTE": [
+        "carbide tip",
+        "straight edge"
+      ]
+    },
+    "trim ceramic": {
+      "REQUIRES_ATTRIBUTE": [
+        "carbide tip",
+        "straight edge"
+      ]
+    },
+    "melt edges": {
+      "REQUIRES_ATTRIBUTE": [
+        "heat source",
+        "electrode"
+      ]
+    },
+    "fuse parts": {
+      "REQUIRES_ATTRIBUTE": [
+        "heat source",
+        "electrode"
+      ]
+    },
+    "join material": {
+      "REQUIRES_ATTRIBUTE": [
+        "heat source",
+        "electrode"
+      ]
+    },
+    "heat joint": {
+      "REQUIRES_ATTRIBUTE": [
+        "flame source",
+        "tube surface"
+      ]
+    },
+    "flow filler": {
+      "REQUIRES_ATTRIBUTE": [
+        "flame source",
+        "tube surface"
+      ]
+    },
+    "connect pipe": {
+      "REQUIRES_ATTRIBUTE": [
+        "flame source",
+        "tube surface"
+      ]
+    },
+    "melt alloy": {
+      "REQUIRES_ATTRIBUTE": [
+        "heat source",
+        "soldering iron"
+      ]
+    },
+    "tin tip": {
+      "REQUIRES_ATTRIBUTE": [
+        "heat source",
+        "soldering iron"
+      ]
+    },
+    "bond conductor": {
+      "REQUIRES_ATTRIBUTE": [
+        "heat source",
+        "soldering iron"
+      ]
+    },
+    "remove solder": {
+      "REQUIRES_ATTRIBUTE": [
+        "desoldering pump",
+        "heat source"
+      ]
+    },
+    "heat connection": {
+      "REQUIRES_ATTRIBUTE": [
+        "desoldering pump",
+        "heat source"
+      ]
+    },
+    "free part": {
+      "REQUIRES_ATTRIBUTE": [
+        "desoldering pump",
+        "heat source"
+      ]
+    },
+    "remove insulation": {
+      "REQUIRES_ATTRIBUTE": [
+        "cutting edge",
+        "wire gauge"
+      ]
+    },
+    "expose conductor": {
+      "REQUIRES_ATTRIBUTE": [
+        "cutting edge",
+        "wire gauge"
+      ]
+    },
+    "trim jacket": {
+      "REQUIRES_ATTRIBUTE": [
+        "cutting edge",
+        "wire gauge"
+      ]
+    },
+    "deform metal": {
+      "REQUIRES_ATTRIBUTE": [
+        "crimping die",
+        "conductor"
+      ]
+    },
+    "attach connector": {
+      "REQUIRES_ATTRIBUTE": [
+        "crimping die",
+        "conductor"
+      ]
+    },
+    "compress sleeve": {
+      "REQUIRES_ATTRIBUTE": [
+        "crimping die",
+        "conductor"
+      ]
+    },
+    "measure potential": {
+      "REQUIRES_ATTRIBUTE": [
+        "electrical probes",
+        "digital display"
+      ]
+    },
+    "read meter": {
+      "REQUIRES_ATTRIBUTE": [
+        "electrical probes",
+        "digital display"
+      ]
+    },
+    "check circuit": {
+      "REQUIRES_ATTRIBUTE": [
+        "electrical probes",
+        "digital display"
+      ]
+    },
+    "twist strands": {
+      "REQUIRES_ATTRIBUTE": [
+        "pincer grip",
+        "conductor"
+      ]
+    },
+    "connect leads": {
+      "REQUIRES_ATTRIBUTE": [
+        "pincer grip",
+        "conductor"
+      ]
+    },
+    "join ends": {
+      "REQUIRES_ATTRIBUTE": [
+        "pincer grip",
+        "conductor"
+      ]
+    },
+    "remove paint": {
+      "REQUIRES_ATTRIBUTE": [
+        "solvent",
+        "absorbent surface"
+      ]
+    },
+    "wash bristles": {
+      "REQUIRES_ATTRIBUTE": [
+        "solvent",
+        "absorbent surface"
+      ]
+    },
+    "preserve tool": {
+      "REQUIRES_ATTRIBUTE": [
+        "solvent",
+        "absorbent surface"
+      ]
+    },
+    "mix solvent": {
+      "REQUIRES_ATTRIBUTE": [
+        "watertight vessel",
+        "extended handle"
+      ]
+    },
+    "dilute color": {
+      "REQUIRES_ATTRIBUTE": [
+        "watertight vessel",
+        "extended handle"
+      ]
+    },
+    "reduce viscosity": {
+      "REQUIRES_ATTRIBUTE": [
+        "watertight vessel",
+        "extended handle"
+      ]
+    },
+    "lift coating": {
+      "REQUIRES_ATTRIBUTE": [
+        "sharp edge",
+        "extended handle"
+      ]
+    },
+    "remove finish": {
+      "REQUIRES_ATTRIBUTE": [
+        "sharp edge",
+        "extended handle"
+      ]
+    },
+    "prepare surface": {
+      "REQUIRES_ATTRIBUTE": [
+        "sharp edge",
+        "extended handle"
+      ]
+    },
+    "seal surface": {
+      "REQUIRES_ATTRIBUTE": [
+        "spread tip",
+        "watertight vessel"
+      ]
+    },
+    "coat base": {
+      "REQUIRES_ATTRIBUTE": [
+        "spread tip",
+        "watertight vessel"
+      ]
+    },
+    "prepare substrate": {
+      "REQUIRES_ATTRIBUTE": [
+        "spread tip",
+        "watertight vessel"
+      ]
+    },
+    "paint overhead": {
+      "REQUIRES_ATTRIBUTE": [
+        "absorbent roller",
+        "extended handle"
+      ]
+    },
+    "apply coat": {
+      "REQUIRES_ATTRIBUTE": [
+        "absorbent roller",
+        "extended handle"
+      ]
+    },
+    "cover sky": {
+      "REQUIRES_ATTRIBUTE": [
+        "absorbent roller",
+        "extended handle"
+      ]
+    },
+    "trim sheet": {
+      "REQUIRES_ATTRIBUTE": [
+        "sharp edge",
+        "straight edge"
+      ]
+    },
+    "match pattern": {
+      "REQUIRES_ATTRIBUTE": [
+        "sharp edge",
+        "straight edge"
+      ]
+    },
+    "slice roll": {
+      "REQUIRES_ATTRIBUTE": [
+        "sharp edge",
+        "straight edge"
+      ]
+    },
+    "apply glue": {
+      "REQUIRES_ATTRIBUTE": [
+        "spread tip",
+        "watertight vessel"
+      ]
+    },
+    "moisten sheet": {
+      "REQUIRES_ATTRIBUTE": [
+        "spread tip",
+        "watertight vessel"
+      ]
+    },
+    "adhere surface": {
+      "REQUIRES_ATTRIBUTE": [
+        "spread tip",
+        "watertight vessel"
+      ]
+    },
+    "position sheet": {
+      "REQUIRES_ATTRIBUTE": [
+        "flat surface",
+        "smooth edge"
+      ]
+    },
+    "smooth bubbles": {
+      "REQUIRES_ATTRIBUTE": [
+        "flat surface",
+        "smooth edge"
+      ]
+    },
+    "mount bracket": {
+      "REQUIRES_ATTRIBUTE": [
+        "torsional grip",
+        "rigid wedge"
+      ]
+    },
+    "level support": {
+      "REQUIRES_ATTRIBUTE": [
+        "spirit level",
+        "straight edge"
+      ]
+    },
+    "screw plank": {
+      "REQUIRES_ATTRIBUTE": [
+        "torsional grip",
+        "rigid wedge"
+      ]
+    },
+    "fit pieces": {
+      "REQUIRES_ATTRIBUTE": [
+        "torsional grip",
+        "rigid wedge"
+      ]
+    },
+    "join parts": {
+      "REQUIRES_ATTRIBUTE": [
+        "torsional grip",
+        "rigid wedge"
+      ]
+    },
+    "tighten fittings": {
+      "REQUIRES_ATTRIBUTE": [
+        "torsional grip",
+        "rigid wedge"
+      ]
+    },
+    "sub_action_1": {
+      "REQUIRES_ATTRIBUTE": [
+        "sharpness",
+        "force"
+      ]
+    }
+  },
+  "attributes": {
+    "sharp edge": {
+      "POSSESSED_BY": [
+        "scissors",
+        "knife",
+        "box cutter",
+        "blade",
+        "utility knife",
+        "axe",
+        "letter opener",
+        "saw",
+        "hatchet",
+        "machete",
+        "scalpel",
+        "x-acto knife",
+        "paper cutter",
+        "scythe",
+        "sickle",
+        "rasp",
+        "file",
+        "grater",
+        "peeler",
+        "chisel",
+        "plane",
+        "shears",
+        "clippers",
+        "snippers",
+        "tin snips",
+        "pocket knife",
+        "hunting knife",
+        "paring knife",
+        "chef knife",
+        "bread knife",
+        "carving knife",
+        "filet knife",
+        "scalloped knife",
+        "cleaver",
+        "meat cutter",
+        "wire cutter",
+        "cable cutter",
+        "glass cutter",
+        "pipe cutter",
+        "hole cutter",
+        "can opener",
+        "jar opener",
+        "bone saw",
+        "hacksaw",
+        "jigsaw",
+        "bandsaw",
+        "chainsaw",
+        "circular saw",
+        "miter saw",
+        "table saw",
+        "scroll saw",
+        "reciprocating saw",
+        "pole saw",
+        "pruning saw",
+        "folding saw",
+        "bow saw",
+        "cop saw",
+        "keyhole saw",
+        "razor blade",
+        "stanley knife",
+        "surgeon knife",
+        "dermatome",
+        "microtome",
+        "tissue cutter",
+        "ceramic knife",
+        "titanium knife",
+        "diamond blade",
+        "carbide blade",
+        "cutter blade",
+        "carpet knife",
+        "drywall knife",
+        "joint knife",
+        "taping knife",
+        "spackle knife",
+        "scraper",
+        "putty knife",
+        "paint scraper",
+        "glass scraper",
+        "razor scraper",
+        "carpet scraper",
+        "floor scraper",
+        "wall scraper",
+        "adhesive remover",
+        "paint remover",
+        "gasket scraper",
+        "bearing scraper",
+        "lathe tool",
+        "turning tool",
+        "parting tool",
+        "grooving tool",
+        "threading tool",
+        "boring tool",
+        "reamer",
+        "countersink",
+        "drill bit",
+        "end mill",
+        "router bit",
+        "hole saw",
+        "fly cutter"
+      ]
+    },
+    "bypass blades": {
+      "POSSESSED_BY": [
+        "scissors",
+        "shears",
+        "nail clippers",
+        "paper cutter",
+        "hedge shears",
+        "pruning shears",
+        "grass shears",
+        "tin snips",
+        "aviation snips",
+        "pinking shears",
+        "embroidery scissors",
+        "surgical scissors",
+        "bandage scissors",
+        "trauma shears",
+        "pruner",
+        "lopper",
+        "secateurs",
+        "gardening scissors",
+        "branch cutter",
+        "cable shears",
+        "wire rope cutter",
+        "bolt cutter",
+        "chain cutter",
+        "carpet shears",
+        "fabric shears",
+        "leather shears",
+        "metal shears",
+        "bench shears",
+        "power shears",
+        "pneumatic shears",
+        "electric shears",
+        "manual shears",
+        "scissor jack",
+        "scissor lift"
+      ]
+    },
+    "pointed tip": {
+      "POSSESSED_BY": [
+        "key",
+        "pen",
+        "fork",
+        "nail",
+        "screwdriver",
+        "toothpick",
+        "skewer",
+        "knitting needle",
+        "crochet hook",
+        "tack",
+        "pushpin",
+        "thumbtack",
+        "brad",
+        "awl",
+        "ice pick",
+        "scratch awl",
+        "leather punch",
+        "hole punch",
+        "paper punch",
+        "ticket punch",
+        "belt punch",
+        "gasket punch",
+        "center punch",
+        "nail set",
+        "prick punch",
+        "dot punch",
+        "pilot drill",
+        "center drill",
+        "spotting drill",
+        "dowel pin",
+        "spring pin",
+        "roll pin",
+        "cotter pin",
+        "hairpin",
+        "bobby pin",
+        "safety pin",
+        "straight pin",
+        "sewing pin",
+        "quilting pin",
+        "T-pin",
+        "ballpoint pen",
+        "gel pen",
+        "rollerball pen",
+        "fountain pen",
+        "stylus",
+        "digital pen",
+        "chalk",
+        "pencil",
+        "mechanical pencil",
+        "colored pencil",
+        "charcoal stick",
+        "crayon",
+        "pastel",
+        "marker",
+        "highlighter",
+        "dry erase marker",
+        "permanent marker",
+        "china marker",
+        "grease pencil",
+        "tattoo needle",
+        "suture needle",
+        "hypodermic needle",
+        "sewing needle",
+        "tapestry needle",
+        "beading needle",
+        "embroidery needle",
+        "darning needle",
+        "carpet needle",
+        "upholstery needle",
+        "leather needle",
+        "curved needle",
+        "surgical needle",
+        "epidural needle",
+        "lancet",
+        "blood lancet",
+        "finger stick",
+        "ear piercing gun",
+        "body jewelry taper",
+        "dowel",
+        "rod",
+        "spike",
+        "spear",
+        "javelin",
+        "arrowhead",
+        "harpoon",
+        "fish spear",
+        "frog gig",
+        "pitchfork",
+        "manure fork",
+        "compost fork",
+        "garden fork",
+        "digging fork",
+        "broadfork",
+        "potato fork",
+        "hayfork",
+        "pitchfork",
+        "baling fork"
+      ]
+    },
+    "rigid wedge": {
+      "POSSESSED_BY": [
+        "screwdriver",
+        "butter knife",
+        "metal ruler",
+        "coin",
+        "key",
+        "chisel",
+        "door stop",
+        "shim",
+        "wedge",
+        "axe",
+        "hatchet",
+        "maul",
+        "splitting wedge",
+        "felling wedge",
+        "log splitter",
+        "rock splitter",
+        "masonry chisel",
+        "stone chisel",
+        "wood chisel",
+        "paring chisel",
+        "mortise chisel",
+        "dovetail chisel",
+        "corner chisel",
+        "skew chisel",
+        "gouge",
+        "V-tool",
+        "veiner",
+        "parting tool",
+        "beading tool",
+        "fluting tool",
+        "scratch stock",
+        "spokeshave",
+        "drawknife",
+        "cabinet scraper",
+        "card scraper",
+        "paint scraper",
+        "floor scraper",
+        "wall scraper",
+        "adhesive remover",
+        "gasket scraper",
+        "bearing scraper",
+        "lathe tool",
+        "turning tool",
+        "parting tool",
+        "grooving tool",
+        "threading tool",
+        "boring tool",
+        "reamer",
+        "countersink",
+        "drill bit",
+        "end mill",
+        "router bit",
+        "hole saw",
+        "fly cutter"
+      ]
+    },
+    "flat surface": {
+      "POSSESSED_BY": [
+        "spatula",
+        "palette knife",
+        "butter knife",
+        "popsicle stick",
+        "ruler",
+        "level",
+        "straightedge",
+        "trowel",
+        "plaster trowel",
+        "brick trowel",
+        "mortar trowel",
+        "pointing trowel",
+        "gauging trowel",
+        "margin trowel",
+        "notched trowel",
+        "grout float",
+        "rubber float",
+        "darby",
+        "plasterer's hawk",
+        "corner trowel",
+        "dutch trowel",
+        "garden trowel",
+        "transplant trowel",
+        "bulb planter",
+        "dibble",
+        "dibber",
+        "widow-maker",
+        "clearing hook",
+        "sickle",
+        "scythe",
+        "cradle scythe",
+        "hay knife",
+        "manure shovel",
+        "grain shovel",
+        "scoop shovel",
+        "square shovel",
+        "round shovel",
+        "pointed shovel",
+        "ditching shovel",
+        "trenching shovel",
+        "spade",
+        "edging spade",
+        "irrigation shovel",
+        "post hole digger",
+        "clamshell digger",
+        "auger",
+        "earth drill",
+        "power auger"
+      ]
+    },
+    "flat edge": {
+      "POSSESSED_BY": [
+        "metal ruler",
+        "card",
+        "spatula",
+        "scraper",
+        "putty knife",
+        "wallpaper smoother",
+        "bench scraper",
+        "dough scraper",
+        "pastry scraper",
+        "plastic scraper",
+        "rubber scraper",
+        "silicone scraper",
+        "spatula",
+        "turner",
+        "burger flipper",
+        "pancake turner",
+        "fish spatula",
+        "slotted spatula",
+        "solid spatula",
+        "offset spatula",
+        "straight spatula",
+        "flexible spatula",
+        "hard spatula",
+        "spreading knife",
+        "icing smoother",
+        "cake scraper",
+        "palette knife",
+        "painting knife",
+        "art knife",
+        "mixing knife",
+        "foil knife",
+        "paper knife",
+        "book knife",
+        "letter opener",
+        "card scraper",
+        "cabinet scraper",
+        "paint scraper",
+        "floor scraper",
+        "wall scraper",
+        "adhesive remover",
+        "gasket scraper",
+        "bearing scraper",
+        "lathe tool",
+        "turning tool",
+        "parting tool",
+        "grooving tool",
+        "threading tool",
+        "boring tool",
+        "reamer",
+        "countersink",
+        "drill bit",
+        "end mill",
+        "router bit",
+        "hole saw",
+        "fly cutter"
+      ]
+    },
+    "concave surface": {
+      "POSSESSED_BY": [
+        "spoon",
+        "ladle",
+        "scoop",
+        "bowl",
+        "cup",
+        "ladle",
+        "dipper",
+        "skimmer",
+        "slotted spoon",
+        "solid spoon",
+        "serving spoon",
+        "mixing spoon",
+        "cooking spoon",
+        "wooden spoon",
+        "metal spoon",
+        "plastic spoon",
+        "soup spoon",
+        "table spoon",
+        "tea spoon",
+        "dessert spoon",
+        "ice cream scoop",
+        "melon baller",
+        "cookie scoop",
+        "measuring spoon",
+        "spice spoon",
+        "mustard spoon",
+        "absinthe spoon",
+        "caviar spoon",
+        "salt spoon",
+        "sugar spoon",
+        "butter curler",
+        "zester",
+        "grater",
+        "rasp",
+        "microplane",
+        "nutmeg grater",
+        "garlic press",
+        "potato ricer",
+        "food mill",
+        "colander",
+        "strainer",
+        "sieve",
+        "chinois",
+        "tamis",
+        "drum sieve",
+        "flour sifter",
+        "cocktail shaker",
+        "jigger",
+        "muddler",
+        "mixing glass",
+        "mixing bowl",
+        "batter bowl",
+        "proofing basket",
+        "banneton",
+        "couche",
+        "rolling pin",
+        "pastry blender",
+        "dough cutter",
+        "bench scraper",
+        "pastry cloth",
+        "pie bird",
+        "pie weights",
+        "baking stone",
+        "pizza stone",
+        "baking steel",
+        "cooling rack",
+        "baking sheet",
+        "cookie sheet",
+        "jelly roll pan",
+        "springform pan",
+        "tube pan",
+        "bundt pan",
+        "loaf pan",
+        "muffin pan",
+        "popover pan",
+        "madeleine pan",
+        "tart pan",
+        "flan ring",
+        "tartlet pan",
+        "mini tart pan",
+        "custard cup",
+        "ramekin",
+        "souffle dish",
+        "casserole dish",
+        "baking dish",
+        "gratin dish",
+        "au gratin pan",
+        "roasting pan",
+        "broiling pan",
+        "dutch oven",
+        "stockpot",
+        "saucepan",
+        "saucier",
+        "saute pan",
+        "frying pan",
+        "skillet",
+        "griddle",
+        "grill pan",
+        "wok",
+        "paella pan",
+        "tagine",
+        "kettle",
+        "teapot",
+        "coffee pot",
+        "french press",
+        "pour over",
+        "chemex",
+        "moka pot",
+        "espresso maker",
+        "cappuccino maker",
+        "coffee grinder",
+        "spice grinder",
+        "mortar and pestle",
+        "molcajete",
+        "suribachi",
+        "pestle",
+        "grinding stone",
+        "metate",
+        "mano",
+        "quern",
+        "hand mill",
+        "grain mill",
+        "flour mill",
+        "corn mill",
+        "nut mill",
+        "seed mill",
+        "herb mill",
+        "tobacco grinder"
+      ]
+    },
+    "rigid body": {
+      "POSSESSED_BY": [
+        "hammer",
+        "brick",
+        "rock",
+        "wrench",
+        "mallet",
+        "sledgehammer",
+        "club hammer",
+        "ball peen hammer",
+        "claw hammer",
+        "framing hammer",
+        "rip hammer",
+        "drywall hammer",
+        "tack hammer",
+        "upholstery hammer",
+        "electrician hammer",
+        "blacksmith hammer",
+        "coppersmith hammer",
+        "silversmith hammer",
+        "goldbeater hammer",
+        "riveting hammer",
+        "scaling hammer",
+        "welding hammer",
+        "chipping hammer",
+        "brick hammer",
+        "masonry hammer",
+        "stone hammer",
+        "geologist hammer",
+        "carpenter mallet",
+        "rubber mallet",
+        "plastic mallet",
+        "rawhide mallet",
+        "wooden mallet",
+        "metal mallet",
+        "dead blow mallet",
+        "soft blow mallet",
+        "shot filled mallet",
+        "engineer hammer",
+        "hand rammer",
+        "tamper",
+        "pile driver",
+        "post driver",
+        "fence rammer",
+        "ground rod driver",
+        "tent stake driver",
+        "chisel hammer",
+        "punch hammer",
+        "setting hammer",
+        "forming hammer",
+        "planishing hammer",
+        "raising hammer",
+        "repousse hammer",
+        "chasing hammer",
+        "jewelers hammer",
+        "watchmakers hammer",
+        "coopers hammer",
+        "wheelwright hammer",
+        "farrier hammer",
+        "horseshoeing hammer",
+        "shoeing hammer",
+        "hoof nipper",
+        "hoof pick",
+        "hoof knife",
+        "hoof rasp",
+        "hoof tester"
+      ]
+    },
+    "liquid coolant": {
+      "POSSESSED_BY": [
+        "water",
+        "wet towel",
+        "hose",
+        "bucket of water",
+        "fire hose",
+        "sprinkler",
+        "fire sprinkler",
+        "spray nozzle",
+        "garden hose",
+        "soaker hose",
+        "drip irrigation",
+        "mister",
+        "fogger",
+        "cooling fan",
+        "mist fan",
+        "air conditioner",
+        "evaporative cooler",
+        "swamp cooler",
+        "ice",
+        "ice pack",
+        "cold pack",
+        "gel pack",
+        "freezer pack",
+        "chemical cold pack",
+        "instant cold pack",
+        "cooling towel",
+        "cooling vest",
+        "cooling blanket",
+        "water bottle",
+        "spray bottle",
+        "atomizer",
+        "nebulizer",
+        "humidifier",
+        "vaporizer",
+        "steamer",
+        "pressure washer",
+        "steam cleaner",
+        "carpet cleaner",
+        "upholstery cleaner",
+        "floor scrubber",
+        "power washer",
+        "gutter cleaner",
+        "downspout cleaner",
+        "drain snake",
+        "plumber's snake",
+        "toilet auger",
+        "closet auger",
+        "sink plunger",
+        "toilet plunger",
+        "force cup",
+        "plumber's helper"
+      ]
+    },
+    "airtight barrier": {
+      "POSSESSED_BY": [
+        "fire extinguisher",
+        "blanket",
+        "sand",
+        "salt",
+        "dirt",
+        "fire blanket",
+        "welding blanket",
+        "drop cloth",
+        "canvas tarp",
+        "plastic sheeting",
+        "polyethylene film",
+        "aluminum foil",
+        "baking soda",
+        "flour",
+        "talcum powder",
+        "sawdust",
+        "dry sand",
+        "gravel",
+        "crushed stone",
+        "expanded clay",
+        "perlite",
+        "vermiculite",
+        "glass bead",
+        "ceramic bead",
+        "steel shot",
+        "lead shot",
+        "BB shot",
+        "ball bearings",
+        "marbles",
+        "pebbles",
+        "shells",
+        "nuts",
+        "bolts",
+        "screws",
+        "washers",
+        "rivets",
+        "staples",
+        "nails",
+        "brads",
+        "tacks",
+        "pins",
+        "clips",
+        "clamps",
+        "vises",
+        "grips",
+        "jaws",
+        "teeth",
+        "bits",
+        "blades",
+        "tips",
+        "points"
+      ]
+    },
+    "flame retardant": {
+      "POSSESSED_BY": [
+        "baking soda",
+        "fire extinguisher",
+        "dirt",
+        "sand",
+        "salt",
+        "fire blanket",
+        "welding blanket",
+        "asbestos",
+        "fiberglass",
+        "mineral wool",
+        "rock wool",
+        "slag wool",
+        "glass wool",
+        "ceramic fiber",
+        "silica fiber",
+        "carbon fiber",
+        "aramid",
+        "nomex",
+        "kevlar",
+        "polybenzimidazole",
+        "melamine",
+        "phenolic",
+        "urea",
+        "cyanurate",
+        "phosphate",
+        "bromine",
+        "chlorine",
+        "fluorine",
+        "nitrogen",
+        "phosphorus",
+        "antimony",
+        "boron",
+        "zinc",
+        "aluminum",
+        "magnesium",
+        "calcium",
+        "sodium",
+        "potassium",
+        "silicone",
+        "PTFE",
+        "Teflon",
+        "PVC",
+        "CPVC",
+        "PEX",
+        "ABS",
+        "HDPE",
+        "LDPE",
+        "PP",
+        "PS",
+        "EPS",
+        "XPS",
+        "polycarbonate",
+        "acrylic",
+        "polyester",
+        "polyurethane",
+        "epoxy",
+        "phenolic",
+        "melamine",
+        "urea"
+      ]
+    },
+    "impact resistant rod": {
+      "POSSESSED_BY": [
+        "broom handle",
+        "baseball bat",
+        "rolling pin",
+        "wooden spoon",
+        "stick",
+        "bamboo pole",
+        "fishing rod",
+        "curtain rod",
+        "closet rod",
+        "towel bar",
+        "handrail",
+        "banister",
+        "baluster",
+        "newel post",
+        "fence post",
+        "gate post",
+        "sign post",
+        "flagpole",
+        "antenna pole",
+        "mast",
+        "boom",
+        "outrigger",
+        "stabilizer",
+        "support",
+        "leg",
+        "strut",
+        "brace",
+        "tie",
+        "spreader",
+        "crossarm",
+        "crosspiece",
+        "rung",
+        "rail",
+        "guardrail",
+        "cable",
+        "wire",
+        "rope",
+        "chain",
+        "strap",
+        "belt",
+        "harness",
+        "sling",
+        "tether",
+        "leash",
+        "lead",
+        "rein",
+        "bridle",
+        "halter",
+        "hobble",
+        "hitch",
+        "knot",
+        "lashing",
+        "binding",
+        "wrap",
+        "coil",
+        "spool",
+        "reel",
+        "drum",
+        "spindle"
+      ]
+    },
+    "heavy mass": {
+      "POSSESSED_BY": [
+        "hammer",
+        "mallet",
+        "heavy rock",
+        "brick",
+        "dumbbell",
+        "shoe",
+        "anvil",
+        "sledgehammer",
+        "club hammer",
+        "ball peen hammer",
+        "claw hammer",
+        "framing hammer",
+        "rip hammer",
+        "drywall hammer",
+        "tack hammer",
+        "upholstery hammer",
+        "electrician hammer",
+        "blacksmith hammer",
+        "coppersmith hammer",
+        "silversmith hammer",
+        "goldbeater hammer",
+        "riveting hammer",
+        "scaling hammer",
+        "welding hammer",
+        "chipping hammer",
+        "brick hammer",
+        "masonry hammer",
+        "stone hammer",
+        "geologist hammer",
+        "carpenter mallet",
+        "rubber mallet",
+        "plastic mallet",
+        "rawhide mallet",
+        "wooden mallet",
+        "metal mallet",
+        "dead blow mallet",
+        "soft blow mallet",
+        "shot filled mallet",
+        "engineer hammer",
+        "hand rammer",
+        "tamper",
+        "pile driver",
+        "post driver",
+        "fence rammer",
+        "ground rod driver",
+        "tent stake driver",
+        "chisel hammer",
+        "punch hammer",
+        "setting hammer",
+        "forming hammer",
+        "planishing hammer",
+        "raising hammer",
+        "repousse hammer",
+        "chasing hammer",
+        "jewelers hammer",
+        "watchmakers hammer",
+        "coopers hammer",
+        "wheelwright hammer",
+        "farrier hammer",
+        "horseshoeing hammer",
+        "shoeing hammer",
+        "hoof nipper",
+        "hoof pick",
+        "hoof knife",
+        "hoof rasp",
+        "hoof tester",
+        "dumbbell",
+        "barbell",
+        "weight plate",
+        "kettlebell",
+        "medicine ball",
+        "sandbag",
+        "mace bell",
+        "tire",
+        "log",
+        "stone",
+        "block",
+        "ingot",
+        "pig",
+        "slug",
+        "shot",
+        "ball",
+        "sphere",
+        "globe",
+        "orb"
+      ]
+    },
+    "torsional grip": {
+      "POSSESSED_BY": [
+        "wrench",
+        "plier",
+        "hex key",
+        "vise grip",
+        "locking pliers",
+        "needle nose pliers",
+        "slip joint pliers",
+        "channel lock pliers",
+        "groove joint pliers",
+        "water pump pliers",
+        "lineman pliers",
+        "electrical pliers",
+        "cutting pliers",
+        "diagonal cutters",
+        "wire stripper",
+        "crimping tool",
+        "cable cutter",
+        "shears",
+        "snips",
+        "cutter",
+        "knife",
+        "blade",
+        "scissors",
+        "shears",
+        "clippers",
+        "trimmers",
+        "garden shears",
+        "pruning shears",
+        "hedge shears",
+        "grass shears",
+        "tin snips",
+        "aviation snips",
+        "pinking shears",
+        "embroidery scissors",
+        "surgical scissors",
+        "bandage scissors",
+        "trauma shears",
+        "pruner",
+        "lopper",
+        "secateurs",
+        "gardening scissors",
+        "branch cutter",
+        "cable shears",
+        "wire rope cutter",
+        "bolt cutter",
+        "chain cutter",
+        "carpet shears",
+        "fabric shears",
+        "leather shears",
+        "metal shears",
+        "bench shears",
+        "power shears",
+        "pneumatic shears",
+        "electric shears",
+        "manual shears",
+        "scissor jack",
+        "scissor lift",
+        "screwdriver",
+        "nut driver",
+        "socket wrench",
+        "ratchet wrench",
+        "spanner",
+        "adjustable wrench",
+        "monkey wrench",
+        "pipe wrench",
+        "strap wrench",
+        "chain wrench",
+        "oil filter wrench",
+        "basin wrench",
+        "faucet wrench",
+        "taps",
+        "dies",
+        "re threading tool",
+        "tap wrench",
+        "die stock",
+        "drill",
+        "drill bit",
+        "countersink",
+        "reamer",
+        "hole saw",
+        "auger",
+        "gimlet",
+        "brace",
+        "bit brace",
+        "corkscrew",
+        "bottle opener",
+        "can opener",
+        "jar opener",
+        "lid remover",
+        "cap opener"
+      ]
+    },
+    "absorbent fibers": {
+      "POSSESSED_BY": [
+        "towel",
+        "tissue",
+        "sponge",
+        "cloth",
+        "mop",
+        "rag",
+        "paper towel",
+        "napkin",
+        "wiping cloth",
+        "shop towel",
+        "floor cloth",
+        "window cloth",
+        "glass cloth",
+        "microfiber cloth",
+        "dust cloth",
+        "tack cloth",
+        "cheesecloth",
+        "muslin",
+        "cotton",
+        "rayon",
+        "polyester",
+        "nylon",
+        "acrylic",
+        "olefin",
+        "polypropylene",
+        "fiberglass",
+        "carbon fiber",
+        "aramid",
+        "nomex",
+        "kevlar",
+        "bamboo",
+        "hemp",
+        "jute",
+        "sisal",
+        "coir",
+        "coconut",
+        "flax",
+        "linen",
+        "wool",
+        "cashmere",
+        "angora",
+        "mohair",
+        "alpaca",
+        "llama",
+        "camel",
+        "yak",
+        "rabbit",
+        "chinchilla",
+        "beaver",
+        "muskrat",
+        "nutria",
+        "possum",
+        "fur",
+        "hair",
+        "bristle",
+        "feather",
+        "down",
+        "quill",
+        "straw",
+        "hay",
+        "grass",
+        "sedge",
+        "rush",
+        "reed",
+        "bamboo",
+        "rattan",
+        "wicker",
+        "willow",
+        "vines",
+        "roots",
+        "bark",
+        "wood",
+        "cellulose",
+        "pectin",
+        "lignin",
+        "silk",
+        "spider silk",
+        "synthetic fiber"
+      ]
+    },
+    "watertight vessel": {
+      "POSSESSED_BY": [
+        "cup",
+        "glass",
+        "mug",
+        "bottle",
+        "flask",
+        "jug",
+        "canteen",
+        "bucket",
+        "bowl",
+        "pitcher",
+        "kettle",
+        "teapot",
+        "coffee pot",
+        "french press",
+        "pour over",
+        "chemex",
+        "moka pot",
+        "espresso maker",
+        "cappuccino maker",
+        "dutch oven",
+        "stockpot",
+        "saucepan",
+        "saucier",
+        "saute pan",
+        "frying pan",
+        "skillet",
+        "griddle",
+        "grill pan",
+        "wok",
+        "paella pan",
+        "tagine",
+        "roasting pan",
+        "broiling pan",
+        "casserole dish",
+        "gratin dish",
+        "au gratin pan",
+        "baking dish",
+        "springform pan",
+        "tube pan",
+        "bundt pan",
+        "loaf pan",
+        "muffin pan",
+        "popover pan",
+        "madeleine pan",
+        "tart pan",
+        "flan ring",
+        "tartlet pan",
+        "mini tart pan",
+        "custard cup",
+        "ramekin",
+        "souffle dish",
+        "mixing bowl",
+        "batter bowl",
+        "proofing basket",
+        "banneton",
+        "cooling rack",
+        "baking sheet",
+        "cookie sheet",
+        "jelly roll pan",
+        "watering can",
+        "sprinkler",
+        "hose",
+        "nozzle",
+        "sprayer",
+        "atomizer",
+        "nebulizer",
+        "humidifier",
+        "vaporizer",
+        "steamer",
+        "pressure washer",
+        "steam cleaner",
+        "carpet cleaner",
+        "upholstery cleaner",
+        "floor scrubber",
+        "power washer",
+        "gutter cleaner",
+        "downspout cleaner",
+        "drain snake",
+        "plumber's snake",
+        "toilet auger",
+        "closet auger",
+        "sink plunger",
+        "toilet plunger",
+        "force cup",
+        "plumber's helper",
+        "pump",
+        "siphon",
+        "hose"
+      ]
+    },
+    "transparent vessel": {
+      "POSSESSED_BY": [
+        "wine glass",
+        "decanter",
+        "glass",
+        "carafe",
+        "flute",
+        "champagne flute",
+        "coupe",
+        "tumbler",
+        "snifter",
+        "rocks glass",
+        "highball glass",
+        "collins glass",
+        "mason jar",
+        "canning jar",
+        "pickle jar",
+        "jam jar",
+        "honey jar",
+        "candy jar",
+        "cookie jar",
+        "spice jar",
+        "herb jar",
+        "tea jar",
+        "coffee jar",
+        "sugar bowl",
+        "salt shaker",
+        "pepper shaker",
+        "soap dispenser",
+        "lotion dispenser",
+        "oil dispenser",
+        "vinegar dispenser",
+        "sauce dispenser",
+        "syrup dispenser",
+        "honey dispenser",
+        "jam dispenser",
+        "mustard dispenser",
+        "ketchup dispenser",
+        "mayo dispenser",
+        "relish dispenser",
+        "pickle dispenser",
+        "olive dispenser",
+        "marinated mushroom dispenser",
+        "artichoke heart dispenser",
+        "sun-dried tomato dispenser",
+        "roasted pepper dispenser",
+        "capers dispenser",
+        "tapenade dispenser",
+        "pesto dispenser",
+        "hummus dispenser",
+        "baba ghanoush dispenser",
+        "tzatziki dispenser",
+        "taramasalata dispenser",
+        "muhammara dispenser",
+        "za'atar dispenser",
+        "dukkah dispenser",
+        "zaatar dispenser"
+      ]
+    },
+    "spout": {
+      "POSSESSED_BY": [
+        "pitcher",
+        "jug",
+        "carafe",
+        "decanter",
+        "teapot",
+        "coffee pot",
+        "french press",
+        "pour over",
+        "chemex",
+        "moka pot",
+        "espresso maker",
+        "cappuccino maker",
+        "watering can",
+        "sprinkler",
+        "hose",
+        "nozzle",
+        "sprayer",
+        "atomizer",
+        "nebulizer",
+        "humidifier",
+        "vaporizer",
+        "steamer",
+        "pressure washer",
+        "steam cleaner",
+        "carpet cleaner",
+        "upholstery cleaner",
+        "floor scrubber",
+        "power washer",
+        "gutter cleaner",
+        "downspout cleaner",
+        "drain snake",
+        "plumber's snake",
+        "toilet auger",
+        "closet auger",
+        "sink plunger",
+        "toilet plunger",
+        "force cup",
+        "plumber's helper",
+        "pump",
+        "siphon",
+        "hose",
+        "bottle",
+        "flask",
+        "canteen",
+        "oil can",
+        "kerosene can",
+        "fuel can",
+        "water can",
+        "milk can",
+        "cream can",
+        "buttermilk can",
+        "yogurt can",
+        "kefir can",
+        "kombucha can",
+        "juice can",
+        "soda can",
+        "beer can",
+        "wine can",
+        "liquor can",
+        "spirit can"
+      ]
+    },
+    "thermal insulator": {
+      "POSSESSED_BY": [
+        "mug",
+        "bowl",
+        "thermos",
+        "styrofoam cup",
+        "insulated bottle",
+        "vacuum flask",
+        "dewar",
+        "coffee cup",
+        "tea cup",
+        "soup cup",
+        "cereal bowl",
+        "soup bowl",
+        "salad bowl",
+        "pasta bowl",
+        "rice bowl",
+        "noodle bowl",
+        "porridge bowl",
+        "oatmeal bowl",
+        "grits bowl",
+        "mush bowl",
+        "polenta bowl",
+        "risotto bowl",
+        "paella bowl",
+        "bibimbap bowl",
+        "donburi bowl",
+        "ramen bowl",
+        "pho bowl",
+        "laksa bowl",
+        "curry bowl",
+        "stew bowl",
+        "chili bowl",
+        "gumbo bowl",
+        "jambalaya bowl",
+        "etouffee bowl",
+        "crawfish bowl",
+        "shrimp bowl",
+        "clam bowl",
+        "mussel bowl",
+        "oyster bowl",
+        "scallop bowl",
+        "lobster bowl",
+        "crab bowl",
+        "crayfish bowl",
+        "lobster roll",
+        "crab cake",
+        "shrimp roll",
+        "oyster po boy",
+        "po boy",
+        "sub",
+        "hoagie",
+        "grinder",
+        "hero",
+        "poor boy",
+        "wedge"
+      ]
+    },
+    "extended handle": {
+      "POSSESSED_BY": [
+        "broom",
+        "mop",
+        "shovel",
+        "hoe",
+        "ladle",
+        "spoon",
+        "fork",
+        "knife",
+        "screwdriver",
+        "hammer",
+        "axe",
+        "pickaxe",
+        "mattock",
+        "rake",
+        "trowel",
+        "spade",
+        "fork",
+        "pitchfork",
+        "hayfork",
+        "manure fork",
+        "compost fork",
+        "garden fork",
+        "digging fork",
+        "broadfork",
+        "potato fork",
+        "hayfork",
+        "pitchfork",
+        "baling fork",
+        "cultivator",
+        "tiller",
+        "plow",
+        "harrow",
+        "seed drill",
+        "planter",
+        "transplanter",
+        "dibbler",
+        "widow-maker",
+        "clearing hook",
+        "sickle",
+        "scythe",
+        "cradle scythe",
+        "hay knife",
+        "manure shovel",
+        "grain shovel",
+        "scoop shovel",
+        "square shovel",
+        "round shovel",
+        "pointed shovel",
+        "ditching shovel",
+        "trenching shovel",
+        "spade",
+        "edging spade",
+        "irrigation shovel",
+        "post hole digger",
+        "clamshell digger",
+        "auger",
+        "earth drill",
+        "power auger",
+        "plasterer's hawk",
+        "corner trowel",
+        "dutch trowel",
+        "garden trowel",
+        "transplant trowel",
+        "bulb planter",
+        "dibble",
+        "dibber",
+        "widow-maker",
+        "clearing hook",
+        "sickle",
+        "scythe",
+        "cradle scythe",
+        "hay knife",
+        "manure shovel",
+        "grain shovel",
+        "scoop shovel",
+        "square shovel",
+        "round shovel",
+        "pointed shovel",
+        "ditching shovel",
+        "trenching shovel"
+      ]
+    },
+    "rigid scoop": {
+      "POSSESSED_BY": [
+        "shovel",
+        "spade",
+        "trowel",
+        "scoop",
+        "ladle",
+        "dipper",
+        "skimmer",
+        "slotted spoon",
+        "solid spoon",
+        "serving spoon",
+        "mixing spoon",
+        "cooking spoon",
+        "wooden spoon",
+        "metal spoon",
+        "plastic spoon",
+        "soup spoon",
+        "table spoon",
+        "tea spoon",
+        "dessert spoon",
+        "ice cream scoop",
+        "melon baller",
+        "cookie scoop",
+        "measuring spoon",
+        "spice spoon",
+        "mustard spoon",
+        "absinthe spoon",
+        "caviar spoon",
+        "salt spoon",
+        "sugar spoon",
+        "butter curler",
+        "zester",
+        "grater",
+        "rasp",
+        "microplane",
+        "nutmeg grater",
+        "garlic press",
+        "potato ricer",
+        "food mill",
+        "colander",
+        "strainer",
+        "sieve",
+        "chinois",
+        "tamis",
+        "drum sieve",
+        "flour sifter",
+        "cocktail shaker",
+        "jigger",
+        "muddler",
+        "mixing glass",
+        "mixing bowl",
+        "batter bowl",
+        "proofing basket",
+        "banneton",
+        "couche",
+        "rolling pin",
+        "pastry blender",
+        "dough cutter",
+        "bench scraper",
+        "pastry cloth",
+        "pie bird",
+        "pie weights",
+        "baking stone",
+        "pizza stone",
+        "baking steel",
+        "cooling rack",
+        "baking sheet",
+        "cookie sheet",
+        "jelly roll pan",
+        "springform pan",
+        "tube pan",
+        "bundt pan",
+        "loaf pan",
+        "muffin pan",
+        "popover pan",
+        "madeleine pan",
+        "tart pan",
+        "flan ring",
+        "tartlet pan",
+        "mini tart pan",
+        "custard cup",
+        "ramekin",
+        "souffle dish",
+        "casserole dish",
+        "baking dish",
+        "gratin dish",
+        "au gratin pan",
+        "roasting pan",
+        "broiling pan",
+        "dutch oven",
+        "stockpot",
+        "saucepan",
+        "saucier",
+        "saute pan",
+        "frying pan",
+        "skillet",
+        "griddle",
+        "grill pan",
+        "wok",
+        "paella pan",
+        "tagine",
+        "kettle",
+        "teapot",
+        "coffee pot",
+        "french press",
+        "pour over",
+        "chemex",
+        "moka pot",
+        "espresso maker",
+        "cappuccino maker",
+        "coffee grinder",
+        "spice grinder",
+        "mortar and pestle",
+        "molcajete",
+        "suribachi",
+        "pestle",
+        "grinding stone",
+        "metate",
+        "mano",
+        "quern",
+        "hand mill",
+        "grain mill",
+        "flour mill",
+        "corn mill",
+        "nut mill",
+        "seed mill",
+        "herb mill",
+        "tobacco grinder"
+      ]
+    },
+    "perforated spout": {
+      "POSSESSED_BY": [
+        "watering can",
+        "sprinkler",
+        "shower head",
+        "spray nozzle",
+        "mist nozzle",
+        "atomizer",
+        "nebulizer",
+        "humidifier",
+        "vaporizer",
+        "steamer",
+        "pressure washer",
+        "steam cleaner",
+        "carpet cleaner",
+        "upholstery cleaner",
+        "floor scrubber",
+        "power washer",
+        "gutter cleaner",
+        "downspout cleaner",
+        "drain snake",
+        "plumber's snake",
+        "toilet auger",
+        "closet auger",
+        "sink plunger",
+        "toilet plunger",
+        "force cup",
+        "plumber's helper",
+        "pump",
+        "siphon",
+        "hose",
+        "soaker hose",
+        "drip irrigation",
+        "mister",
+        "fogger",
+        "cooling fan",
+        "mist fan",
+        "air conditioner",
+        "evaporative cooler",
+        "swamp cooler",
+        "ice",
+        "ice pack",
+        "cold pack",
+        "gel pack",
+        "freezer pack",
+        "chemical cold pack",
+        "instant cold pack",
+        "cooling towel",
+        "cooling vest",
+        "cooling blanket",
+        "water bottle",
+        "spray bottle",
+        "atomizer",
+        "nebulizer",
+        "humidifier",
+        "vaporizer",
+        "steamer",
+        "pressure washer",
+        "steam cleaner",
+        "carpet cleaner",
+        "upholstery cleaner",
+        "floor scrubber",
+        "power washer",
+        "gutter cleaner",
+        "downspout cleaner",
+        "drain snake",
+        "plumber's snake",
+        "toilet auger",
+        "closet auger",
+        "sink plunger",
+        "toilet plunger",
+        "force cup",
+        "plumber's helper"
+      ]
+    },
+    "straight edge": {
+      "POSSESSED_BY": [
+        "ruler",
+        "yardstick",
+        "book edge",
+        "metal ruler",
+        "straightedge",
+        "level",
+        "square",
+        "try square",
+        "combination square",
+        "framing square",
+        "speed square",
+        "drywall square",
+        "T-square",
+        "triangle",
+        "protractor",
+        "bevel",
+        "sliding T-bevel",
+        "angle finder",
+        "miter square",
+        "cutting mat",
+        "self-healing mat",
+        "cutting board",
+        "cutting table",
+        "saw table",
+        "jointer",
+        "planer",
+        "molder",
+        "shaper",
+        "router table",
+        "router fence",
+        "table saw fence",
+        "circular saw guide",
+        "jigsaw guide",
+        "reciprocating saw guide",
+        "bandsaw guide",
+        "scroll saw guide",
+        "miter saw guide",
+        "chop saw guide",
+        "radial arm saw guide",
+        "band saw fence",
+        "drill press fence",
+        "lathe tool rest",
+        "grinder tool rest",
+        "sander belt",
+        "sander disk",
+        "sander drum",
+        "sander spindle",
+        "buffer",
+        "polisher",
+        "grinder",
+        "bench grinder",
+        "angle grinder",
+        "die grinder",
+        "straight grinder",
+        "cut-off saw",
+        "abrasive saw",
+        "cut-off wheel",
+        "abrasive disk",
+        "sanding disk",
+        "sanding belt",
+        "sanding drum",
+        "sanding spindle"
+      ]
+    },
+    "marked increments": {
+      "POSSESSED_BY": [
+        "measuring tape",
+        "scale",
+        "ruler",
+        "calipers",
+        "micrometer",
+        "depth gauge",
+        "feeler gauge",
+        "wire gauge",
+        "sheet metal gauge",
+        "drill gauge",
+        "screw gauge",
+        "bolt gauge",
+        "nut gauge",
+        "pipe gauge",
+        "thread gauge",
+        "radius gauge",
+        "angle gauge",
+        "bevel gauge",
+        "level",
+        "plumb bob",
+        "chalk line",
+        "marking gauge",
+        "cutting gauge",
+        "mortise gauge",
+        "dovetail gauge",
+        "marking knife",
+        "scratch awl",
+        "center punch",
+        "dot punch",
+        "nail set",
+        "prick punch",
+        "number stamp",
+        "letter stamp",
+        "date stamp",
+        "time stamp",
+        "serial number stamp",
+        "part number stamp",
+        "lot stamp",
+        "batch stamp",
+        "code stamp",
+        "barcode stamp",
+        "QR code stamp",
+        "data matrix stamp",
+        "dot peen marker",
+        "laser engraver",
+        "plasma cutter",
+        "water jet cutter",
+        "EDM machine",
+        "CNC router",
+        "CNC mill",
+        "CNC lathe",
+        "CNC grinder",
+        "CNC drill",
+        "CNC punch",
+        "CNC press",
+        "CNC brake",
+        "CNC shear",
+        "CNC laser",
+        "CNC plasma",
+        "CNC water jet"
+      ]
+    },
+    "pigmented tip": {
+      "POSSESSED_BY": [
+        "pen",
+        "pencil",
+        "marker",
+        "chalk",
+        "charcoal",
+        "crayon",
+        "pastel",
+        "colored pencil",
+        "gel pen",
+        "rollerball pen",
+        "fountain pen",
+        "ballpoint pen",
+        "stylus",
+        "digital pen",
+        "highlighter",
+        "dry erase marker",
+        "permanent marker",
+        "china marker",
+        "grease pencil",
+        "tattoo needle",
+        "suture needle",
+        "hypodermic needle",
+        "sewing needle",
+        "tapestry needle",
+        "beading needle",
+        "embroidery needle",
+        "darning needle",
+        "carpet needle",
+        "upholstery needle",
+        "leather needle",
+        "curved needle",
+        "surgical needle",
+        "epidural needle",
+        "lancet",
+        "blood lancet",
+        "finger stick",
+        "ear piercing gun",
+        "body jewelry taper",
+        "dowel",
+        "rod",
+        "spike",
+        "spear",
+        "javelin",
+        "arrowhead",
+        "harpoon",
+        "fish spear",
+        "frog gig",
+        "pitchfork",
+        "manure fork",
+        "compost fork",
+        "garden fork",
+        "digging fork",
+        "broadfork",
+        "potato fork",
+        "hayfork",
+        "pitchfork",
+        "baling fork"
+      ]
+    },
+    "light emitting": {
+      "POSSESSED_BY": [
+        "flashlight",
+        "torch",
+        "candle",
+        "lamp",
+        "match",
+        "lighter",
+        "glowstick",
+        "headlamp",
+        "lantern",
+        "oil lamp",
+        "kerosene lamp",
+        "gas lamp",
+        "propane lamp",
+        "butane lamp",
+        "acetylene lamp",
+        "carbide lamp",
+        "LED lamp",
+        "fluorescent lamp",
+        "incandescent lamp",
+        "halogen lamp",
+        "Xenon lamp",
+        "mercury vapor lamp",
+        "sodium vapor lamp",
+        "metal halide lamp",
+        "neon lamp",
+        "argon lamp",
+        "krypton lamp",
+        "xenon flash lamp",
+        "strobe light",
+        "beacon",
+        "flare",
+        "chem light",
+        "battle lantern",
+        "searchlight",
+        "spotlight",
+        "floodlight",
+        "barn light",
+        "yard light",
+        "porch light",
+        "garage light",
+        "basement light",
+        "attic light",
+        "closet light",
+        "cabinet light",
+        "drawer light",
+        "desk lamp",
+        "floor lamp",
+        "table lamp",
+        "bedside lamp",
+        "reading lamp",
+        "study lamp",
+        "craft lamp",
+        "magnifier lamp",
+        "inspection lamp",
+        "work light",
+        "task light",
+        "emergency light",
+        "exit light",
+        "night light",
+        "path light",
+        "garden light",
+        "landscape light",
+        "accent light",
+        "display light",
+        "art light",
+        "picture light",
+        "track light",
+        "rail light",
+        "monorail light",
+        "cable light",
+        "recessed light",
+        "can light",
+        "pot light",
+        "downlight",
+        "uplight",
+        "wall wash",
+        "corner light",
+        "edge light",
+        "linear light",
+        "strip light",
+        "tape light",
+        "ribbon light",
+        "rope light",
+        "net light",
+        "icicle light",
+        "string light",
+        "party light",
+        "decorative light",
+        "holiday light",
+        "Christmas light",
+        "fairy light",
+        "twinkle light",
+        "blinking light",
+        "flashing light",
+        "pulsing light",
+        "chasing light",
+        "color changing light",
+        "smart light",
+        "connected light",
+        "programmable light",
+        "dimming light",
+        "dimmable light",
+        "sensor light",
+        "motion light",
+        "occupancy light",
+        "vacancy light",
+        "daylight sensor",
+        "twilight sensor",
+        "photocell",
+        "timer light",
+        "schedule light",
+        "remote light",
+        "voice control light",
+        "app control light",
+        "battery light",
+        "rechargeable light",
+        "solar light",
+        "LED light",
+        "LCD light",
+        "OLED light",
+        "plasma light",
+        "laser light",
+        "LED strip",
+        "LED panel",
+        "LED tube",
+        "LED bulb",
+        "LED module",
+        "LED cluster",
+        "LED array",
+        "LED matrix",
+        "LED display",
+        "LED screen",
+        "LED sign",
+        "LED message board",
+        "LED billboard",
+        "LED marquee",
+        "LED chaser",
+        "LED sequencer",
+        "LED animator",
+        "LED controller",
+        "LED driver",
+        "LED power supply",
+        "LED transformer",
+        "LED dimmer",
+        "LED remote",
+        "LED app",
+        "LED sensor"
+      ]
+    },
+    "bristled edge": {
+      "POSSESSED_BY": [
+        "broom",
+        "brush",
+        "toothbrush",
+        "duster",
+        "bristle brush",
+        "wire brush",
+        "scrub brush",
+        "deck brush",
+        "grout brush",
+        "tile brush",
+        "wheel brush",
+        "cup brush",
+        "end brush",
+        "radial brush",
+        "circular brush",
+        "rotary brush",
+        "power brush",
+        "hand brush",
+        "bench brush",
+        "floor brush",
+        "wall brush",
+        "ceiling brush",
+        "corner brush",
+        "edge brush",
+        "detail brush",
+        "touch up brush",
+        "paint brush",
+        "varnish brush",
+        "stain brush",
+        "sealer brush",
+        "primer brush",
+        "finish brush",
+        "artist brush",
+        "craft brush",
+        "hobby brush",
+        "model brush",
+        "miniature brush",
+        "figure brush",
+        "doll brush",
+        "toy brush",
+        "game brush",
+        "cosplay brush",
+        "makeup brush",
+        "eyeliner brush",
+        "eyeshadow brush",
+        "blush brush",
+        "foundation brush",
+        "concealer brush",
+        "powder brush",
+        "brow brush",
+        "lash brush",
+        "lip brush",
+        "nail brush",
+        "cuticle brush",
+        "foot brush",
+        "body brush",
+        "hair brush",
+        "hair duster",
+        "clothes brush",
+        "lint brush",
+        "pet brush",
+        "grooming brush",
+        "saddle brush",
+        "tack brush",
+        "horse brush",
+        "livestock brush",
+        "farm brush",
+        "garden brush",
+        "weed brush",
+        "root brush",
+        "crop brush",
+        "harvest brush",
+        "sweeping brush",
+        "cleaning brush",
+        "sanitizing brush",
+        "sterilizing brush",
+        "degreasing brush",
+        "rust brush",
+        "scale brush",
+        "corrosion brush",
+        "buildup brush",
+        "residue brush",
+        "stain brush",
+        "spot brush",
+        "spatter brush",
+        "splash brush",
+        "splatter brush",
+        "drip brush",
+        "run brush",
+        "sag brush",
+        "curtain brush",
+        "wrinkle brush",
+        "crease brush",
+        "fold brush",
+        "bunch brush",
+        "cluster brush",
+        "bundle brush",
+        "pack brush",
+        "set brush",
+        "group brush",
+        "array brush",
+        "series brush",
+        "sequence brush",
+        "pattern brush",
+        "design brush",
+        "graphic brush",
+        "illustration brush",
+        "lettering brush",
+        "calligraphy brush",
+        "writing brush",
+        "drawing brush",
+        "sketching brush",
+        "painting brush",
+        "watercolor brush",
+        "oil brush",
+        "acrylic brush",
+        "tempera brush",
+        "gouache brush",
+        "ink brush",
+        "dye brush",
+        "pigment brush",
+        "color brush",
+        "tone brush",
+        "shade brush",
+        "highlight brush",
+        "shadow brush",
+        "glow brush",
+        "reflection brush",
+        "transparency brush",
+        "opacity brush",
+        "blend brush",
+        "mix brush",
+        "smudge brush",
+        "smear brush",
+        "stipple brush",
+        "sponge brush",
+        "foam brush",
+        "fiber brush",
+        "bristle brush",
+        "horsehair brush",
+        "boar brush",
+        "badger brush",
+        "sable brush",
+        "ox hair brush",
+        "camel brush",
+        "goat brush",
+        "sheep brush",
+        "rabbit brush",
+        "squirrel brush",
+        "chipmunk brush",
+        "beaver brush",
+        "mink brush",
+        "weasel brush",
+        "ferret brush",
+        "otter brush",
+        "seal brush",
+        "walrus brush",
+        "polar brush",
+        "grizzly brush",
+        "black bear brush",
+        "brown brush",
+        "white brush",
+        "gray brush",
+        "red brush",
+        "orange brush",
+        "yellow brush",
+        "green brush",
+        "blue brush",
+        "violet brush",
+        "purple brush",
+        "pink brush",
+        "magenta brush",
+        "cyan brush",
+        "teal brush",
+        "turquoise brush",
+        "aqua brush",
+        "coral brush",
+        "salmon brush",
+        "peach brush",
+        "apricot brush",
+        "mango brush",
+        "lime brush",
+        "lemon brush",
+        "golden brush",
+        "silver brush",
+        "bronze brush",
+        "copper brush",
+        "brass brush",
+        "steel brush",
+        "iron brush",
+        "tin brush",
+        "lead brush",
+        "zinc brush",
+        "nickel brush",
+        "chrome brush",
+        "titanium brush",
+        "aluminum brush",
+        "magnesium brush",
+        "calcium brush",
+        "sodium brush",
+        "potassium brush"
+      ]
+    },
+    "narrow blade": {
+      "POSSESSED_BY": [
+        "paring knife",
+        "filet knife",
+        "boning knife",
+        "turning knife",
+        "bird's beak knife",
+        "tourne knife",
+        "steak knife",
+        "utility knife",
+        "craft knife",
+        "x-acto knife",
+        "scalpel",
+        "dermatome",
+        "microtome",
+        "tissue cutter",
+        "carving knife",
+        "slicing knife",
+        "ham knife",
+        "salmon knife",
+        "tomato knife",
+        "bagel knife",
+        "donut knife",
+        "pastry knife",
+        "cheese knife",
+        "soft cheese knife",
+        "hard cheese knife",
+        "blue cheese knife",
+        "cheddar knife",
+        "parmesan knife",
+        "brie knife",
+        "camembert knife",
+        "mozzarella knife",
+        "provolone knife",
+        "gouda knife",
+        "swiss knife",
+        "american knife",
+        "jack knife",
+        "colby knife",
+        "monterey jack knife",
+        "pepper jack knife",
+        "mexican knife",
+        "spanish knife",
+        "italian knife",
+        "french knife",
+        "german knife",
+        "japanese knife",
+        "chinese knife",
+        "korean knife",
+        "thai knife",
+        "vietnamese knife",
+        "indian knife",
+        "middle eastern knife",
+        "african knife",
+        "south american knife",
+        "north american knife",
+        "european knife",
+        "asian knife",
+        "australian knife",
+        "new zealand knife",
+        "taiwanese knife",
+        "singaporean knife",
+        "malaysian knife",
+        "indonesian knife",
+        "philippine knife",
+        "hawaiian knife",
+        "caribbean knife",
+        "jamaican knife",
+        "cuban knife",
+        "puerto rican knife",
+        "dominican knife",
+        "haitian knife",
+        "trinidadian knife",
+        "barbadian knife",
+        "bahamian knife",
+        "bermudian knife",
+        "panamanian knife",
+        "costa rican knife",
+        "nicaraguan knife",
+        "honduran knife",
+        "guatemalan knife",
+        "belizean knife",
+        "salvadoran knife",
+        "venezuelan knife",
+        "colombian knife",
+        "ecuadorian knife",
+        "peruvian knife",
+        "bolivian knife",
+        "chilean knife",
+        "argentine knife",
+        "uruguayan knife",
+        "paraguayan knife",
+        "brazilian knife"
+      ]
+    },
+    "screw tip": {
+      "POSSESSED_BY": [
+        "corkscrew",
+        "bottle opener",
+        "jar opener",
+        "lid remover",
+        "cap opener",
+        "screwdriver",
+        "nut driver",
+        "socket wrench",
+        "ratchet wrench",
+        "spanner",
+        "adjustable wrench",
+        "monkey wrench",
+        "pipe wrench",
+        "strap wrench",
+        "chain wrench",
+        "oil filter wrench",
+        "basin wrench",
+        "faucet wrench",
+        "taps",
+        "dies",
+        "re threading tool",
+        "tap wrench",
+        "die stock",
+        "drill",
+        "drill bit",
+        "countersink",
+        "reamer",
+        "hole saw",
+        "auger",
+        "gimlet",
+        "brace",
+        "bit brace",
+        "corkscrew",
+        "bottle opener",
+        "can opener",
+        "jar opener",
+        "lid remover",
+        "cap opener"
+      ]
+    },
+    "spirit level": {
+      "POSSESSED_BY": [
+        "level",
+        "spirit level",
+        "carpenter level",
+        "masonry level",
+        "torpedo level",
+        "line level",
+        "water level",
+        "laser level",
+        "rotary laser level",
+        "cross line laser",
+        "dot laser",
+        "plumb bob",
+        "chalk line",
+        "marking gauge",
+        "cutting gauge",
+        "mortise gauge",
+        "dovetail gauge",
+        "marking knife",
+        "scratch awl",
+        "center punch",
+        "dot punch",
+        "nail set",
+        "prick punch",
+        "number stamp",
+        "letter stamp",
+        "date stamp",
+        "time stamp",
+        "serial number stamp",
+        "part number stamp",
+        "lot stamp",
+        "batch stamp",
+        "code stamp",
+        "barcode stamp",
+        "QR code stamp",
+        "data matrix stamp",
+        "dot peen marker",
+        "laser engraver",
+        "plasma cutter",
+        "water jet cutter",
+        "EDM machine",
+        "CNC router",
+        "CNC mill",
+        "CNC lathe",
+        "CNC grinder",
+        "CNC drill",
+        "CNC punch",
+        "CNC press",
+        "CNC brake",
+        "CNC shear",
+        "CNC laser",
+        "CNC plasma",
+        "CNC water jet"
+      ]
+    },
+    "absorbent surface": {
+      "POSSESSED_BY": [
+        "towel",
+        "tissue",
+        "sponge",
+        "cloth",
+        "mop",
+        "rag",
+        "paper towel",
+        "napkin",
+        "wiping cloth",
+        "shop towel",
+        "floor cloth",
+        "window cloth",
+        "glass cloth",
+        "microfiber cloth",
+        "dust cloth",
+        "tack cloth",
+        "cheesecloth",
+        "muslin",
+        "cotton",
+        "rayon",
+        "polyester",
+        "nylon",
+        "acrylic",
+        "olefin",
+        "polypropylene",
+        "fiberglass",
+        "carbon fiber",
+        "aramid",
+        "nomex",
+        "kevlar",
+        "bamboo",
+        "hemp",
+        "jute",
+        "sisal",
+        "coir",
+        "coconut",
+        "flax",
+        "linen",
+        "wool",
+        "cashmere",
+        "angora",
+        "mohair",
+        "alpaca",
+        "llama",
+        "camel",
+        "yak",
+        "rabbit",
+        "chinchilla",
+        "beaver",
+        "muskrat",
+        "nutria",
+        "possum",
+        "fur",
+        "hair",
+        "bristle",
+        "feather",
+        "down",
+        "quill",
+        "straw",
+        "hay",
+        "grass",
+        "sedge",
+        "rush",
+        "reed",
+        "bamboo",
+        "rattan",
+        "wicker",
+        "willow",
+        "vines",
+        "roots",
+        "bark",
+        "wood",
+        "cellulose",
+        "pectin",
+        "lignin",
+        "silk",
+        "spider silk",
+        "synthetic fiber"
+      ]
+    },
+    "absorbent roller": {
+      "POSSESSED_BY": [
+        "paint roller",
+        "varnish roller",
+        "stain roller",
+        "sealer roller",
+        "primer roller",
+        "finish roller",
+        "texture roller",
+        "pattern roller",
+        "design roller",
+        "graphic roller",
+        "illustration roller",
+        "lettering roller",
+        "calligraphy roller",
+        "writing roller",
+        "drawing roller",
+        "sketching roller",
+        "painting roller",
+        "watercolor roller",
+        "oil roller",
+        "acrylic roller",
+        "tempera roller",
+        "gouache roller",
+        "ink roller",
+        "dye roller",
+        "pigment roller",
+        "color roller",
+        "tone roller",
+        "shade roller",
+        "highlight roller",
+        "shadow roller",
+        "glow roller",
+        "reflection roller",
+        "transparency roller",
+        "opacity roller",
+        "blend roller",
+        "mix roller",
+        "smudge roller",
+        "smear roller",
+        "stipple roller",
+        "sponge roller",
+        "foam roller",
+        "fiber roller",
+        "bristle roller",
+        "horsehair roller",
+        "boar roller",
+        "badger roller",
+        "sable roller",
+        "ox hair roller",
+        "camel roller",
+        "goat roller",
+        "sheep roller",
+        "rabbit roller",
+        "squirrel roller",
+        "chipmunk roller",
+        "beaver roller",
+        "mink roller",
+        "weasel roller",
+        "ferret roller",
+        "otter roller",
+        "seal roller",
+        "walrus roller",
+        "polar roller",
+        "grizzly roller",
+        "black bear roller",
+        "brown roller",
+        "white roller",
+        "gray roller",
+        "red roller",
+        "orange roller",
+        "yellow roller",
+        "green roller",
+        "blue roller",
+        "violet roller",
+        "purple roller",
+        "pink roller",
+        "magenta roller",
+        "cyan roller",
+        "teal roller",
+        "turquoise roller",
+        "aqua roller",
+        "coral roller",
+        "salmon roller",
+        "peach roller",
+        "apricot roller",
+        "mango roller",
+        "lime roller",
+        "lemon roller",
+        "golden roller",
+        "silver roller",
+        "bronze roller",
+        "copper roller",
+        "brass roller",
+        "steel roller",
+        "iron roller",
+        "tin roller",
+        "lead roller",
+        "zinc roller",
+        "nickel roller",
+        "chrome roller",
+        "titanium roller",
+        "aluminum roller",
+        "magnesium roller",
+        "calcium roller",
+        "sodium roller",
+        "potassium roller"
+      ]
+    },
+    "spray nozzle": {
+      "POSSESSED_BY": [
+        "spray bottle",
+        "atomizer",
+        "nebulizer",
+        "humidifier",
+        "vaporizer",
+        "steamer",
+        "pressure washer",
+        "steam cleaner",
+        "carpet cleaner",
+        "upholstery cleaner",
+        "floor scrubber",
+        "power washer",
+        "gutter cleaner",
+        "downspout cleaner",
+        "drain snake",
+        "plumber's snake",
+        "toilet auger",
+        "closet auger",
+        "sink plunger",
+        "toilet plunger",
+        "force cup",
+        "plumber's helper",
+        "pump",
+        "siphon",
+        "hose",
+        "watering can",
+        "sprinkler",
+        "shower head",
+        "spray nozzle",
+        "mist nozzle",
+        "atomizer",
+        "nebulizer",
+        "humidifier",
+        "vaporizer",
+        "steamer",
+        "pressure washer",
+        "steam cleaner",
+        "carpet cleaner",
+        "upholstery cleaner",
+        "floor scrubber",
+        "power washer",
+        "gutter cleaner",
+        "downspout cleaner",
+        "drain snake",
+        "plumber's snake",
+        "toilet auger",
+        "closet auger",
+        "sink plunger",
+        "toilet plunger",
+        "force cup",
+        "plumber's helper",
+        "pump",
+        "siphon",
+        "hose",
+        "soaker hose",
+        "drip irrigation",
+        "mister",
+        "fogger",
+        "cooling fan",
+        "mist fan",
+        "air conditioner",
+        "evaporative cooler",
+        "swamp cooler"
+      ]
+    },
+    "smooth edge": {
+      "POSSESSED_BY": [
+        "spatula",
+        "palette knife",
+        "butter knife",
+        "popsicle stick",
+        "ruler",
+        "level",
+        "straightedge",
+        "trowel",
+        "plaster trowel",
+        "brick trowel",
+        "mortar trowel",
+        "pointing trowel",
+        "gauging trowel",
+        "margin trowel",
+        "notched trowel",
+        "grout float",
+        "rubber float",
+        "darby",
+        "plasterer's hawk",
+        "corner trowel",
+        "dutch trowel",
+        "garden trowel",
+        "transplant trowel",
+        "bulb planter",
+        "dibble",
+        "dibber",
+        "widow-maker",
+        "clearing hook",
+        "sickle",
+        "scythe",
+        "cradle scythe",
+        "hay knife",
+        "manure shovel",
+        "grain shovel",
+        "scoop shovel",
+        "square shovel",
+        "round shovel",
+        "pointed shovel",
+        "ditching shovel",
+        "trenching shovel",
+        "spade",
+        "edging spade",
+        "irrigation shovel",
+        "post hole digger",
+        "clamshell digger",
+        "auger",
+        "earth drill",
+        "power auger",
+        "plasterer's hawk",
+        "corner trowel",
+        "dutch trowel",
+        "garden trowel",
+        "transplant trowel",
+        "bulb planter",
+        "dibble",
+        "dibber",
+        "widow-maker",
+        "clearing hook",
+        "sickle",
+        "scythe",
+        "cradle scythe",
+        "hay knife",
+        "manure shovel",
+        "grain shovel",
+        "scoop shovel",
+        "square shovel",
+        "round shovel",
+        "pointed shovel",
+        "ditching shovel",
+        "trenching shovel"
+      ]
+    },
+    "claw tip": {
+      "POSSESSED_BY": [
+        "hammer",
+        "claw hammer",
+        "framing hammer",
+        "rip hammer",
+        "drywall hammer",
+        "tack hammer",
+        "upholstery hammer",
+        "electrician hammer",
+        "blacksmith hammer",
+        "coppersmith hammer",
+        "silversmith hammer",
+        "goldbeater hammer",
+        "riveting hammer",
+        "scaling hammer",
+        "welding hammer",
+        "chipping hammer",
+        "brick hammer",
+        "masonry hammer",
+        "stone hammer",
+        "geologist hammer",
+        "carpenter mallet",
+        "rubber mallet",
+        "plastic mallet",
+        "rawhide mallet",
+        "wooden mallet",
+        "metal mallet",
+        "dead blow mallet",
+        "soft blow mallet",
+        "shot filled mallet",
+        "engineer hammer",
+        "hand rammer",
+        "tamper",
+        "pile driver",
+        "post driver",
+        "fence rammer",
+        "ground rod driver",
+        "tent stake driver",
+        "chisel hammer",
+        "punch hammer",
+        "setting hammer",
+        "forming hammer",
+        "planishing hammer",
+        "raising hammer",
+        "repousse hammer",
+        "chasing hammer",
+        "jewelers hammer",
+        "watchmakers hammer",
+        "coopers hammer",
+        "wheelwright hammer",
+        "farrier hammer",
+        "horseshoeing hammer",
+        "shoeing hammer",
+        "hoof nipper",
+        "hoof pick",
+        "hoof knife",
+        "hoof rasp",
+        "hoof tester"
+      ]
+    },
+    "toothed edge": {
+      "POSSESSED_BY": [
+        "saw",
+        "hacksaw",
+        "jigsaw",
+        "bandsaw",
+        "chainsaw",
+        "circular saw",
+        "miter saw",
+        "table saw",
+        "scroll saw",
+        "reciprocating saw",
+        "pole saw",
+        "pruning saw",
+        "folding saw",
+        "bow saw",
+        "cop saw",
+        "keyhole saw",
+        "razor blade",
+        "stanley knife",
+        "surgeon knife",
+        "dermatome",
+        "microtome",
+        "tissue cutter",
+        "ceramic knife",
+        "titanium knife",
+        "diamond blade",
+        "carbide blade",
+        "cutter blade",
+        "carpet knife",
+        "drywall knife",
+        "joint knife",
+        "taping knife",
+        "spackle knife",
+        "scraper",
+        "putty knife",
+        "paint scraper",
+        "glass scraper",
+        "razor scraper",
+        "carpet scraper",
+        "floor scraper",
+        "wall scraper",
+        "adhesive remover",
+        "paint remover",
+        "gasket scraper",
+        "bearing scraper",
+        "lathe tool",
+        "turning tool",
+        "parting tool",
+        "grooving tool",
+        "threading tool",
+        "boring tool",
+        "reamer",
+        "countersink",
+        "drill bit",
+        "end mill",
+        "router bit",
+        "hole saw",
+        "fly cutter"
+      ]
+    },
+    "rotary bit": {
+      "POSSESSED_BY": [
+        "drill",
+        "drill bit",
+        "countersink",
+        "reamer",
+        "hole saw",
+        "auger",
+        "gimlet",
+        "brace",
+        "bit brace",
+        "corkscrew",
+        "bottle opener",
+        "can opener",
+        "jar opener",
+        "lid remover",
+        "cap opener",
+        "screwdriver",
+        "nut driver",
+        "socket wrench",
+        "ratchet wrench",
+        "spanner",
+        "adjustable wrench",
+        "monkey wrench",
+        "pipe wrench",
+        "strap wrench",
+        "chain wrench",
+        "oil filter wrench",
+        "basin wrench",
+        "faucet wrench",
+        "taps",
+        "dies",
+        "re threading tool",
+        "tap wrench",
+        "die stock",
+        "drill",
+        "drill bit",
+        "countersink",
+        "reamer",
+        "hole saw",
+        "auger",
+        "gimlet",
+        "brace",
+        "bit brace",
+        "corkscrew",
+        "bottle opener",
+        "can opener",
+        "jar opener",
+        "lid remover",
+        "cap opener"
+      ]
+    },
+    "carbide tip": {
+      "POSSESSED_BY": [
+        "drill bit",
+        "end mill",
+        "router bit",
+        "hole saw",
+        "fly cutter",
+        "cutting tool",
+        "turning tool",
+        "parting tool",
+        "grooving tool",
+        "threading tool",
+        "boring tool",
+        "reamer",
+        "countersink",
+        "drill bit",
+        "end mill",
+        "router bit",
+        "hole saw",
+        "fly cutter",
+        "saw blade",
+        "grinding wheel",
+        "cut-off wheel",
+        "abrasive disk",
+        "sanding disk",
+        "sanding belt",
+        "sanding drum",
+        "sanding spindle",
+        "buffing wheel",
+        "polishing wheel",
+        "lapping plate",
+        "honing stone",
+        "sharpening stone",
+        "whetstone",
+        "oil stone",
+        "water stone",
+        "diamond stone",
+        "ceramic stone",
+        "ruby stone",
+        "sapphire stone",
+        "emerald stone",
+        "topaz stone",
+        "quartz stone",
+        "flint stone",
+        "obsidian stone",
+        "jade stone",
+        "onyx stone",
+        "agate stone",
+        "jasper stone",
+        "carnelian stone",
+        "bloodstone",
+        "malachite stone",
+        "azurite stone",
+        "lapis lazuli stone",
+        "turquoise stone",
+        "peridot stone",
+        "garnet stone",
+        "tourmaline stone",
+        "beryl stone",
+        "aquamarine stone",
+        "emerald stone",
+        "ruby stone",
+        "sapphire stone",
+        "diamond stone"
+      ]
+    },
+    "wire whisk": {
+      "POSSESSED_BY": [
+        "whisk",
+        "balloon whisk",
+        "flat whisk",
+        "mini whisk",
+        "sauce whisk",
+        "gravy whisk",
+        "spiral whisk",
+        "French whisk",
+        "flat coil whisk",
+        "ball whisk",
+        "milk frother",
+        "hand mixer",
+        "stand mixer",
+        "immersion blender",
+        "food processor",
+        "blender",
+        "juicer",
+        "extractor",
+        "centrifuge",
+        "separator",
+        "homogenizer",
+        "emulsifier",
+        "aerator",
+        "carbonator",
+        "soda maker",
+        "sparkling water maker",
+        "seltzer maker",
+        "club soda maker",
+        "tonic maker",
+        "ginger ale maker",
+        "root beer maker",
+        "cola maker",
+        "pepper maker",
+        "lemonade maker",
+        "limeade maker",
+        "orangeade maker",
+        "fruit punch maker",
+        "kool-aid maker",
+        "gatorade maker",
+        "powerade maker",
+        "vitamin water maker",
+        "infused water maker",
+        "detox water maker",
+        "flavored water maker",
+        "sparkling water maker",
+        "seltzer maker",
+        "club soda maker",
+        "tonic maker",
+        "ginger ale maker",
+        "root beer maker",
+        "cola maker",
+        "pepper maker",
+        "lemonade maker",
+        "limeade maker",
+        "orangeade maker",
+        "fruit punch maker",
+        "kool-aid maker",
+        "gatorade maker",
+        "powerade maker",
+        "vitamin water maker",
+        "infused water maker",
+        "detox water maker",
+        "flavored water maker"
+      ]
+    },
+    "pincer grip": {
+      "POSSESSED_BY": [
+        "plier",
+        "vise grip",
+        "locking pliers",
+        "needle nose pliers",
+        "slip joint pliers",
+        "channel lock pliers",
+        "groove joint pliers",
+        "water pump pliers",
+        "lineman pliers",
+        "electrical pliers",
+        "cutting pliers",
+        "diagonal cutters",
+        "wire stripper",
+        "crimping tool",
+        "cable cutter",
+        "shears",
+        "snips",
+        "cutter",
+        "knife",
+        "blade",
+        "scissors",
+        "shears",
+        "clippers",
+        "trimmers",
+        "garden shears",
+        "pruning shears",
+        "hedge shears",
+        "grass shears",
+        "tin snips",
+        "aviation snips",
+        "pinking shears",
+        "embroidery scissors",
+        "surgical scissors",
+        "bandage scissors",
+        "trauma shears",
+        "pruner",
+        "lopper",
+        "secateurs",
+        "gardening scissors",
+        "branch cutter",
+        "cable shears",
+        "wire rope cutter",
+        "bolt cutter",
+        "chain cutter",
+        "carpet shears",
+        "fabric shears",
+        "leather shears",
+        "metal shears",
+        "bench shears",
+        "power shears",
+        "pneumatic shears",
+        "electric shears",
+        "manual shears",
+        "scissor jack",
+        "scissor lift"
+      ]
+    },
+    "suction head": {
+      "POSSESSED_BY": [
+        "vacuum cleaner",
+        "vacuum",
+        "floor vacuum",
+        "upright vacuum",
+        "canister vacuum",
+        "stick vacuum",
+        "handheld vacuum",
+        "dustbuster",
+        "shop vac",
+        "wet dry vac",
+        "carpet cleaner",
+        "upholstery cleaner",
+        "floor scrubber",
+        "extractor",
+        "steam cleaner",
+        "pressure washer",
+        "power washer",
+        "gutter cleaner",
+        "downspout cleaner",
+        "drain snake",
+        "plumber's snake",
+        "toilet auger",
+        "closet auger",
+        "sink plunger",
+        "toilet plunger",
+        "force cup",
+        "plumber's helper",
+        "pump",
+        "siphon",
+        "hose",
+        "watering can",
+        "sprinkler",
+        "shower head",
+        "spray nozzle",
+        "mist nozzle",
+        "atomizer",
+        "nebulizer",
+        "humidifier",
+        "vaporizer",
+        "steamer",
+        "pressure washer",
+        "steam cleaner",
+        "carpet cleaner",
+        "upholstery cleaner",
+        "floor scrubber",
+        "power washer",
+        "gutter cleaner",
+        "downspout cleaner",
+        "drain snake",
+        "plumber's snake",
+        "toilet auger",
+        "closet auger",
+        "sink plunger",
+        "toilet plunger",
+        "force cup",
+        "plumber's helper",
+        "pump",
+        "siphon",
+        "hose"
+      ]
+    },
+    "abrasive pad": {
+      "POSSESSED_BY": [
+        "sanding block",
+        "sandpaper",
+        "sanding pad",
+        "abrasive sponge",
+        "scouring pad",
+        "steel wool",
+        "Brillo pad",
+        "Scotch-Brite pad",
+        "non-scratch pad",
+        "heavy-duty pad",
+        "light-duty pad",
+        "medium-duty pad",
+        "fine pad",
+        "very fine pad",
+        "super fine pad",
+        "ultra fine pad",
+        "micro fine pad",
+        "nano fine pad",
+        "grain pad",
+        "grit pad",
+        "scrub pad",
+        "clean pad",
+        "polish pad",
+        "buff pad",
+        "shine pad",
+        "gloss pad",
+        "luster pad",
+        "finish pad",
+        "detail pad",
+        "touch up pad",
+        "repair pad",
+        "restoration pad",
+        "refinishing pad",
+        "renovation pad",
+        "reclamation pad",
+        "recycle pad",
+        "reuse pad",
+        "renewable pad",
+        "sustainable pad",
+        "eco-friendly pad",
+        "green pad",
+        "organic pad",
+        "natural pad",
+        "biodegradable pad",
+        "compostable pad",
+        "recyclable pad",
+        "reusable pad",
+        "durable pad",
+        "long-lasting pad",
+        "wear-resistant pad",
+        "abrasion-resistant pad",
+        "corrosion-resistant pad",
+        "heat-resistant pad",
+        "cold-resistant pad",
+        "water-resistant pad",
+        "stain-resistant pad",
+        "oil-resistant pad",
+        "grease-resistant pad",
+        "chemical-resistant pad",
+        "scratch-resistant pad",
+        "scuff-resistant pad",
+        "scrape-resistant pad",
+        "bump-resistant pad",
+        "impact-resistant pad",
+        "shock-resistant pad",
+        "vibration-resistant pad"
+      ]
+    },
+    "water spray": {
+      "POSSESSED_BY": [
+        "spray bottle",
+        "atomizer",
+        "nebulizer",
+        "humidifier",
+        "vaporizer",
+        "steamer",
+        "pressure washer",
+        "steam cleaner",
+        "carpet cleaner",
+        "upholstery cleaner",
+        "floor scrubber",
+        "power washer",
+        "gutter cleaner",
+        "downspout cleaner",
+        "drain snake",
+        "plumber's snake",
+        "toilet auger",
+        "closet auger",
+        "sink plunger",
+        "toilet plunger",
+        "force cup",
+        "plumber's helper",
+        "pump",
+        "siphon",
+        "hose",
+        "watering can",
+        "sprinkler",
+        "shower head",
+        "spray nozzle",
+        "mist nozzle",
+        "atomizer",
+        "nebulizer",
+        "humidifier",
+        "vaporizer",
+        "steamer",
+        "pressure washer",
+        "steam cleaner",
+        "carpet cleaner",
+        "upholstery cleaner",
+        "floor scrubber",
+        "power washer",
+        "gutter cleaner",
+        "downspout cleaner",
+        "drain snake",
+        "plumber's snake",
+        "toilet auger",
+        "closet auger",
+        "sink plunger",
+        "toilet plunger",
+        "force cup",
+        "plumber's helper",
+        "pump",
+        "siphon",
+        "hose",
+        "soaker hose",
+        "drip irrigation",
+        "mister",
+        "fogger",
+        "cooling fan",
+        "mist fan",
+        "air conditioner",
+        "evaporative cooler",
+        "swamp cooler"
+      ]
+    },
+    "insulated handle": {
+      "POSSESSED_BY": [
+        "screwdriver",
+        "nut driver",
+        "socket wrench",
+        "ratchet wrench",
+        "spanner",
+        "adjustable wrench",
+        "monkey wrench",
+        "pipe wrench",
+        "strap wrench",
+        "chain wrench",
+        "oil filter wrench",
+        "basin wrench",
+        "faucet wrench",
+        "taps",
+        "dies",
+        "re threading tool",
+        "tap wrench",
+        "die stock",
+        "drill",
+        "drill bit",
+        "countersink",
+        "reamer",
+        "hole saw",
+        "auger",
+        "gimlet",
+        "brace",
+        "bit brace",
+        "corkscrew",
+        "bottle opener",
+        "can opener",
+        "jar opener",
+        "lid remover",
+        "cap opener"
+      ]
+    },
+    "airflow": {
+      "POSSESSED_BY": [
+        "fan",
+        "blower",
+        "hair dryer",
+        "heat gun",
+        "air mover",
+        "ventilator",
+        "exhaust fan",
+        "ceiling fan",
+        "oscillating fan",
+        "box fan",
+        "pedestal fan",
+        "tower fan",
+        "window fan",
+        "portable fan",
+        "industrial fan",
+        "high volume fan",
+        "low speed fan",
+        "variable speed fan",
+        "multi-speed fan",
+        "three-speed fan",
+        "five-speed fan",
+        "digital fan",
+        "remote control fan",
+        "smart fan",
+        "connected fan",
+        "programmable fan",
+        "timer fan",
+        "schedule fan",
+        "sensor fan",
+        "motion fan",
+        "occupancy fan",
+        "vacancy fan",
+        "daylight sensor fan",
+        "twilight sensor fan",
+        "photocell fan",
+        "battery fan",
+        "rechargeable fan",
+        "solar fan",
+        "USB fan",
+        "DC fan",
+        "AC fan",
+        "brushless fan",
+        "bearing fan",
+        "ball bearing fan",
+        "sleeve bearing fan",
+        "fluid bearing fan",
+        "magnetic bearing fan",
+        "air bearing fan",
+        "hydrodynamic bearing fan",
+        "hybrid bearing fan"
+      ]
+    },
+    "clothespin": {
+      "POSSESSED_BY": [
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin",
+        "clothespin"
+      ]
+    },
+    "cylindrical surface": {
+      "POSSESSED_BY": [
+        "rolling pin",
+        "paint roller",
+        "varnish roller",
+        "stain roller",
+        "sealer roller",
+        "primer roller",
+        "finish roller",
+        "texture roller",
+        "pattern roller",
+        "design roller",
+        "graphic roller",
+        "illustration roller",
+        "lettering roller",
+        "calligraphy roller",
+        "writing roller",
+        "drawing roller",
+        "sketching roller",
+        "painting roller",
+        "watercolor roller",
+        "oil roller",
+        "acrylic roller",
+        "tempera roller",
+        "gouache roller",
+        "ink roller",
+        "dye roller",
+        "pigment roller",
+        "color roller",
+        "tone roller",
+        "shade roller",
+        "highlight roller",
+        "shadow roller",
+        "glow roller",
+        "reflection roller",
+        "transparency roller",
+        "opacity roller",
+        "blend roller",
+        "mix roller",
+        "smudge roller",
+        "smear roller",
+        "stipple roller",
+        "sponge roller",
+        "foam roller",
+        "fiber roller",
+        "bristle roller",
+        "horsehair roller",
+        "boar roller",
+        "badger roller",
+        "sable roller",
+        "ox hair roller",
+        "camel roller",
+        "goat roller",
+        "sheep roller",
+        "rabbit roller",
+        "squirrel roller",
+        "chipmunk roller",
+        "beaver roller",
+        "mink roller",
+        "weasel roller",
+        "ferret roller",
+        "otter roller",
+        "seal roller",
+        "walrus roller",
+        "polar roller",
+        "grizzly roller",
+        "black bear roller",
+        "brown roller",
+        "white roller",
+        "gray roller",
+        "red roller",
+        "orange roller",
+        "yellow roller",
+        "green roller",
+        "blue roller",
+        "violet roller",
+        "purple roller",
+        "pink roller",
+        "magenta roller",
+        "cyan roller",
+        "teal roller",
+        "turquoise roller",
+        "aqua roller",
+        "coral roller",
+        "salmon roller",
+        "peach roller",
+        "apricot roller",
+        "mango roller",
+        "lime roller",
+        "lemon roller",
+        "golden roller",
+        "silver roller",
+        "bronze roller",
+        "copper roller",
+        "brass roller",
+        "steel roller",
+        "iron roller",
+        "tin roller",
+        "lead roller",
+        "zinc roller",
+        "nickel roller",
+        "chrome roller",
+        "titanium roller",
+        "aluminum roller",
+        "magnesium roller",
+        "calcium roller",
+        "sodium roller",
+        "potassium roller"
+      ]
+    },
+    "thin wire": {
+      "POSSESSED_BY": [
+        "needle",
+        "thread",
+        "wire",
+        "cable",
+        "rope",
+        "string",
+        "twine",
+        "cord",
+        "line",
+        "chain",
+        "strap",
+        "belt",
+        "harness",
+        "sling",
+        "tether",
+        "leash",
+        "lead",
+        "rein",
+        "bridle",
+        "halter",
+        "hobble",
+        "hitch",
+        "knot",
+        "lashing",
+        "binding",
+        "wrap",
+        "coil",
+        "spool",
+        "reel",
+        "drum",
+        "spindle",
+        "wire",
+        "strand",
+        "filament",
+        "fiber",
+        "thread",
+        "yarn",
+        "string",
+        "cord",
+        "twine",
+        "rope",
+        "cable",
+        "chain",
+        "wire rope",
+        "steel cable",
+        "synthetic rope",
+        "natural rope",
+        "manila rope",
+        "hemp rope",
+        "sisal rope",
+        "jute rope",
+        "cotton rope",
+        "nylon rope",
+        "polyester rope",
+        "polypropylene rope",
+        "polyethylene rope",
+        "aramid rope",
+        "kevlar rope",
+        "dyneema rope",
+        "spectra rope",
+        "vectran rope",
+        "technora rope",
+        "pbo rope",
+        "zylon rope",
+        "carbon rope",
+        "glass rope",
+        "ceramic rope",
+        "aluminum rope",
+        "copper rope",
+        "bronze rope",
+        "brass rope",
+        "steel rope",
+        "iron rope",
+        "titanium rope",
+        "nickel rope",
+        "chrome rope",
+        "silver rope",
+        "gold rope",
+        "platinum rope",
+        "palladium rope",
+        "rhodium rope",
+        "ruthenium rope",
+        "osmium rope",
+        "iridium rope",
+        "rhenium rope",
+        "molybdenum rope",
+        "tungsten rope",
+        "vanadium rope",
+        "niobium rope",
+        "zirconium rope",
+        "hafnium rope",
+        "tantalum rope",
+        "lead rope",
+        "tin rope",
+        "zinc rope",
+        "magnesium rope",
+        "calcium rope",
+        "sodium rope",
+        "potassium rope"
+      ]
+    },
+    "flexible sheet": {
+      "POSSESSED_BY": [
+        "cloth",
+        "fabric",
+        "textile",
+        "fiber",
+        "yarn",
+        "thread",
+        "string",
+        "cord",
+        "twine",
+        "rope",
+        "cable",
+        "wire",
+        "foil",
+        "film",
+        "membrane",
+        "sheet",
+        "cover",
+        "wrap",
+        "blanket",
+        "tarp",
+        "tarpaulin",
+        "canvas",
+        "denim",
+        "cotton",
+        "linen",
+        "wool",
+        "silk",
+        "rayon",
+        "polyester",
+        "nylon",
+        "acrylic",
+        "spandex",
+        "lycra",
+        "elastic",
+        "rubber",
+        "latex",
+        "vinyl",
+        "pleather",
+        "leather",
+        "suede",
+        "velvet",
+        "corduroy",
+        "flannel",
+        "fleece",
+        "polar fleece",
+        "microfiber",
+        "bamboo",
+        "hemp",
+        "jute",
+        "sisal",
+        "coir",
+        "coconut",
+        "flax",
+        "linen",
+        "wool",
+        "cashmere",
+        "angora",
+        "mohair",
+        "alpaca",
+        "llama",
+        "camel",
+        "yak",
+        "rabbit",
+        "chinchilla",
+        "beaver",
+        "muskrat",
+        "nutria",
+        "possum",
+        "fur",
+        "hair",
+        "bristle",
+        "feather",
+        "down",
+        "quill",
+        "straw",
+        "hay",
+        "grass",
+        "sedge",
+        "rush",
+        "reed",
+        "bamboo",
+        "rattan",
+        "wicker",
+        "willow",
+        "vines",
+        "roots",
+        "bark",
+        "wood",
+        "cellulose",
+        "pectin",
+        "lignin",
+        "silk",
+        "spider silk",
+        "synthetic fiber"
+      ]
+    },
+    "adhesive backing": {
+      "POSSESSED_BY": [
+        "tape",
+        "sticker",
+        "label",
+        "patch",
+        "bandage",
+        "plaster",
+        "moleskin",
+        "duct tape",
+        "electrical tape",
+        "masking tape",
+        "painter's tape",
+        "packing tape",
+        "scotch tape",
+        "double-sided tape",
+        "mounting tape",
+        "foam tape",
+        "felt tape",
+        "grip tape",
+        "anti-slip tape",
+        "reflective tape",
+        "glow tape",
+        "luminous tape",
+        "safety tape",
+        "warning tape",
+        "barricade tape",
+        "crime scene tape",
+        "caution tape",
+        "danger tape",
+        "fire tape",
+        "chemical tape",
+        "biological tape",
+        "radiation tape",
+        "magnetic tape",
+        "thermal tape",
+        "conductive tape",
+        "insulating tape",
+        "corrosion-resistant tape",
+        "weather-resistant tape",
+        "water-resistant tape",
+        "oil-resistant tape",
+        "grease-resistant tape",
+        "heat-resistant tape",
+        "cold-resistant tape",
+        "UV-resistant tape",
+        "abrasion-resistant tape",
+        "scratch-resistant tape",
+        "scuff-resistant tape",
+        "scrape-resistant tape",
+        "bump-resistant tape",
+        "impact-resistant tape",
+        "shock-resistant tape",
+        "vibration-resistant tape",
+        "stretch tape",
+        "flexible tape",
+        "rigid tape",
+        "thin tape",
+        "thick tape",
+        "wide tape",
+        "narrow tape",
+        "long tape",
+        "short tape",
+        "roll tape",
+        "dispenser tape",
+        "cutting tape",
+        "tearing tape",
+        "peeling tape",
+        "applying tape",
+        "removing tape",
+        "repositioning tape",
+        "reuse tape",
+        "recycle tape"
+      ]
+    },
+    "pivot point": {
+      "POSSESSED_BY": [
+        "scale",
+        "balance",
+        "weighing scale",
+        "bathroom scale",
+        "kitchen scale",
+        "jewelry scale",
+        "fishing scale",
+        "luggage scale",
+        "postal scale",
+        "medical scale",
+        "baby scale",
+        "pet scale",
+        "food scale",
+        "portion scale",
+        "ingredient scale",
+        "recipe scale",
+        "diet scale",
+        "fitness scale",
+        "weight loss scale",
+        "muscle scale",
+        "fat scale",
+        "BMI scale",
+        "bone scale",
+        "water scale",
+        "metabolic scale",
+        "body composition scale",
+        "smart scale",
+        "connected scale",
+        "bluetooth scale",
+        "wifi scale",
+        "app scale",
+        "digital scale",
+        "analog scale",
+        "mechanical scale",
+        "electronic scale",
+        "precision scale",
+        "accuracy scale",
+        "calibration scale",
+        "tare scale",
+        "zero scale",
+        "peak scale",
+        "hold scale",
+        "auto-off scale",
+        "low battery scale",
+        "overload scale",
+        "error scale",
+        "display scale",
+        "screen scale",
+        "backlit scale",
+        "large digit scale",
+        "small digit scale",
+        "metric scale",
+        "imperial scale",
+        "unit scale",
+        "kg scale",
+        "g scale",
+        "lb scale",
+        "oz scale",
+        "stone scale",
+        "pound scale",
+        "ounce scale",
+        "ton scale",
+        "gram scale",
+        "milligram scale",
+        "microgram scale",
+        "nanogram scale",
+        "picogram scale",
+        "femtogram scale",
+        "attogram scale",
+        "zeptogram scale",
+        "yoctogram scale"
+      ]
+    },
+    "pointer": {
+      "POSSESSED_BY": [
+        "scale",
+        "balance",
+        "weighing scale",
+        "bathroom scale",
+        "kitchen scale",
+        "jewelry scale",
+        "fishing scale",
+        "luggage scale",
+        "postal scale",
+        "medical scale",
+        "baby scale",
+        "pet scale",
+        "food scale",
+        "portion scale",
+        "ingredient scale",
+        "recipe scale",
+        "diet scale",
+        "fitness scale",
+        "weight loss scale",
+        "muscle scale",
+        "fat scale",
+        "BMI scale",
+        "bone scale",
+        "water scale",
+        "metabolic scale",
+        "body composition scale",
+        "smart scale",
+        "connected scale",
+        "bluetooth scale",
+        "wifi scale",
+        "app scale",
+        "digital scale",
+        "analog scale",
+        "mechanical scale",
+        "electronic scale",
+        "precision scale",
+        "accuracy scale",
+        "calibration scale",
+        "tare scale",
+        "zero scale",
+        "peak scale",
+        "hold scale",
+        "auto-off scale",
+        "low battery scale",
+        "overload scale",
+        "error scale",
+        "display scale",
+        "screen scale",
+        "backlit scale",
+        "large digit scale",
+        "small digit scale",
+        "metric scale",
+        "imperial scale",
+        "unit scale",
+        "kg scale",
+        "g scale",
+        "lb scale",
+        "oz scale",
+        "stone scale",
+        "pound scale",
+        "ounce scale",
+        "ton scale",
+        "gram scale",
+        "milligram scale",
+        "microgram scale",
+        "nanogram scale",
+        "picogram scale",
+        "femtogram scale",
+        "attogram scale",
+        "zeptogram scale",
+        "yoctogram scale"
+      ]
+    },
+    "decanter": {
+      "POSSESSED_BY": [
+        "decanter",
+        "wine decanter",
+        "whiskey decanter",
+        "brandy decanter",
+        "cognac decanter",
+        "armagnac decanter",
+        "calvados decanter",
+        "bourbon decanter",
+        "scotch decanter",
+        "rye decanter",
+        "tennessee decanter",
+        "canadian decanter",
+        "irish decanter",
+        "japanese decanter",
+        "australian decanter",
+        "chilean decanter",
+        "argentinian decanter",
+        "south african decanter",
+        "new zealand decanter",
+        "german decanter",
+        "french decanter",
+        "italian decanter",
+        "spanish decanter",
+        "portuguese decanter",
+        "greek decanter",
+        "israeli decanter",
+        "lebanese decanter",
+        "turkish decanter",
+        "mexican decanter",
+        "american decanter",
+        "caribbean decanter",
+        "jamaican decanter",
+        "cuban decanter",
+        "puerto rican decanter",
+        "dominican decanter",
+        "haitian decanter",
+        "trinidadian decanter",
+        "barbadian decanter",
+        "bahamian decanter",
+        "bermudian decanter",
+        "panamanian decanter",
+        "costa rican decanter",
+        "nicaraguan decanter",
+        "honduran decanter",
+        "guatemalan decanter",
+        "belizean decanter",
+        "salvadoran decanter",
+        "venezuelan decanter",
+        "colombian decanter",
+        "ecuadorian decanter",
+        "peruvian decanter",
+        "bolivian decanter",
+        "chilean decanter",
+        "argentine decanter",
+        "uruguayan decanter",
+        "paraguayan decanter",
+        "brazilian decanter"
+      ]
+    },
+    "glass vessel": {
+      "POSSESSED_BY": [
+        "wine glass",
+        "champagne flute",
+        "coupe",
+        "tumbler",
+        "snifter",
+        "rocks glass",
+        "highball glass",
+        "collins glass",
+        "mason jar",
+        "canning jar",
+        "pickle jar",
+        "jam jar",
+        "honey jar",
+        "candy jar",
+        "cookie jar",
+        "spice jar",
+        "herb jar",
+        "tea jar",
+        "coffee jar",
+        "sugar bowl",
+        "salt shaker",
+        "pepper shaker",
+        "soap dispenser",
+        "lotion dispenser",
+        "oil dispenser",
+        "vinegar dispenser",
+        "sauce dispenser",
+        "syrup dispenser",
+        "honey dispenser",
+        "jam dispenser",
+        "mustard dispenser",
+        "ketchup dispenser",
+        "mayo dispenser",
+        "relish dispenser",
+        "pickle dispenser",
+        "olive dispenser",
+        "marinated mushroom dispenser",
+        "artichoke heart dispenser",
+        "sun-dried tomato dispenser",
+        "roasted pepper dispenser",
+        "capers dispenser",
+        "tapenade dispenser",
+        "pesto dispenser",
+        "hummus dispenser",
+        "baba ghanoush dispenser",
+        "tzatziki dispenser",
+        "taramasalata dispenser",
+        "muhammara dispenser",
+        "za'atar dispenser",
+        "dukkah dispenser",
+        "zaatar dispenser"
+      ]
+    },
+    "spread tip": {
+      "POSSESSED_BY": [
+        "spatula",
+        "palette knife",
+        "butter knife",
+        "popsicle stick",
+        "ruler",
+        "level",
+        "straightedge",
+        "trowel",
+        "plaster trowel",
+        "brick trowel",
+        "mortar trowel",
+        "pointing trowel",
+        "gauging trowel",
+        "margin trowel",
+        "notched trowel",
+        "grout float",
+        "rubber float",
+        "darby",
+        "plasterer's hawk",
+        "corner trowel",
+        "dutch trowel",
+        "garden trowel",
+        "transplant trowel",
+        "bulb planter",
+        "dibble",
+        "dibber",
+        "widow-maker",
+        "clearing hook",
+        "sickle",
+        "scythe",
+        "cradle scythe",
+        "hay knife",
+        "manure shovel",
+        "grain shovel",
+        "scoop shovel",
+        "square shovel",
+        "round shovel",
+        "pointed shovel",
+        "ditching shovel",
+        "trenching shovel",
+        "spade",
+        "edging spade",
+        "irrigation shovel",
+        "post hole digger",
+        "clamshell digger",
+        "auger",
+        "earth drill",
+        "power auger",
+        "plasterer's hawk",
+        "corner trowel",
+        "dutch trowel",
+        "garden trowel",
+        "transplant trowel",
+        "bulb planter",
+        "dibble",
+        "dibber",
+        "widow-maker",
+        "clearing hook",
+        "sickle",
+        "scythe",
+        "cradle scythe",
+        "hay knife",
+        "manure shovel",
+        "grain shovel",
+        "scoop shovel",
+        "square shovel",
+        "round shovel",
+        "pointed shovel",
+        "ditching shovel",
+        "trenching shovel"
+      ]
+    },
+    "sharpness": {
+      "POSSESSED_BY": [
+        "knife"
+      ]
+    },
+    "force": {
+      "POSSESSED_BY": [
+        "hand"
+      ]
+    }
+  }
+}
