@@ -1,0 +1,24 @@
+{
+  "image_id": "16",
+  "source_image": "/home/aryan-s/Documents/SEM 5/RM_project/sample_photos/extinguish_firee/16.jpg",
+  "prompt": "Identify only the visible items that can be used to cool or extinguish fire.",
+  "qwen_raw_response": "trash cans",
+  "qwen_object_queries": [
+    "trash cans"
+  ],
+  "florence_detections": [
+    {
+      "query": "trash cans",
+      "label": "trash cans",
+      "bbox": [
+        714.0,
+        160.0,
+        796.0,
+        261.0
+      ]
+    }
+  ],
+  "qwen_stage_seconds": 121.599,
+  "florence_stage_seconds": 2.486,
+  "boxed_image": "/home/aryan-s/Documents/SEM 5/RM_project/output/anshdeep_extinguish_firee_first_100/boxed_images/16_boxed.jpg"
+}

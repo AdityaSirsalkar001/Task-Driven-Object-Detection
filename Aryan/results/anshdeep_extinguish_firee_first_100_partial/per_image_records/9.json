@@ -1,0 +1,55 @@
+{
+  "image_id": "9",
+  "source_image": "/home/aryan-s/Documents/SEM 5/RM_project/sample_photos/extinguish_firee/9.jpg",
+  "prompt": "Identify only the visible items that can be used to cool or extinguish fire.",
+  "qwen_raw_response": "bucket, hose",
+  "qwen_object_queries": [
+    "bucket",
+    "hose"
+  ],
+  "florence_detections": [
+    {
+      "query": "bucket",
+      "label": "bucket",
+      "bbox": [
+        414.0,
+        493.0,
+        535.0,
+        599.0
+      ]
+    },
+    {
+      "query": "bucket",
+      "label": "bucket",
+      "bbox": [
+        190.0,
+        328.0,
+        279.0,
+        418.0
+      ]
+    },
+    {
+      "query": "bucket",
+      "label": "bucket",
+      "bbox": [
+        289.0,
+        174.0,
+        349.0,
+        228.0
+      ]
+    },
+    {
+      "query": "hose",
+      "label": "hose",
+      "bbox": [
+        470.0,
+        401.0,
+        582.0,
+        549.0
+      ]
+    }
+  ],
+  "qwen_stage_seconds": 147.738,
+  "florence_stage_seconds": 5.773,
+  "boxed_image": "/home/aryan-s/Documents/SEM 5/RM_project/output/anshdeep_extinguish_firee_first_100/boxed_images/9_boxed.jpg"
+}

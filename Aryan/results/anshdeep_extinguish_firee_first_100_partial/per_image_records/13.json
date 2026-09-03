@@ -1,0 +1,24 @@
+{
+  "image_id": "13",
+  "source_image": "/home/aryan-s/Documents/SEM 5/RM_project/sample_photos/extinguish_firee/13.jpg",
+  "prompt": "Identify only the visible items that can be used to cool or extinguish fire.",
+  "qwen_raw_response": "bucket",
+  "qwen_object_queries": [
+    "bucket"
+  ],
+  "florence_detections": [
+    {
+      "query": "bucket",
+      "label": "bucket",
+      "bbox": [
+        309.0,
+        305.0,
+        464.0,
+        474.0
+      ]
+    }
+  ],
+  "qwen_stage_seconds": 163.504,
+  "florence_stage_seconds": 4.178,
+  "boxed_image": "/home/aryan-s/Documents/SEM 5/RM_project/output/anshdeep_extinguish_firee_first_100/boxed_images/13_boxed.jpg"
+}

@@ -1,0 +1,35 @@
+{
+  "image_id": "15",
+  "source_image": "/home/aryan-s/Documents/SEM 5/RM_project/sample_photos/extinguish_firee/15.jpg",
+  "prompt": "Identify only the visible items that can be used to cool or extinguish fire.",
+  "qwen_raw_response": "fire hydrant, fire extinguisher",
+  "qwen_object_queries": [
+    "fire hydrant",
+    "fire extinguisher"
+  ],
+  "florence_detections": [
+    {
+      "query": "fire hydrant",
+      "label": "fire hydrant",
+      "bbox": [
+        196.0,
+        465.0,
+        204.0,
+        487.0
+      ]
+    },
+    {
+      "query": "fire extinguisher",
+      "label": "fire extinguisher",
+      "bbox": [
+        196.0,
+        464.0,
+        204.0,
+        487.0
+      ]
+    }
+  ],
+  "qwen_stage_seconds": 89.503,
+  "florence_stage_seconds": 5.2,
+  "boxed_image": "/home/aryan-s/Documents/SEM 5/RM_project/output/anshdeep_extinguish_firee_first_100/boxed_images/15_boxed.jpg"
+}

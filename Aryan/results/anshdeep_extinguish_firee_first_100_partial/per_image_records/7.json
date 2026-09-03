@@ -1,0 +1,86 @@
+{
+  "image_id": "7",
+  "source_image": "/home/aryan-s/Documents/SEM 5/RM_project/sample_photos/extinguish_firee/7.jpg",
+  "prompt": "Identify only the visible items that can be used to cool or extinguish fire.",
+  "qwen_raw_response": "bucket, cup, mug",
+  "qwen_object_queries": [
+    "bucket",
+    "cup",
+    "mug"
+  ],
+  "florence_detections": [
+    {
+      "query": "bucket",
+      "label": "bucket",
+      "bbox": [
+        6.0,
+        574.0,
+        124.0,
+        712.0
+      ]
+    },
+    {
+      "query": "bucket",
+      "label": "bucket",
+      "bbox": [
+        126.0,
+        593.0,
+        224.0,
+        710.0
+      ]
+    },
+    {
+      "query": "cup",
+      "label": "cup",
+      "bbox": [
+        191.0,
+        737.0,
+        222.0,
+        798.0
+      ]
+    },
+    {
+      "query": "cup",
+      "label": "cup",
+      "bbox": [
+        55.0,
+        723.0,
+        84.0,
+        774.0
+      ]
+    },
+    {
+      "query": "cup",
+      "label": "cup",
+      "bbox": [
+        202.0,
+        706.0,
+        227.0,
+        756.0
+      ]
+    },
+    {
+      "query": "cup",
+      "label": "cup",
+      "bbox": [
+        20.0,
+        698.0,
+        44.0,
+        738.0
+      ]
+    },
+    {
+      "query": "mug",
+      "label": "mug",
+      "bbox": [
+        253.0,
+        646.0,
+        315.0,
+        714.0
+      ]
+    }
+  ],
+  "qwen_stage_seconds": 132.979,
+  "florence_stage_seconds": 7.977,
+  "boxed_image": "/home/aryan-s/Documents/SEM 5/RM_project/output/anshdeep_extinguish_firee_first_100/boxed_images/7_boxed.jpg"
+}
