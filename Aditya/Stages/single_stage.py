@@ -1,10 +1,16 @@
-import torch
+import os
 from pathlib import Path
+
+MODEL_BASE_DIR = "/media/anshdeep-singh/Aditya/HuggingFaceModels"
+os.environ["HF_HOME"] = MODEL_BASE_DIR
+os.environ["HF_HUB_OFFLINE"] = "1"
+os.environ["TRANSFORMERS_OFFLINE"] = "1"
+
+import torch
 from PIL import Image, ImageDraw
-from transformers import AutoProcessor, AutoModelForMultimodalLM
+from transformers import AutoProcessor, AutoModelForMultimodalLM, BitsAndBytesConfig
 from qwen_vl_utils import process_vision_info
 import re
-import os
 import json
 
 def extract_box_data(text, img_w, img_h):
@@ -79,7 +85,7 @@ def clean_label(label):
     
     return label.strip()
 
-def analyze_image(image_path, task, model, processor):
+def analyze_image(image_path, task, model, processor, device):
     img = Image.open(image_path)
     width, height = img.size
     
@@ -95,16 +101,17 @@ def analyze_image(image_path, task, model, processor):
     
     text_prompt = processor.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
     image_inputs, video_inputs = process_vision_info(messages)
+    
+    # Send inputs to the determined device
     inputs = processor(
         text=[text_prompt], images=image_inputs, videos=video_inputs,
         padding=True, return_tensors="pt"
-    ).to(model.device)
+    ).to(device)
     
     outputs = model.generate(**inputs, max_new_tokens=150, do_sample=False)
     generated_ids = outputs[0][inputs["input_ids"].shape[-1]:]
     raw_response = processor.decode(generated_ids, skip_special_tokens=False)
     
-    # Print the raw response to debug what the model actually says
     print(f"    Raw response: {raw_response.strip()}")
     
     detection = extract_box_data(raw_response, width, height)
@@ -116,17 +123,13 @@ def analyze_image(image_path, task, model, processor):
             print(f"    -> Warning: Model returned generic term. See raw response.")
         
         print(f"    -> Detected: {label_clean}")
-        # Return the coordinates along with the label so we can draw them in the main loop
         return True, label_clean, (xmin, ymin, xmax, ymax)
     else:
         print(f"    -> No suitable object found")
         return False, None, None
 
-def process_all_images(task, model, processor):
-    project_root = Path(__file__).parent.parent.parent.parent
-    input_dir = project_root / "Input_Images"
-    
-    # Define and create output directory based on your hierarchical folder structure
+def process_all_images(task, model, processor, project_root, device):
+    input_dir = project_root / "Anshdeep_Singh" / "Open_Parcel"
     output_dir = project_root / "Output_Images" / "Aditya" / "Stages"
     output_dir.mkdir(parents=True, exist_ok=True)
     
@@ -154,25 +157,23 @@ def process_all_images(task, model, processor):
     
     print(f"\n[*] Found {len(images)} images to process")
     print(f"[*] Task: '{task}'")
-    print(f"[*] Processing all images...\n")
+    print(f"[*] Processing all images on {device.upper()}...\n")
     
     processed_count = 0
     detected_objects = []
     
     for idx, img_path in enumerate(images, 1):
         print(f"\n[*] Processing image {idx}/{len(images)}: {img_path.name}")
-        success, detected_label, bbox = analyze_image(img_path, task, model, processor)
+        success, detected_label, bbox = analyze_image(img_path, task, model, processor, device)
         if success:
             processed_count += 1
             if detected_label:
                 detected_objects.append((img_path.name, detected_label))
                 
-            # Open image, draw bounding box, and save to Output_Images/Aditya/Stages
             img = Image.open(img_path).convert("RGB")
             draw = ImageDraw.Draw(img)
             xmin, ymin, xmax, ymax = bbox
             
-            # Draw rectangle and label
             draw.rectangle([xmin, ymin, xmax, ymax], outline="red", width=3)
             draw.text((xmin, max(0, ymin - 15)), detected_label, fill="red")
             
@@ -192,11 +193,53 @@ def process_all_images(task, model, processor):
     print("="*50)
 
 if __name__ == "__main__":
+    project_root = Path(__file__).parent.parent.parent
+    input_dir = project_root / "Anshdeep_Singh" / "Open_Parcel"
+    
+    print(project_root)
+    
+    if not input_dir.exists():
+        print(f"Input_Images directory not found at: {input_dir}")
+        exit()
+
+    print(input_dir)
     model_id = "Qwen/Qwen2.5-VL-3B-Instruct"
     
+    # --- Device Selection Logic ---
+    if torch.cuda.is_available():
+        device = "cuda"
+        print(f"\n[INFO] CUDA is available. Loading model onto GPU: {torch.cuda.get_device_name(0)}")
+    else:
+        device = "cpu"
+        print("\n[INFO] CUDA is NOT available. Falling back to CPU. (Note: 4-bit quantization requires GPU, so this might run slowly or fail on CPU)")
+
     print("Loading model... This may take a moment.")
-    processor = AutoProcessor.from_pretrained(model_id)
-    model = AutoModelForMultimodalLM.from_pretrained(model_id, device_map="auto", dtype=torch.bfloat16)
+    
+    processor = AutoProcessor.from_pretrained(model_id, local_files_only=True)
+    
+    # 4-bit quantization is currently only supported on GPUs via bitsandbytes
+    if device == "cuda":
+        quantization_config = BitsAndBytesConfig(
+            load_in_4bit=True,
+            bnb_4bit_quant_type="nf4",               
+            bnb_4bit_use_double_quant=True,          
+            bnb_4bit_compute_dtype=torch.bfloat16    
+        )
+        model = AutoModelForMultimodalLM.from_pretrained(
+            model_id, 
+            device_map={"": 0}, # Explicitly map entirely to GPU 0 
+            quantization_config=quantization_config,
+            local_files_only=True
+        )
+    else:
+        # Fallback for CPU (BitsAndBytes 4-bit doesn't work on CPU)
+        model = AutoModelForMultimodalLM.from_pretrained(
+            model_id, 
+            device_map={"": "cpu"},
+            torch_dtype=torch.float32, 
+            local_files_only=True
+        )
+    
     print("Model loaded successfully!")
     
     task = input("Enter your task (e.g., 'open a parcel', 'cut paper', 'hammer nail'): ")
@@ -204,4 +247,4 @@ if __name__ == "__main__":
         print("No task provided. Exiting.")
         exit(1)
     
-    process_all_images(task, model, processor)
+    process_all_images(task, model, processor, project_root, device)
