@@ -1,10 +1,5 @@
 import os
-
-MODEL_BASE_DIR = os.path.expanduser("~/Documents/RM/Models")
-os.environ["HF_HOME"] = MODEL_BASE_DIR
-os.environ["HF_HUB_OFFLINE"] = "1"
-os.environ["TRANSFORMERS_OFFLINE"] = "1"
-
+import sys
 from pathlib import Path
 import json
 import re
@@ -13,67 +8,20 @@ from PIL import Image, ImageDraw
 from transformers import AutoProcessor, AutoModelForMultimodalLM, BitsAndBytesConfig
 from qwen_vl_utils import process_vision_info
 
+# [PATH CHANGE] Resolve Repo Root (RM/) dynamically based on file location
+# This script is in RM/Aditya/Stages/single_stage.py (3 levels deep)
+REPO_ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.append(str(REPO_ROOT))
 
-target_dir = "~/Documents/RM/Input/"
+# [PATH CHANGE] Import the shared handlers from the repo root
+import input_handler
+import output_handler
 
-def select_directories():
-    """
-    Lists subdirectories in target_dir, asks the user for Single or Range mode,
-    and returns a list of selected absolute paths.
-    """
-    target_path = Path(target_dir).expanduser()
-    
-    if not target_path.exists() or not target_path.is_dir():
-        print(f"Error: '{target_path}' is not a valid directory.")
-        return None
-    
-    subdirs = sorted([d for d in target_path.iterdir() if d.is_dir()])
-    
-    if not subdirs:
-        print(f"No subdirectories found in '{target_path}'.")
-        return None
-    
-    print(f"\nDirectories in {target_path}:")
-    for index, subdir in enumerate(subdirs, start=1):
-        print(f"  [{index}] {subdir.name}")
-    
-    while True:
-        mode = input("\nDo you want to process a [S]ingle directory or a [R]ange of directories? (S/R): ").strip().upper()
-        
-        if mode == 'S':
-            try:
-                choice = input("\nEnter the number of the directory you want to select: ")
-                if not choice.strip():
-                    print("Selection cancelled.")
-                    return None
-                choice_idx = int(choice)
-                if 1 <= choice_idx <= len(subdirs):
-                    return [subdirs[choice_idx - 1].resolve()]
-                else:
-                    print(f"Please enter a number between 1 and {len(subdirs)}.")
-            except ValueError:
-                print("Invalid input. Please enter a valid integer.")
-                
-        elif mode == 'R':
-            try:
-                start_input = input(f"Enter START directory index (1-{len(subdirs)}): ").strip()
-                end_input = input(f"Enter END directory index (1-{len(subdirs)}): ").strip()
-                
-                if not start_input or not end_input:
-                    print("Selection cancelled.")
-                    return None
-                    
-                start_idx = int(start_input)
-                end_idx = int(end_input)
-                
-                if 1 <= start_idx <= end_idx <= len(subdirs):
-                    return [d.resolve() for d in subdirs[start_idx - 1 : end_idx]]
-                else:
-                    print(f"Invalid range. Ensure start <= end and both are between 1 and {len(subdirs)}.")
-            except ValueError:
-                print("Invalid input. Please enter valid integers.")
-        else:
-            print("Invalid choice. Please enter 'S' or 'R'.")
+# [PATH CHANGE] Update model base directory to use the shared repo Models folder
+MODEL_BASE_DIR = str(REPO_ROOT / "Models")
+os.environ["HF_HOME"] = MODEL_BASE_DIR
+os.environ["HF_HUB_OFFLINE"] = "1"
+os.environ["TRANSFORMERS_OFFLINE"] = "1"
 
 
 def extract_box_data(text, img_w, img_h):
@@ -184,9 +132,16 @@ def analyze_image(image_path, task, model, processor, device):
         print(f"    -> No suitable object found")
         return False, None, None
 
-def process_selected_images(task, model, processor, input_dir, project_root, device, start_idx, end_idx):
-    output_dir = project_root / "Output_Images" / "Single_Stage_Pipeline" / input_dir.name
-    output_dir.mkdir(parents=True, exist_ok=True)
+def process_selected_images(task, model, processor, input_dir, device, start_idx, end_idx):
+    
+    # [PATH CHANGE] Dynamically fetch the output path via output_handler 
+    output_dir_str = output_handler.get_output_dir(
+        team_member="Aditya", 
+        module_name="Stages", 
+        user_query=task
+    )
+    output_dir = Path(output_dir_str)
+    print(f"[*] Output will be saved to: {output_dir}")
     
     valid_exts = {".jpg", ".jpeg", ".png", ".webp", ".bmp"}
     
@@ -251,7 +206,9 @@ def process_selected_images(task, model, processor, input_dir, project_root, dev
             
             save_path = output_dir / img_path.name
             img.save(save_path)
-            print(f"    -> Saved annotated image to: {save_path.relative_to(project_root)}")
+            
+            # [PATH CHANGE] Replaced project_root reference with REPO_ROOT for logging relative paths
+            print(f"    -> Saved annotated image to: {save_path.relative_to(REPO_ROOT)}")
     
     json_output_path = output_dir / "detections.json"
     with open(json_output_path, "w", encoding="utf-8") as f:
@@ -261,7 +218,7 @@ def process_selected_images(task, model, processor, input_dir, project_root, dev
     print(f"[*] Processing complete for {input_dir.name}! Found objects in {processed_count} images.")
     
     try:
-        rel_json_path = json_output_path.relative_to(project_root)
+        rel_json_path = json_output_path.relative_to(REPO_ROOT)
     except ValueError:
         rel_json_path = json_output_path
     print(f"[*] Saved JSON detection data to: {rel_json_path}")
@@ -270,34 +227,35 @@ def process_selected_images(task, model, processor, input_dir, project_root, dev
 
 if __name__ == "__main__":
     print(f"Using Model Directory: {MODEL_BASE_DIR}")
-    project_root = Path(__file__).parent.parent.parent
 
-    # 1. Select the directories
-    selected_dirs = select_directories()
-    if not selected_dirs:
+    # [PATH CHANGE] Fetch single input directory via input_handler
+    selected_dir_str = input_handler.select_directory()
+    if not selected_dir_str:
         print("No directories selected. Exiting.")
         exit()
+        
+    selected_dirs = [Path(selected_dir_str)]
 
-    print(f"\nSelected {len(selected_dirs)} directory/directories to process.")
+    print(f"\nSelected 1 directory to process.")
     
-    # 2. Ask for the image range globally ONCE
+    # 2. Ask for the image range globally
     print("\n--- Image Range Configuration ---")
     try:
-        start_input = input("Enter start image index for ALL directories (default 1): ").strip()
+        start_input = input("Enter start image index for the directory (default 1): ").strip()
         global_start = int(start_input) if start_input else 1
         
-        end_input = input("Enter end image index for ALL directories (default: maximum available in each dir): ").strip()
+        end_input = input("Enter end image index for the directory (default: maximum available): ").strip()
         global_end = int(end_input) if end_input else float('inf')
     except ValueError:
-        print("Invalid input. Using full range for all directories.")
+        print("Invalid input. Using full range.")
         global_start = 1
         global_end = float('inf')
 
-    # 3. Ask for the specific task for EACH directory
+    # 3. Ask for the specific task for the directory
     directory_configs = {}
     valid_exts = {".jpg", ".jpeg", ".png", ".webp", ".bmp"}
     
-    print("\n--- Task Configuration per Directory ---")
+    print("\n--- Task Configuration ---")
     for d in selected_dirs:
         existing_nums = []
         for p in d.iterdir():
@@ -313,7 +271,7 @@ if __name__ == "__main__":
             
         max_n = max(existing_nums)
         
-        # Clamp the indices safely just in case a folder has fewer images than your global_end
+        # Clamp the indices safely
         dir_start = max(1, global_start)
         dir_end = min(max_n, int(global_end)) if global_end != float('inf') else max_n
         
@@ -371,7 +329,6 @@ if __name__ == "__main__":
             model=model, 
             processor=processor, 
             input_dir=d, 
-            project_root=project_root, 
             device=device,
             start_idx=config["start"],
             end_idx=config["end"]

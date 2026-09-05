@@ -1,66 +1,75 @@
-# RM — Shared Pipeline Repo
+# 🧠 Task-Driven Object Detection on Embedded Devices
 
-This repo holds the Python pipeline code for **Aditya**, **Anshdeep**, and **Aryan**. It's cloned inside a larger local `Project_Root` folder that also holds the shared virtual environment and the images (which are **not** pushed to GitHub).
+> A Research Methodology (RM) course project on task-based object detection using a knowledge graph — built for resource-constrained, offline devices like the Raspberry Pi.
+
+This repository holds the Python pipeline code for **Aditya**, **Anshdeep_Singh**, and **Aryan**.
+
+**Structural note:** This repo folder is the absolute root of the project. Shared assets — the virtual environment, models, datasets, and input/output images — live directly inside this folder but are strictly **excluded from GitHub** via `.gitignore`.
 
 ---
-
 
 ## 📑 Contents
 
-- [About the Project](#0-about-the-project)
-- [Folder Structure](#1-folder-structure-project_root)
-- [First-Time Setup](#2-first-time-setup)
-- [Running Code](#3-running-code)
-- [Converting Your Own Code to Fit This Structure](#4-converting-your-own-code-to-fit-this-structure)
-- [Do's and Don'ts](#5-dos-and-donts)
-- [Team](#6-team)
+* [About the Project](#-0-about-the-project)
+* [Folder Structure](#-1-folder-structure-repo-root)
+* [First-Time Setup](#-2-first-time-setup)
+* [Running Code](#-3-running-code)
+* [Converting Your Own Code to Fit This Structure](#-4-converting-your-own-code-to-fit-this-structure)
+* [Do's and Don'ts](#-5-dos-and-donts)
+* [Troubleshooting](#-6-troubleshooting)
+* [Team](#-7-team)
+* [License](#-8-license)
 
 ---
 
-## 0. About the Project
-
-This is a **Research Methodology (RM) course project** on task-based object detection using a knowledge graph.
+## 📌 0. About the Project
 
 > **Problem statement:** How can we enable a resource-constrained device (like a Raspberry Pi) to intelligently identify objects in an image that can be used to perform a specific human task, using only local, offline AI models?
 
 **Why it matters**
-- Assistive technology — helping visually impaired individuals identify tools
-- Robotics — helping a robot choose the right tool for a job
-- Independent living / elderly care
-- Education — tool safety and object recognition
 
-**Approach:** each member explores their own combination of models/approaches under their own set of module folders, all standardized to the same input/output format (see below) so results are directly comparable. The exact knowledge graph design and the specific models used are still being finalized and may differ across members — check each member's own folder for their current implementation.
+* 🦯 Assistive technology — helping visually impaired individuals identify tools
+* 🤖 Robotics — helping a robot choose the right tool for a job
+* 🏡 Independent living / elderly care
+* 📚 Education — tool safety and object recognition
+
+**Approach:** Each member explores their own combination of models/approaches under their own set of module folders, all standardized to the same input/output format using shared repository-level handler scripts, so results are directly comparable.
 
 **Target deployment:** Raspberry Pi (resource-constrained, offline).
 
 ---
 
-## 1. Folder Structure (Project_Root)
+## 🗂️ 1. Folder Structure (Repo Root)
 
 ```mermaid
 flowchart TD
-    Root["Project_Root/"]
-    Root --> Venv[".venv/ — shared virtual env<br/><i>not in repo</i>"]
-    Root --> Input["Input_Images/ — all input images<br/><i>not in repo</i>"]
-    Root --> RM["RM/ — this GitHub repo (clone here)"]
-    Root --> Output["Output_Images/ — all outputs<br/><i>not in repo</i>"]
+    ROOT["Repo Root"]
+    ROOT --> Venv[".venv/ — shared virtual env<br/><i>(gitignored)</i>"]
+    ROOT --> Models["Models/ — local offline models<br/><i>(gitignored)</i>"]
+    ROOT --> Dataset["Dataset/ — evaluation datasets<br/><i>(gitignored)</i>"]
 
-    RM --> A["Aditya/<br/>own module folders"]
-    RM --> B["Anshdeep/<br/>own module folders"]
-    RM --> C["Aryan/<br/>own module folders"]
-    RM --> D["README.md"]
+    ROOT --> Input["Input_Images/ — categorized input images<br/><i>(gitignored)</i>"]
+    Input --> SubInput["Subfolders (e.g., Tools, Kitchen)/<br/>image files"]
 
+    ROOT --> Output["Output_Images/ — all outputs<br/><i>(gitignored)</i>"]
     Output --> OA["Aditya/&lt;module&gt;/&lt;task or timestamp&gt;/"]
-    Output --> OB["Anshdeep/&lt;module&gt;/&lt;task or timestamp&gt;/"]
+    Output --> OB["Anshdeep_Singh/&lt;module&gt;/&lt;task or timestamp&gt;/"]
     Output --> OC["Aryan/&lt;module&gt;/&lt;task or timestamp&gt;/"]
+
+    ROOT --> Handlers["input_handler.py & output_handler.py"]
+
+    ROOT --> A["Aditya/<br/>own module folders"]
+    ROOT --> B["Anshdeep_Singh/<br/>own module folders"]
+    ROOT --> C["Aryan/<br/>own module folders"]
+    ROOT --> D["README.md"]
 ```
 
-**Rule of thumb:** everything that reads or writes *images* is centralized outside the repo. Everything that's *code* (and small config/JSON files like knowledge graphs) lives inside the repo, in your own member folder — organized into as many module subfolders as you need.
+**Rule of thumb:** Everything is inside the repo root. Assets that are too large or dynamically generated (images, models, datasets, venv) are ignored by git. Everything that is *code* (and small config/JSON files like knowledge graphs) lives in your own member folder or at the repository root.
 
-Each member's folder follows the same pattern, regardless of how many modules it grows to:
+Each member's folder follows the same pattern:
 
-```
-RM/<Your_Name>/
+```text
+<Your_Name>/
 ├── <Module_1>/
 │   ├── script1.py
 │   ├── script2.py
@@ -73,466 +82,164 @@ RM/<Your_Name>/
 
 ---
 
-## 2. First-Time Setup
+## ⚙️ 2. First-Time Setup
 
-1. Create a `Project_Root` folder anywhere on your machine.
-2. Inside it, clone this repo:
-   ```bash
-   cd Project_Root
-   git clone https://github.com/AdityaSirsalkar001/RM.git
-   ```
-3. Inside `Project_Root`, create the two shared image folders (they're gitignored / not part of the repo):
-   ```bash
-   mkdir Input_Images Output_Images
-   ```
-4. Set up the shared virtual environment at the `Project_Root` level:
-   ```bash
-   python -m venv .venv
-   source .venv/bin/activate      # Windows: .venv\Scripts\activate
-   pip install -r RM/requirements.txt
-   ```
-   *(`requirements.txt` is coming soon — once it's added to the repo, use it to install everything needed to run any member's code.)*
-5. Inside `RM/`, make sure you have your own folder named after you (`Aditya/`, `Anshdeep/`, or `Aryan/`) with your module subfolders inside it, matching the structure above.
+1. Clone this repository to your local machine:
+
+```bash
+git clone https://github.com/AdityaSirsalkar001/Task-Driven-Object-Detection.git
+cd Task-Driven-Object-Detection
+```
+
+2. Create the gitignored asset folders if they don't already exist:
+
+```bash
+mkdir Input_Images Output_Images Models Dataset
+```
+
+3. Set up the shared virtual environment:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate      # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+4. Populate `Input_Images/` with the necessary subfolders and image files for testing.
 
 ---
 
-## 3. Running Code
+## ▶️ 3. Running Code
 
-Always run from `Project_Root` with the venv active:
+Always run scripts from the repo root directory with the virtual environment activated. The input and output handlers rely on this execution context.
 
 ```bash
-cd Project_Root
 source .venv/bin/activate
-python RM/<Your_Name>/<Module_Name>/<script>.py
+python <Your_Name>/<Module_Name>/<script>.py
 ```
 
-**Example**
+**Example:**
+
 ```bash
-python RM/Aditya/Hash_Map/pipeline_with_kg.py
+python Aditya/Graph_Approach/pipeline_with_kg.py
 ```
 
 ---
 
-## 4. Converting Your Own Code to Fit This Structure
+## 🔁 4. Converting Your Own Code to Fit This Structure
 
-If your existing script reads/writes images from its own local folder (e.g. `Open_Parcel/`, `./images/`, etc.), you need to update it to:
-- **Read** input images from `Project_Root/Input_Images/`
-- **Write** output images to `Project_Root/Output_Images/<Your_Name>/<Module_Name>/<Task_or_Timestamp>/`
+We no longer use manual `.parent.parent` path calculations. All file reads and writes must go through `input_handler.py` and `output_handler.py` located at the repository root.
 
-The easiest way: paste the prompt below into an LLM along with your script, one file at a time, and it will return the modified version with only the path logic changed — nothing else about your code's functionality.
+* **Read** input images by calling `input_handler.select_directory()`
+* **Write** output images by calling `output_handler.get_output_dir(team_member, module_name, user_query)`
+
+The easiest way to update your old scripts is to paste the prompt below into an LLM along with your Python file, and it will rewrite the file I/O operations automatically.
 
 <details>
-<summary><strong>Click to expand: Path Standardization Prompt</strong></summary>
+<summary><strong>📋 Click to expand: LLM conversion prompt</strong></summary>
 
+````text
+Please update my Python pipeline script to adapt to our new repository folder structure.
+
+### 1. New Folder Structure
+Everything, including gitignored assets, now lives inside this single repo root folder.
+
+<Repo Root>/
+├── .venv/                          # (Gitignored)
+├── Dataset/                        # (Gitignored)
+├── Input_Images/                   # (Gitignored) Contains subfolders of images
+├── Output_Images/                  # (Gitignored)
+│   ├── Aditya/
+│   ├── Anshdeep_Singh/
+│   └── Aryan/
+├── Models/                         # (Gitignored)
+├── Aditya/                         # Team member code folder
+│   ├── <Module_Folder>/
+│   │   └── pipeline.py             <-- Files like the one you are updating
+├── Anshdeep_Singh/                 # Team member code folder
+├── Aryan/                          # Team member code folder
+├── input_handler.py                # Helper script at repo root
+├── output_handler.py               # Helper script at repo root
+└── .gitignore                      # Ignores Input/, Output/, Output_Images/, Models/
+
+### 2. The Helper Scripts
+Do not write custom path-resolution logic (like `Path(__file__).parent.parent...`) in my pipeline scripts anymore. Instead, you must import and use the following two helper scripts located at the repository root.
+
+**A. input_handler.py** (Selects input directory)
+```python
+from pathlib import Path
+target_dir = Path(__file__).resolve().parent / "Input_Images"
+
+def select_directory():
+  # Lists subdirectories in target_dir, prompts user to choose one, returns absolute path string
+  # ... (Assume standard implementation)
 ```
-Python Pipeline Code - Path Standardization Task
-Project Structure
 
-I need you to modify Python pipeline code files to standardize file paths across my team's repository. Here's the folder structure:
-text
-
-Project_Root/
-├── .venv/                          # Shared virtual environment
-├── Input_Images/                   # Standard input folder
-│   └── [all input images go here]
-├── RM/                             # GitHub repository clone
-│   ├── <Team_Member_1>/            # Team member folder
-│   │   ├── <Module_1>/             # A module (own pipeline approach)
-│   │   │   ├── [main_pipeline_file].py
-│   │   │   ├── [kg_manager_file].py
-│   │   │   ├── [llm_fallback_file].py
-│   │   │   └── [knowledge_graph_file].json
-│   │   ├── <Module_2>/
-│   │   │   └── ...
-│   │   └── <Module_N>/
-│   │       └── ...
-│   ├── <Team_Member_2>/
-│   │   └── [their module folders]
-│   ├── <Team_Member_3>/
-│   │   └── [their module folders]
-│   └── README.md
-└── Output_Images/                  # Standard output folder
-    ├── <Team_Member_1>/
-    │   ├── <Module_1>/
-    │   │   └── [task_name or timestamp]/
-    │   │       └── [annotated images & JSON]
-    │   ├── <Module_2>/
-    │   │   └── [task_name or timestamp]/
-    │   └── <Module_N>/
-    │       └── [task_name or timestamp]/
-    ├── <Team_Member_2>/
-    │   └── <Module_Name>/
-    │       └── [task_name or timestamp]/
-    └── <Team_Member_3>/
-        └── <Module_Name>/
-            └── [task_name or timestamp]/
-
-Task Requirements
-
-For each code file you receive, you MUST:
-1. IDENTIFY THE FILE LOCATION
-
-    Determine the exact path of the file within the repository
-
-    Example: Project_Root/RM/<Team_Member>/<Module_Name>/[main_pipeline_file].py
-
-    Calculate the correct number of .parent calls needed to reach Project_Root
-
-2. STANDARDIZE INPUT PATHS
-
-    Find ALL code that reads images from a folder
-
-    Change ALL input paths to read from: Project_Root/Input_Images/
-
-    Remove hardcoded paths like Open_Parcel/, ./images/, etc.
-
-    Use this pattern:
-
-python
-
-# [PATH CHANGE] Resolve Project_Root
-SCRIPT_DIR = Path(__file__).parent.parent.parent.parent  # Adjust based on file depth
-
-# [PATH CHANGE] Centralized input directory
-INPUT_FOLDER = SCRIPT_DIR / "Input_Images"
-
-3. STANDARDIZE OUTPUT PATHS
-
-    Find ALL code that saves output images
-
-    Change ALL output paths to: Project_Root/Output_Images/{Team_Member}/{Module_Name}/{Task_Name}/
-
-    Use this pattern:
-
-python
-
-# [PATH CHANGE] Team member name (from folder structure)
-TEAM_MEMBER = "<Team_Member>"  # e.g. "Aditya", "Aryan", "Anshdeep"
-
-# [PATH CHANGE] Module name (the folder containing this code)
-MODULE_NAME = "<Module_Name>"  # the name of the folder this script lives in
-
-# [PATH CHANGE] Output base directory
-OUTPUT_BASE = SCRIPT_DIR / "Output_Images" / TEAM_MEMBER / MODULE_NAME
-
-# [PATH CHANGE] Create output base directory if missing
-OUTPUT_BASE.mkdir(parents=True, exist_ok=True)
-
-For Modules with User Query Input (Task-Based):
-python
-
-# [PATH CHANGE] Create task-specific folder
-# Sanitize the task name to be filesystem-safe
-task_folder_name = "".join(c for c in user_query if c.isalnum() or c in (' ', '-', '_')).strip().replace(' ', '_')
-OUTPUT_FOLDER = OUTPUT_BASE / task_folder_name
-OUTPUT_FOLDER.mkdir(parents=True, exist_ok=True)
-print(f"[*] Output will be saved to: {OUTPUT_FOLDER}")
-
-Example: If user inputs "open the parcel", outputs go to:
-text
-
-Project_Root/Output_Images/<Team_Member>/<Module_Name>/open_the_parcel/
-
-For Modules Without User Query Input (Timestamp-Based):
-python
-
-# [PATH CHANGE] Create timestamp-based folder
-from datetime import datetime
-timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-OUTPUT_FOLDER = OUTPUT_BASE / timestamp
-OUTPUT_FOLDER.mkdir(parents=True, exist_ok=True)
-print(f"[*] Output will be saved to: {OUTPUT_FOLDER}")
-
-Example: Outputs go to:
-text
-
-Project_Root/Output_Images/<Team_Member>/<Module_Name>/20240115_143022/
-
-4. HANDLE MODULE-SPECIFIC RESOURCES
-
-    DO NOT change paths for JSON files, knowledge graphs, or configuration files
-
-    These stay in their original module folders
-
-    For example: knowledge_graph.json stays in Project_Root/RM/<Team_Member>/<Module_Name>/
-
-    Only change image input/output paths
-
-5. PRESERVE ALL FUNCTIONALITY
-
-    ONLY change path-related code
-
-    Do NOT modify model loading, inference logic, preprocessing, or any other functionality
-
-    Keep all existing code logic exactly as is
-
-    Do not change model configurations, imports (except path imports), or unrelated code
-
-6. AUTO-CREATE OUTPUT FOLDERS
-
-    Ensure the output folder is created if it doesn't exist
-
-    Use OUTPUT_BASE.mkdir(parents=True, exist_ok=True) for base folder
-
-    Use OUTPUT_FOLDER.mkdir(parents=True, exist_ok=True) for task-specific or timestamp folder
-
-7. HANDLE OUTPUT SUB-FOLDERS
-
-    If the code saves outputs to sub-folders like Annotated_KG/ or Results/, maintain that structure
-
-    Example: Project_Root/Output_Images/<Team_Member>/<Module_Name>/open_the_parcel/Annotated_KG/
-
-8. ADD OUTPUT LOCATION INDICATOR
-
-    Add a print statement to show where outputs will be saved:
-
-python
-
-print(f"[*] Output will be saved to: {OUTPUT_FOLDER}")
-
-Path Resolution Guide
-For Files in Team Member Subfolders (Module Folders):
-text
-
-File: Project_Root/RM/<Team_Member>/<Module_Name>/[main_pipeline_file].py
-Path calculation:
-.parent              → <Module_Name>/
-.parent.parent       → <Team_Member>/
-.parent.parent.parent → RM/
-.parent.parent.parent.parent → Project_Root/
-
-SCRIPT_DIR = Path(__file__).parent.parent.parent.parent
-
-For Files Directly in Team Member Folder:
-text
-
-File: Project_Root/RM/<Team_Member>/[main_code_file].py
-Path calculation:
-.parent      → <Team_Member>/
-.parent.parent → RM/
-.parent.parent.parent → Project_Root/
-
-SCRIPT_DIR = Path(__file__).parent.parent.parent
-
-For Shared Module Folders (outside team member folders):
-text
-
-File: Project_Root/RM/<Shared_Module>/[main_pipeline_file].py
-Path calculation:
-.parent      → <Shared_Module>/
-.parent.parent → RM/
-.parent.parent.parent → Project_Root/
-
-SCRIPT_DIR = Path(__file__).parent.parent.parent
-
-Module-Specific Output Folder Logic
-Modules with User Query Input (Task-Based):
-
-These modules take a user query as input. Create a task-specific folder:
-python
-
-task_folder_name = "".join(c for c in user_query if c.isalnum() or c in (' ', '-', '_')).strip().replace(' ', '_')
-OUTPUT_FOLDER = OUTPUT_BASE / task_folder_name
-OUTPUT_FOLDER.mkdir(parents=True, exist_ok=True)
-
-Example: If user inputs "open the parcel", outputs go to:
-text
-
-Project_Root/Output_Images/<Team_Member>/<Module_Name>/open_the_parcel/
-
-Modules Without User Query Input (Timestamp-Based):
-
-These modules process all images automatically. Use a timestamp-based folder:
-python
-
-from datetime import datetime
-timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-OUTPUT_FOLDER = OUTPUT_BASE / timestamp
-OUTPUT_FOLDER.mkdir(parents=True, exist_ok=True)
-
-Example: Outputs go to:
-text
-
-Project_Root/Output_Images/<Team_Member>/<Module_Name>/20240115_143022/
-
-What to Output
-
-For each file you modify, provide:
-
-    The complete modified code with all changes
-
-    Clearly mark all path-related changes with # [PATH CHANGE] comments
-
-    Explain what you changed and why
-
-    The exact output path where files will be saved
-
-    Do not omit any existing code from the modified file
-
-Example Modification
-Current Code:
-python
-
-from pathlib import Path
-
-SCRIPT_DIR = Path(__file__).parent
-INPUT_FOLDER = SCRIPT_DIR / "Open_Parcel"
-OUTPUT_FOLDER = SCRIPT_DIR / "Annotated_KG"
-
-INPUT_FOLDER.mkdir(parents=True, exist_ok=True)
-OUTPUT_FOLDER.mkdir(parents=True, exist_ok=True)
-
-def main():
-    user_query = input("Enter task: ").strip()
-    # ... rest of code
-
-Modified Code (for a task-based module inside a team member's folder):
-python
-
-from pathlib import Path
-
-# [PATH CHANGE] Resolve Project_Root (4 levels up)
-SCRIPT_DIR = Path(__file__).parent.parent.parent.parent
-
-# [PATH CHANGE] Centralized input directory
-INPUT_FOLDER = SCRIPT_DIR / "Input_Images"
-
-# [PATH CHANGE] Team-specific output directory
-TEAM_MEMBER = "<Team_Member>"
-MODULE_NAME = "<Module_Name>"
-OUTPUT_BASE = SCRIPT_DIR / "Output_Images" / TEAM_MEMBER / MODULE_NAME
-OUTPUT_BASE.mkdir(parents=True, exist_ok=True)
-
-def main():
-    user_query = input("Enter task: ").strip()
-    
-    # [PATH CHANGE] Create task-specific output folder
-    task_folder_name = "".join(c for c in user_query if c.isalnum() or c in (' ', '-', '_')).strip().replace(' ', '_')
-    OUTPUT_FOLDER = OUTPUT_BASE / task_folder_name
-    OUTPUT_FOLDER.mkdir(parents=True, exist_ok=True)
-    print(f"[*] Output will be saved to: {OUTPUT_FOLDER}")
-    
-    # ... rest of code
-
-Modified Code (for a timestamp-based module without task input):
-python
-
+**B. output_handler.py** (Creates and returns output directory)
+```python
 from pathlib import Path
 from datetime import datetime
+import re
 
-# [PATH CHANGE] Resolve Project_Root (4 levels up)
-SCRIPT_DIR = Path(__file__).parent.parent.parent.parent
+REPO_ROOT = Path(__file__).resolve().parent
+OUTPUT_BASE_DIR = REPO_ROOT / "Output_Images"
 
-# [PATH CHANGE] Centralized input directory
-INPUT_FOLDER = SCRIPT_DIR / "Input_Images"
-
-# [PATH CHANGE] Team-specific output directory
-TEAM_MEMBER = "<Team_Member>"
-MODULE_NAME = "<Module_Name>"
-OUTPUT_BASE = SCRIPT_DIR / "Output_Images" / TEAM_MEMBER / MODULE_NAME
-OUTPUT_BASE.mkdir(parents=True, exist_ok=True)
-
-# [PATH CHANGE] Create timestamp-based output folder
-timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-OUTPUT_FOLDER = OUTPUT_BASE / timestamp
-OUTPUT_FOLDER.mkdir(parents=True, exist_ok=True)
-print(f"[*] Output will be saved to: {OUTPUT_FOLDER}")
-
-def main():
-    # ... rest of code
-
-Important Notes
-
-    The .venv folder stays at root and must NOT be modified
-
-    All code stays inside RM/ folder (GitHub repository)
-
-    Input images are centralized in Project_Root/Input_Images/
-
-    Outputs are organized by: Team_Member → Module → Task/Timestamp
-
-    JSON files, knowledge graphs, and other resources stay in their original module folders
-
-    Do NOT rename functions, variables, classes, or files
-
-    Make the smallest possible changes necessary to standardize paths
-
-Summary Checklist
-
-Before submitting the modified code, verify:
-
-    □
-
-    SCRIPT_DIR correctly resolves to Project_Root
-    □
-
-    INPUT_FOLDER points to Project_Root/Input_Images/
-    □
-
-    OUTPUT_BASE points to Project_Root/Output_Images/{Team_Member}/{Module_Name}/
-    □
-
-    Task-specific folder created (for modules with user query input)
-    □
-
-    Timestamp-based folder created (for modules without user query input)
-    □
-
-    All output folders are auto-created with mkdir(parents=True, exist_ok=True)
-    □
-
-    JSON/knowledge graph files stay in their original module folders
-    □
-
-    All functionality remains unchanged
-    □
-
-    Print statement added to show output location
-    □
-
-    All path changes marked with # [PATH CHANGE]
-
-Running the Code
-
-Always run the code from the project root with the virtual environment activated:
-bash
-
-# Navigate to project root
-cd /path/to/Project_Root
-
-# Activate virtual environment
-source .venv/bin/activate
-
-# Run the script
-python RM/<Team_Member>/<Module_Name>/[main_pipeline_file].py
-
-Please provide the code files one by one for modification.
+def get_output_dir(team_member: str, module_name: str, user_query: str = None) -> str:
+    # Generates: <Repo Root>/Output_Images/<team_member>/<module_name>/<task_or_timestamp>/
+    # ... (Assume standard implementation that auto-creates folders)
 ```
+
+### 3. Your Task
+For the Python file I provide, you must:
+
+1. **Identify the author and module:** Look at where the file belongs (e.g., `Anshdeep_Singh` and `stages`) based on my prompt, or infer it from the old code.
+2. **Import the handlers:** Add the necessary `sys.path` append logic to import `input_handler` and `output_handler` from the repo root.
+3. **Update Input Logic:** Replace any hardcoded input paths (e.g., `./images`, `Open_Parcel/`) with a call to `input_handler.select_directory()`. Iterate through the images in the returned directory.
+4. **Update Output Logic:** Replace any hardcoded output paths with a call to `output_handler.get_output_dir(team_member, module_name, user_query)`. Save all generated images/JSONs to this returned path.
+5. **Preserve the Core:** **DO NOT** alter the AI models, inference logic, knowledge graph structure, thresholds, or standard processing steps. Only touch file I/O operations.
+6. **Comment Changes:** Mark every line you change with `# [PATH CHANGE]`.
+
+Provide the complete updated Python code in your response. Do not omit any core functionality. I will provide the script to modify next.
+````
 
 </details>
 
+This works regardless of whether your old script used a different folder layout entirely, manual `../..` path climbing, or hardcoded absolute paths — the prompt asks the LLM to infer your author/module from context and rewire only the I/O.
+
 ---
 
-## 5. Do's and Don'ts
+## ✅ 5. Do's and Don'ts
 
 | ✅ Do | ❌ Don't |
-|---|---|
-| Put your code (scripts, module-local JSON/config files) inside `RM/<Your_Name>/<Module_Name>/` | Commit images to the repo |
-| Read images only from `Project_Root/Input_Images/` | Commit `.venv/` |
-| Write output images only to `Project_Root/Output_Images/<Your_Name>/<Module_Name>/...` | Rename functions, variables, classes, or files while doing the path conversion |
-| | Touch other members' folders |
+| --- | --- |
+| Put your code (scripts, module-local JSON/config files) inside `<Your_Name>/<Module_Name>/` | Commit images, datasets, or models to the repo |
+| Use `input_handler.py` to read images | Commit `.venv/` |
+| Use `output_handler.py` to write output images | Manually calculate folder depths with `..` in your scripts |
+| Use the provided LLM prompt to port old code | Touch other members' folders |
 
 ---
 
-## 6. Team
+## 🛠️ 6. Troubleshooting
+
+| Problem | Likely Cause | Fix |
+| --- | --- | --- |
+| `ModuleNotFoundError: input_handler` | Script run from wrong directory, or `sys.path` missing repo root | Run from repo root, or check the `sys.path.append` line the conversion prompt adds |
+| `Input_Images/` folder shows no subdirectories | Folder created but empty | Populate it with your own category subfolders and images (gitignored, not tracked) |
+| Output files not appearing where expected | Old hardcoded path still in script | Re-run the conversion prompt from [Section 4](#-4-converting-your-own-code-to-fit-this-structure) on that file |
+| `pip install -r requirements.txt` fails | Virtual environment not activated | Run `source .venv/bin/activate` (or `.venv\Scripts\activate` on Windows) first |
+
+---
+
+## 👥 7. Team
 
 | Member | Repo Folder |
-|---|---|
-| Aditya | `RM/Aditya/` |
-| Anshdeep | `RM/Anshdeep/` |
-| Aryan | `RM/Aryan/` |
-
-Each member's folder holds as many module subfolders as their own work needs — see their folder for details on what's currently implemented.
+| --- | --- |
+| Aditya | `Aditya/` |
+| Anshdeep Singh | `Anshdeep_Singh/` |
+| Aryan | `Aryan/` |
 
 ---
-*Requirements file (`requirements.txt`) to be added — once available, install with `pip install -r RM/requirements.txt` after activating the venv.*
+
+## 📄 8. License
+
+This project is licensed under the **MIT License** — a short, permissive open-source license. In plain terms: anyone can use, copy, modify, and share this code (including for commercial purposes), as long as they keep the original copyright notice. It places no warranty obligation on the authors and is one of the most common licenses for course/academic and small open-source projects. Add a `LICENSE` file with the standard MIT text to the repo root to make it official.
