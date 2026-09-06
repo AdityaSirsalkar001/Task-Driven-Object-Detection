@@ -1,4 +1,5 @@
 import os
+import sys
 from pathlib import Path
 import torch
 import numpy as np
@@ -13,28 +14,27 @@ from tqdm import tqdm
 # 1. CONFIGURATION & CONSTANTS
 # ==========================================
 
-# [PATH CHANGE] Resolve Project_Root (4 levels up from RM/Aditya/Graph_Approach/)
-SCRIPT_DIR = Path(__file__).parent.parent.parent.parent
+# Resolve Repo Root dynamically (Traverses: Graph_Approach (1) -> Aditya (2) -> Root (3))
+REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 
-# [PATH CHANGE] Centralized input directory
-INPUT_FOLDER = SCRIPT_DIR / "Input_Images"
+# Append repo root to sys.path so we can import the handlers
+sys.path.append(str(REPO_ROOT))
 
-# [PATH CHANGE] Team-specific output directory
+# Import shared handlers from repo root
+import input_handler
+import output_handler
+
+# Team-specific configuration
 TEAM_MEMBER = "Aditya"
 MODULE_NAME = "Graph_Approach"
-OUTPUT_BASE = SCRIPT_DIR / "Output_Images" / TEAM_MEMBER / MODULE_NAME
-OUTPUT_BASE.mkdir(parents=True, exist_ok=True)
 
-# [PATH CHANGE] Model cache directory
-os.environ["HF_HOME"] = str(SCRIPT_DIR / "HuggingFaceModels")
+# Model cache directory mapped to Repo Root
+os.environ["HF_HOME"] = str(REPO_ROOT / "HuggingFaceModels")
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
-# [PATH CHANGE] Using 3B model (already on your laptop - same as Hash_Map)
+# Using 3B model
 SLM_ID = "Qwen/Qwen2.5-3B-Instruct"
-
-# Task query (hardcoded for batch processing)
-TASK_QUERY = "open a parcel"
 
 def extract_task_attributes(task_query: str, tokenizer, model) -> list:
     """Uses the SLM to determine the atomic attributes and their normalized priority weights."""
@@ -90,26 +90,22 @@ def extract_task_attributes(task_query: str, tokenizer, model) -> list:
     with torch.no_grad():
         generated_ids = model.generate(
             **inputs, 
-            max_new_tokens=300,  # Increased for more thinking
+            max_new_tokens=300,
             do_sample=False,
-            temperature=0.1,  # Lower temperature for more deterministic output
+            temperature=0.1,
             top_p=0.95
         )
         
     generated_ids = [out[len(inp):] for inp, out in zip(inputs.input_ids, generated_ids)]
     raw_text = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0].strip()
     
-    # Try multiple parsing strategies
     try:
-        # First, try to find JSON in code blocks
         json_match = re.search(r"```json\s*(\[.*?\])\s*```", raw_text, re.DOTALL)
         if json_match:
             parsed = json.loads(json_match.group(1))
             if isinstance(parsed, list) and len(parsed) > 0:
-                # Validate and normalize
                 return validate_and_normalize(parsed)
         
-        # Try to find any JSON array
         array_match = re.search(r"(\[.*\])", raw_text, re.DOTALL)
         if array_match:
             parsed = json.loads(array_match.group(1))
@@ -136,7 +132,6 @@ def validate_and_normalize(attrs_list):
         attr_name = item['attribute'].strip().lower().replace(' ', '_')
         priority = float(item['priority'])
         
-        # Ensure valid ranges
         if priority <= 0 or priority > 1.0:
             continue
             
@@ -146,35 +141,12 @@ def validate_and_normalize(attrs_list):
         })
         total_weight += priority
     
-    # Normalize weights to sum to 1.0
     if valid_attrs and total_weight > 0:
         for attr in valid_attrs:
             attr['priority'] /= total_weight
             
-    # Sort by priority (highest first)
     valid_attrs.sort(key=lambda x: x['priority'], reverse=True)
-    
-    return valid_attrs[:5]  # Limit to top 5 attributes
-
-def get_image_files():
-    """Get all image files from the input folder, sorted by numeric value."""
-    image_files = []
-    if INPUT_FOLDER.exists():
-        for file in INPUT_FOLDER.iterdir():
-            if file.is_file() and file.suffix.lower() in ['.jpg', '.jpeg', '.png', '.bmp']:
-                # Extract numeric part from filename for sorting
-                match = re.search(r'(\d+)', file.stem)
-                if match:
-                    num = int(match.group(1))
-                    image_files.append((num, file))
-                else:
-                    # If no number, use filename for sorting
-                    image_files.append((float('inf'), file))
-        
-        # Sort by numeric value
-        image_files.sort(key=lambda x: x[0])
-        return [file for _, file in image_files]
-    return []
+    return valid_attrs[:5]
 
 def process_single_image(img_path, common_objects, florence_processor, florence_model, output_folder):
     """Process a single image with Florence-2."""
@@ -217,28 +189,57 @@ def process_single_image(img_path, common_objects, florence_processor, florence_
         return False
 
 def main():
-    print("=" * 60)
+    # 1. Fetch input directory dynamically using the handler
+    selection = input_handler.select_directories_and_range()
+    if not selection:
+        print("[-] No input directory selected or found. Exiting.")
+        return
+
+    # 2. Prompt for user task
+    task_query = input("\n[?] Enter the physical task you want to perform (e.g., 'open a parcel'): ").strip()
+    if not task_query:
+        print("[-] No task entered. Exiting.")
+        return
+
+    print("\n" + "=" * 60)
     print(f"[*] Batch Processing Mode")
-    print(f"[*] Task Query: {TASK_QUERY}")
-    print(f"[*] Input Folder: {INPUT_FOLDER}")
+    print(f"[*] Task Query: {task_query}")
+    print(f"[*] Selected Folders: {len(selection['folders'])}")
+    print(f"[*] Image Range: {selection['range'][0]} to {selection['range'][1]}")
     print("=" * 60)
 
-    # Get all image files
-    image_files = get_image_files()
+    # 3. Gather and filter images across all selected folders
+    start_idx, end_idx = selection["range"]
+    image_files_raw = []
+
+    for folder_path_str in selection["folders"]:
+        folder_path = Path(folder_path_str)
+        if folder_path.exists():
+            for file in folder_path.iterdir():
+                if file.is_file() and file.suffix.lower() in ['.jpg', '.jpeg', '.png', '.bmp']:
+                    match = re.search(r'(\d+)', file.stem)
+                    if match:
+                        num = int(match.group(1))
+                        if start_idx <= num <= end_idx:
+                            image_files_raw.append((num, file))
+
+    # Sort files globally by numeric value
+    image_files_raw.sort(key=lambda x: x[0])
+    image_files = [file for _, file in image_files_raw]
+
     if not image_files:
-        print("[-] No images found in Input_Images folder!")
+        print("[-] No images found matching the selected criteria in the chosen folders!")
         return
     
     print(f"[+] Found {len(image_files)} images to process")
     print(f"[+] First few images: {[f.name for f in image_files[:5]]}...")
 
-    # Create task-specific output folder
-    task_folder_name = "".join(c for c in TASK_QUERY if c.isalnum() or c in (' ', '-', '_')).strip().replace(' ', '_')
-    OUTPUT_FOLDER = OUTPUT_BASE / task_folder_name
-    OUTPUT_FOLDER.mkdir(parents=True, exist_ok=True)
+    # Create task-specific output folder using output_handler
+    output_dir_str = output_handler.get_output_dir(TEAM_MEMBER, MODULE_NAME, task_query)
+    OUTPUT_FOLDER = Path(output_dir_str)
     print(f"[*] Output will be saved to: {OUTPUT_FOLDER}")
 
-    # 1. Load SLM & Extract Required Attributes with Weights (ONCE for all images)
+    # 4. Load SLM & Extract Required Attributes with Weights
     print(f"\n[*] Booting Qwen SLM ({SLM_ID}) on {DEVICE.upper()}...")
     tokenizer = AutoTokenizer.from_pretrained(SLM_ID)
     slm_model = AutoModelForCausalLM.from_pretrained(
@@ -247,20 +248,20 @@ def main():
         device_map=DEVICE
     ).eval()
     
-    print(f"[*] Extracting attributes for task: '{TASK_QUERY}'...")
-    required_attrs = extract_task_attributes(TASK_QUERY, tokenizer, slm_model)
+    print(f"[*] Extracting attributes for task: '{task_query}'...")
+    required_attrs = extract_task_attributes(task_query, tokenizer, slm_model)
     print(f"[!] Weighted attributes generated by SLM: {required_attrs}")
 
     if not required_attrs:
         print("[-] Failed to extract attributes. Exiting.")
         return
 
-    # 2. Graph Traversal: Compute Weighted Scores for Objects (ONCE for all images)
+    # 5. Graph Traversal: Compute Weighted Scores for Objects
     print("\n[*] Searching Vector Atomic Knowledge Graph with Weighted Scoring...")
     kg = VectorAtomicKnowledgeGraph()
     
     object_scores = {}
-    SCORE_THRESHOLD = 0.5  # Lowered threshold to 50% for better recall
+    SCORE_THRESHOLD = 0.5 
     
     for item in required_attrs:
         req_attr = item.get("attribute")
@@ -271,20 +272,17 @@ def main():
             objs_with_attr = kg.attributes[matched_node_id]["objects"]
             print(f"    ├─ '{req_attr}' (Weight: {priority:.2f}) maps to -> {objs_with_attr}")
             
-            # Accumulate weight for each object that possesses this attribute
             for obj in objs_with_attr:
                 object_scores[obj] = object_scores.get(obj, 0.0) + priority
 
     print(f"[+] Computed Object Scores: {object_scores}")
 
-    # Filter objects that meet or exceed the score threshold
     common_objects = [obj for obj, score in object_scores.items() if score >= SCORE_THRESHOLD]
     print(f"[+] Graph identified objects meeting >= {int(SCORE_THRESHOLD * 100)}% threshold: {common_objects}")
 
     if not common_objects:
         print("[-] No known objects met the required score threshold.")
         print("[*] Trying with top 3 highest scoring objects instead...")
-        # Fallback: take top 3 objects by score
         sorted_objects = sorted(object_scores.items(), key=lambda x: x[1], reverse=True)[:3]
         common_objects = [obj for obj, score in sorted_objects if score > 0]
         print(f"[+] Fallback objects: {common_objects}")
@@ -293,12 +291,12 @@ def main():
             print("[-] Still no objects found. Exiting.")
             return
 
-    # Free up SLM memory since we don't need it anymore
+    # Free up SLM memory
     del slm_model, tokenizer
     if torch.cuda.is_available():
         torch.cuda.empty_cache()
 
-    # 3. Load Florence-2 (ONCE for all images)
+    # 6. Load Florence-2
     print(f"\n[*] Booting Florence-2 on {DEVICE.upper()}...")
     florence_id = "florence-community/Florence-2-base-ft"
     florence_processor = AutoProcessor.from_pretrained(florence_id)
@@ -306,25 +304,22 @@ def main():
         florence_id, torch_dtype=torch.bfloat16 if DEVICE == "cuda" else torch.float32
     ).to(DEVICE).eval()
 
-    # 4. Process all images
+    # 7. Process all images
     print(f"\n[*] Starting batch processing of {len(image_files)} images...")
     successful_count = 0
     failed_count = 0
     
-    # Create a log file
     log_file = OUTPUT_FOLDER / "processing_log.txt"
     with open(log_file, "w") as f:
         f.write(f"Batch Processing Log\n")
-        f.write(f"Task: {TASK_QUERY}\n")
+        f.write(f"Task: {task_query}\n")
         f.write(f"Attributes: {required_attrs}\n")
         f.write(f"Objects: {common_objects}\n")
         f.write(f"{'='*60}\n\n")
     
-    # Process each image with progress bar
     for img_path in tqdm(image_files, desc="Processing images"):
         success = process_single_image(img_path, common_objects, florence_processor, florence_model, OUTPUT_FOLDER)
         
-        # Update log
         with open(log_file, "a") as f:
             status = "SUCCESS" if success else "FAILED"
             f.write(f"{img_path.name}: {status}\n")
@@ -334,7 +329,6 @@ def main():
         else:
             failed_count += 1
     
-    # Final summary
     print("\n" + "=" * 60)
     print("[*] Batch Processing Complete!")
     print(f"[+] Successful: {successful_count}")

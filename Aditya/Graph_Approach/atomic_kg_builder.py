@@ -11,17 +11,17 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 # 1. CONFIGURATION & CONSTANTS
 # ==========================================
 
-# [PATH CHANGE] Resolve Project_Root (4 levels up from RM/Aditya/Graph_Approach/)
-SCRIPT_DIR = Path(__file__).parent.parent.parent.parent
+# Resolve Project_Root (3 levels up from Repo_Root/Aditya/Graph_Approach)
+SCRIPT_DIR = Path(__file__).resolve().parent.parent.parent
 
-# [PATH CHANGE] Keep KG file inside module folder (not centralized)
-KG_FILE = Path(__file__).parent / "vector_atomic_kg.json"
-SIMILARITY_THRESHOLD = 0.75  # 95% threshold for synonym merging
+# Keep KG file inside module folder (not centralized)
+KG_FILE = Path(__file__).resolve().parent / "vector_atomic_kg.json"
+SIMILARITY_THRESHOLD = 0.75  # 75% threshold for synonym merging
 
 CPU_DEVICE = "cpu"
 SLM_ID = "Qwen/Qwen2.5-3B-Instruct"
 
-# [PATH CHANGE] Cache directory for HuggingFace models
+# Cache directory for HuggingFace models
 os.environ["HF_HOME"] = str(SCRIPT_DIR / "HuggingFaceModels")
 
 # Global lazy loaders
@@ -106,10 +106,8 @@ class VectorAtomicKnowledgeGraph:
         # 2. Compare against existing attribute nodes
         if self.attributes:
             node_ids = list(self.attributes.keys())
-            # Stack existing normalized vectors
             matrix = np.array([self.attributes[nid]["embedding"] for nid in node_ids])
             
-            # Matrix dot-product yields cosine similarity directly
             similarities = np.dot(matrix, query_vec)
             best_idx = int(np.argmax(similarities))
             best_score = float(similarities[best_idx])
@@ -117,20 +115,17 @@ class VectorAtomicKnowledgeGraph:
 
             if best_score >= self.threshold:
                 matched_id = node_ids[best_idx]
-                # Register alias if unseen
                 if clean_text not in self.attributes[matched_id]["aliases"]:
                     self.attributes[matched_id]["aliases"].append(clean_text)
                 
                 print(f"    ├─ [MERGE] '{clean_text}' matched '{best_match_name}' (Sim: {best_score:.4f})")
                 return matched_id
             else:
-                # Log the highest score that failed to pass the threshold
                 print(f"    ├─ [MISS] '{clean_text}' missed threshold. Highest match was '{best_match_name}' (Sim: {best_score:.4f} < {self.threshold})")
 
         # 3. Create a brand new attribute node if < threshold
         new_id = f"attr_{clean_text.replace(' ', '_')}"
         
-        # Ensure unique ID key
         suffix = 1
         base_id = new_id
         while new_id in self.attributes:
@@ -162,11 +157,9 @@ class VectorAtomicKnowledgeGraph:
             if not attr_node_id:
                 continue
 
-            # Link Object -> Attribute Node
             if attr_node_id not in self.objects[obj_key]:
                 self.objects[obj_key].append(attr_node_id)
 
-            # Link Attribute Node -> Object
             if obj_key not in self.attributes[attr_node_id]["objects"]:
                 self.attributes[attr_node_id]["objects"].append(obj_key)
 
@@ -220,48 +213,3 @@ Return format:
         print(f"[-] Parsing error for '{object_name}': {e}")
 
     return []
-
-
-# ==========================================
-# 4. RUNNER & DEMONSTRATION
-# ==========================================
-if __name__ == "__main__":
-    kg = VectorAtomicKnowledgeGraph()
-
-    # Seed list with synonymous properties to verify deduplication
-    test_ingestion = [
-            # 1. Containers & Vessels
-            ("thermos", ["hollow cavity", "watertight vessel", "thermal insulator", "cylindrical body", "metallic"]),
-            ("colander", ["concave surface", "perforated surface", "rigid body", "metallic", "water permeable"]),
-            ("spray_bottle", ["watertight vessel", "spray nozzle", "plastic material", "cylindrical body", "pump mechanism"]),
-    
-            # 2. Hardware & Tools
-            ("adjustable_wrench", ["torsional grip", "rigid body", "heavy mass", "metallic", "adjustable jaw"]),
-            ("wood_chisel", ["sharp edge", "rigid wedge", "metallic", "wooden handle", "flat impact surface"]),
-            ("sandpaper", ["abrasive surface", "flexible sheet", "paper backing", "rough texture", "flat surface"]),
-            ("plunger", ["suction head", "flexible rubber", "extended handle", "wooden pole", "airtight seal"]),
-    
-            # 3. Fasteners & Bindings
-            ("wood_screw", ["pointed tip", "threaded shaft", "metallic", "rigid body", "slotted head"]),
-            ("steel_nail", ["pointed tip", "smooth shaft", "metallic", "rigid body", "flat impact surface"]),
-            ("zip_tie", ["flexible strip", "plastic material", "locking mechanism", "toothed edge", "high tensile strength"]),
-    
-            # 4. Cleaning & Maintenance
-            ("kitchen_sponge", ["absorbent fibers", "porous surface", "flexible body", "soft material", "water retentive"]),
-            ("wire_brush", ["bristled edge", "metallic bristles", "rigid handle", "abrasive surface", "stiff texture"])
-        ]
-
-    print("=" * 60)
-    print(f"[*] INGESTING OBJECTS (Cosine Similarity Threshold = {SIMILARITY_THRESHOLD})")
-    print("=" * 60)
-
-    for obj_name, raw_attrs in test_ingestion:
-        print(f"\n[+] Ingesting: '{obj_name}' with properties: {raw_attrs}")
-        kg.add_object_with_attributes(obj_name, raw_attrs)
-
-    print("\n" + "=" * 60)
-    print(f"[*] Ingestion Complete!")
-    print(f"[*] Total Objects Ingested : {len(kg.objects)}")
-    print(f"[*] Unique Attribute Nodes : {len(kg.attributes)}")
-    print(f"[*] Graph saved to         : {kg.filepath.resolve()}")
-    print("=" * 60)
