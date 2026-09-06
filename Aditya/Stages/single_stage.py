@@ -301,24 +301,20 @@ if __name__ == "__main__":
     
     processor = AutoProcessor.from_pretrained(model_id)
     
-    if device == "cuda":
-        quantization_config = BitsAndBytesConfig(
-            load_in_4bit=True,
-            bnb_4bit_quant_type="nf4",                
-            bnb_4bit_use_double_quant=True,          
-            bnb_4bit_compute_dtype=torch.bfloat16    
-        )
-        model = AutoModelForMultimodalLM.from_pretrained(
-            model_id, 
-            device_map={"": 0}, 
-            quantization_config=quantization_config
-        )
-    else:
-        model = AutoModelForMultimodalLM.from_pretrained(
-            model_id, 
-            device_map={"": "cpu"},
-            torch_dtype=torch.float32
-        )
+   
+
+    quantization_config = BitsAndBytesConfig(
+        load_in_4bit=True,
+        bnb_4bit_quant_type="nf4",                
+        bnb_4bit_use_double_quant=True,          
+        bnb_4bit_compute_dtype=torch.bfloat16    
+    )
+    model = AutoModelForMultimodalLM.from_pretrained(
+        model_id, 
+        device_map={"": 0}, 
+        quantization_config=quantization_config
+    )
+   
     
     print("Model loaded successfully!")
 
