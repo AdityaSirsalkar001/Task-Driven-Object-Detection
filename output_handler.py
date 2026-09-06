@@ -1,43 +1,22 @@
-import re
 from pathlib import Path
 from datetime import datetime
+import re
 
-# Resolves the directory where this script is located (the RM repo root)
 REPO_ROOT = Path(__file__).resolve().parent
 OUTPUT_BASE_DIR = REPO_ROOT / "Output_Images"
 
 def get_output_dir(team_member: str, module_name: str, user_query: str = None) -> str:
-    """
-    Generates and creates the correct output directory path inside the repo.
-    Structure: RM/Output_Images/<Team_Member>/<Module_Name>/<Task_or_Timestamp>/
-    """
-    # Create the base path for the specific team member and module
-    module_dir = OUTPUT_BASE_DIR / team_member / module_name
-    
+    # Determine the final subfolder name (either the task/query or a timestamp)
     if user_query:
-        # Task-based folder: Sanitize the query to be filesystem-safe
-        folder_name = re.sub(r'[^a-zA-Z0-9 \-_]', '', user_query).strip().replace(' ', '_')
-        if not folder_name:
-            folder_name = "unnamed_task"
-        final_dir = module_dir / folder_name
+        # Sanitize the query to ensure it is a valid folder name
+        folder_name = re.sub(r'[^a-zA-Z0-9_\-]', '_', user_query.strip())
     else:
-        # Timestamp-based folder (for automated pipeline runs without a query)
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        final_dir = module_dir / timestamp
-        
-    # Automatically create the directories if they don't exist
-    final_dir.mkdir(parents=True, exist_ok=True)
-    
-    return str(final_dir)
+        folder_name = datetime.now().strftime("%Y%m%d_%H%M%S")
 
-if __name__ == "__main__":
-    # Test execution
-    print(f"Base Output Directory: {OUTPUT_BASE_DIR}\n")
+    # Construct the full output path
+    target_dir = OUTPUT_BASE_DIR / team_member / module_name / folder_name
     
-    # 1. Test a task-based output path
-    task_path = get_output_dir("Aditya", "Graph_Approach", "open the parcel")
-    print(f"Task-based path created:\n  {task_path}\n")
+    # Auto-create the directory structure
+    target_dir.mkdir(parents=True, exist_ok=True)
     
-    # 2. Test a timestamp-based output path
-    time_path = get_output_dir("Anshdeep_Singh", "stages")
-    print(f"Timestamp-based path created:\n  {time_path}")
+    return str(target_dir.resolve())

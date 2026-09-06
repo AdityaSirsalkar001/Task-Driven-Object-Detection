@@ -1,4 +1,17 @@
+# Virtual Environments
+.venv/
+
+# Python Cache
+__pycache__/
+
+# Input Directories
 Input/
+Input_Images/
+
+# Output Directories
 Output/
-Output_Images
-Models
+Output_Images/
+
+# Large Assets & Offline Models
+Models/
+Dataset/

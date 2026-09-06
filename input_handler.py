@@ -1,55 +1,43 @@
+import os
 from pathlib import Path
 
-# Hardcoded target directory (change this to your desired path)
-target_dir = "~/Documents/RM/Input/"
-
+# Dynamically set target directory relative to this script at the repo root
+target_dir = Path(__file__).resolve().parent / "Input_Images"
 
 def select_directory():
-  """Lists subdirectories in target_dir, prompts the user to choose one,
+    # Fallback to 'Input' if 'Input_Images' hasn't been created yet
+    working_dir = target_dir
+    if not working_dir.exists():
+        fallback = Path(__file__).resolve().parent / "Input"
+        if fallback.exists():
+            working_dir = fallback
+        else:
+            print(f"Error: Could not find '{working_dir}'.")
+            return None
 
-  and returns its absolute path.
-  """
-  target_path = Path(target_dir).resolve()
-
-  # Validate the target directory
-  if not target_path.exists() or not target_path.is_dir():
-    print(f"Error: '{target_path}' is not a valid directory.")
-    return None
-
-  # Get a list of all subdirectories inside target_dir
-  subdirs = sorted([d for d in target_path.iterdir() if d.is_dir()])
-
-  if not subdirs:
-    print(f"No subdirectories found in '{target_path}'.")
-    return None
-
-  # Print the available directories
-  print(f"\nDirectories in {target_path}:")
-  for index, subdir in enumerate(subdirs, start=1):
-    print(f"  [{index}] {subdir.name}")
-
-  # Prompt the user to select one
-  while True:
-    try:
-      choice = input(
-          "\nEnter the number of the directory you want to select: "
-      )
-      if not choice.strip():
-        print("Selection cancelled.")
+    # List all subdirectories
+    subdirs = [d for d in working_dir.iterdir() if d.is_dir()]
+    
+    if not subdirs:
+        print(f"No subdirectories found in '{working_dir}'.")
         return None
 
-      choice_idx = int(choice)
-      if 1 <= choice_idx <= len(subdirs):
-        chosen_path = subdirs[choice_idx - 1].resolve()
-        return str(chosen_path)
-      else:
-        print(f"Please enter a number between 1 and {len(subdirs)}.")
-    except ValueError:
-      print("Invalid input. Please enter a valid integer.")
+    # Prompt user
+    print(f"\nAvailable directories in {working_dir.name}:")
+    for i, d in enumerate(subdirs):
+        print(f"[{i}] {d.name}")
 
-
-if __name__ == "__main__":
-  # Allows testing the script directly by running it
-  result = select_directory()
-  if result:
-    print(f"\nChosen absolute path: {result}")
+    while True:
+        try:
+            choice_input = input(f"Select a directory (0-{len(subdirs)-1}): ").strip()
+            if not choice_input:
+                continue
+                
+            choice = int(choice_input)
+            if 0 <= choice < len(subdirs):
+                # Return the absolute path string 
+                return str(subdirs[choice].resolve())
+            else:
+                print("Invalid selection. Try again.")
+        except ValueError:
+            print("Please enter a valid number.")
