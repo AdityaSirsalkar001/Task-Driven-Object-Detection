@@ -2,8 +2,8 @@ import os
 import re
 from pathlib import Path
 
-# Dynamically set target directory relative to this script at the repo root
-target_dir = Path(__file__).resolve().parent / "Input_Images"
+# Hardcoded target directory (change this to your desired path)
+target_dir = "~/Documents/RM/Input/"
 
 def select_directories_and_range():
     # Fallback to 'Input' if 'Input_Images' hasn't been created yet
@@ -20,7 +20,7 @@ def select_directories_and_range():
     subdirs = [d for d in working_dir.iterdir() if d.is_dir()]
     
     if not subdirs:
-        print(f"No subdirectories found in '{working_dir}'.")
+        print(f"No subdirectories found in '{target_path}'.")
         return None
 
     # Prompt user for multiple directories

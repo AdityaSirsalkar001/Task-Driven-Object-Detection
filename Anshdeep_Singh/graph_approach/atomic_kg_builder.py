@@ -5,17 +5,25 @@ from pathlib import Path
 import numpy as np
 import torch
 from sentence_transformers import SentenceTransformer
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 
 # ==========================================
 # 1. CONFIGURATION & CONSTANTS
 # ==========================================
 SCRIPT_DIR = Path(__file__).parent
 KG_FILE = SCRIPT_DIR / "vector_atomic_kg.json"
-SIMILARITY_THRESHOLD = 0.75  # 95% threshold for synonym merging
+SIMILARITY_THRESHOLD = 0.70  # 95% threshold for synonym merging
 
 CPU_DEVICE = "cpu"
 SLM_ID = "Qwen/Qwen2.5-3B-Instruct"
+
+# 4-bit BitsAndBytes quantization configuration
+bnb_config = BitsAndBytesConfig(
+    load_in_4bit=True,
+    bnb_4bit_quant_type="nf4",
+    bnb_4bit_use_double_quant=True,
+    bnb_4bit_compute_dtype=torch.bfloat16
+)
 
 # Global lazy loaders
 _embedder = None
@@ -31,15 +39,15 @@ def get_embedder():
     return _embedder
 
 def get_slm():
-    """Loads the SLM onto CPU/RAM only when extraction is requested."""
+    """Loads the SLM quantized to 4-bit using BitsAndBytes only when extraction is requested."""
     global _slm_tokenizer, _slm_model
     if _slm_model is None or _slm_tokenizer is None:
-        print(f"[*] Loading SLM ({SLM_ID}) on CPU/RAM...")
+        print(f"[*] Loading SLM ({SLM_ID}) in 4-bit (BitsAndBytes)...")
         _slm_tokenizer = AutoTokenizer.from_pretrained(SLM_ID)
         _slm_model = AutoModelForCausalLM.from_pretrained(
             SLM_ID,
-            torch_dtype=torch.bfloat16,
-            device_map=CPU_DEVICE
+            quantization_config=bnb_config,
+            device_map="auto"
         ).eval()
     return _slm_tokenizer, _slm_model
 
@@ -170,7 +178,7 @@ class VectorAtomicKnowledgeGraph:
 # 3. SLM ATOMIC DECONSTRUCTION
 # ==========================================
 def extract_atomic_attributes(object_name: str) -> list:
-    """Uses CPU SLM to split an object into primitive physical traits."""
+    """Uses 4-bit quantized SLM to split an object into primitive physical traits."""
     tokenizer, model = get_slm()
 
     system_prompt = (
@@ -195,7 +203,7 @@ Return format:
     ]
 
     text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-    inputs = tokenizer([text], return_tensors="pt").to(CPU_DEVICE)
+    inputs = tokenizer([text], return_tensors="pt").to(model.device)
 
     with torch.no_grad():
         generated_ids = model.generate(**inputs, max_new_tokens=150, do_sample=False)

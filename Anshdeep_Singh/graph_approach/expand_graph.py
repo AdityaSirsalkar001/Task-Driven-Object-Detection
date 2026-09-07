@@ -9,12 +9,14 @@ from transformers import AutoProcessor, Florence2ForConditionalGeneration
 from atomic_kg_builder import VectorAtomicKnowledgeGraph, extract_atomic_attributes
 
 # --- CONFIGURATION ---
-SCRIPT_DIR = Path(__file__).parent
-INPUT_FOLDER = Path("../Open_Parcel")  # Your image folder
+# SCRIPT_DIR = Path(__file__).parent
+INPUT_FOLDER = Path("~/Documents/RM/Input/wine").expanduser()  # Your image folder
 NUM_IMAGES = 10  # Set 'n' for your 1 to n loop
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
 def main():
+
+    print(INPUT_FOLDER)
     print("=" * 60)
     print("[*] STARTING AUTOMATED VISION-TO-GRAPH INGESTION")
     print("=" * 60)
@@ -34,7 +36,7 @@ def main():
     task_prompt = "<DENSE_REGION_CAPTION>"
 
     # 3. Iterate sequentially from 1 to n
-    for i in range(11, 31):
+    for i in range(1, 201):
         image_name = f"{i}.jpg"
         img_path = INPUT_FOLDER / image_name
         
