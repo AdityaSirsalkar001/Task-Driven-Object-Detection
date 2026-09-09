@@ -7,73 +7,21 @@ import torch
 from PIL import Image, ImageDraw
 from transformers import AutoProcessor, AutoModelForMultimodalLM, BitsAndBytesConfig
 from qwen_vl_utils import process_vision_info
-from input_handler import select_directories
 
 # [PATH CHANGE] Resolve Repo Root (RM/) dynamically based on file location
 # This script is in RM/Aditya/Stages/single_stage.py (3 levels deep)
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.append(str(REPO_ROOT))
 
-# target_dir = "~/Documents/RM/Input/"
+# [PATH CHANGE] Import the shared handlers from the repo root
+import input_handler
+import output_handler
 
-def select_directories():
-    """
-    Lists subdirectories in target_dir, asks the user for Single or Range mode,
-    and returns a list of selected absolute paths.
-    """
-    target_path = Path(target_dir).expanduser()
-    
-    if not target_path.exists() or not target_path.is_dir():
-        print(f"Error: '{target_path}' is not a valid directory.")
-        return None
-    
-    subdirs = sorted([d for d in target_path.iterdir() if d.is_dir()])
-    
-    if not subdirs:
-        print(f"No subdirectories found in '{target_path}'.")
-        return None
-    
-    print(f"\nDirectories in {target_path}:")
-    for index, subdir in enumerate(subdirs, start=1):
-        print(f"  [{index}] {subdir.name}")
-    
-    while True:
-        mode = input("\nDo you want to process a [S]ingle directory or a [R]ange of directories? (S/R): ").strip().upper()
-        
-        if mode == 'S':
-            try:
-                choice = input("\nEnter the number of the directory you want to select: ")
-                if not choice.strip():
-                    print("Selection cancelled.")
-                    return None
-                choice_idx = int(choice)
-                if 1 <= choice_idx <= len(subdirs):
-                    return [subdirs[choice_idx - 1].resolve()]
-                else:
-                    print(f"Please enter a number between 1 and {len(subdirs)}.")
-            except ValueError:
-                print("Invalid input. Please enter a valid integer.")
-                
-        elif mode == 'R':
-            try:
-                start_input = input(f"Enter START directory index (1-{len(subdirs)}): ").strip()
-                end_input = input(f"Enter END directory index (1-{len(subdirs)}): ").strip()
-                
-                if not start_input or not end_input:
-                    print("Selection cancelled.")
-                    return None
-                    
-                start_idx = int(start_input)
-                end_idx = int(end_input)
-                
-                if 1 <= start_idx <= end_idx <= len(subdirs):
-                    return [d.resolve() for d in subdirs[start_idx - 1 : end_idx]]
-                else:
-                    print(f"Invalid range. Ensure start <= end and both are between 1 and {len(subdirs)}.")
-            except ValueError:
-                print("Invalid input. Please enter valid integers.")
-        else:
-            print("Invalid choice. Please enter 'S' or 'R'.")
+# [PATH CHANGE] Update model base directory to use the shared repo Models folder
+MODEL_BASE_DIR = str(REPO_ROOT / "Models")
+os.environ["HF_HOME"] = MODEL_BASE_DIR
+os.environ["HF_HUB_OFFLINE"] = "1"
+os.environ["TRANSFORMERS_OFFLINE"] = "1"
 
 
 def extract_box_data(text, img_w, img_h):

@@ -14,17 +14,15 @@ from tqdm import tqdm
 # 1. CONFIGURATION & CONSTANTS
 # ==========================================
 
-# Resolve Repo Root dynamically (Traverses: Graph_Approach (1) -> Aditya (2) -> Root (3))
+# Resolve Repo Root dynamically
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
-
-# Append repo root to sys.path so we can import the handlers
 sys.path.append(str(REPO_ROOT))
 
 # Import shared handlers from repo root
 import input_handler
 import output_handler
 
-# Team-specific configuration
+# Team-specific configuration for the output handler
 TEAM_MEMBER = "Aditya"
 MODULE_NAME = "Graph_Approach"
 
@@ -195,7 +193,7 @@ def main():
         print("[-] No input directory selected or found. Exiting.")
         return
 
-    # 2. Prompt for user task
+    # 2. Prompt for user task dynamically
     task_query = input("\n[?] Enter the physical task you want to perform (e.g., 'open a parcel'): ").strip()
     if not task_query:
         print("[-] No task entered. Exiting.")
@@ -280,6 +278,7 @@ def main():
     common_objects = [obj for obj, score in object_scores.items() if score >= SCORE_THRESHOLD]
     print(f"[+] Graph identified objects meeting >= {int(SCORE_THRESHOLD * 100)}% threshold: {common_objects}")
 
+    # ULTIMATE FALLBACK LOGIC
     if not common_objects:
         print("[-] No known objects met the required score threshold.")
         print("[*] Trying with top 3 highest scoring objects instead...")
@@ -288,8 +287,9 @@ def main():
         print(f"[+] Fallback objects: {common_objects}")
         
         if not common_objects:
-            print("[-] Still no objects found. Exiting.")
-            return
+            print(f"[-] Graph is entirely empty for these properties.")
+            print(f"[*] ULTIMATE FALLBACK: Passing raw task '{task_query}' directly to Vision Model.")
+            common_objects = [task_query]
 
     # Free up SLM memory
     del slm_model, tokenizer
