@@ -1,0 +1,22 @@
+{
+  "kg_path": "task_affordance_kg.yaml",
+  "slm_path": "../../../qwen_models/Qwen2.5-3B-Instruct",
+  "od_path": "../../../qwen_models/Florence-2-base-ft-community",
+  "sample_image_path": "../../../Dataset",
+  "results_path": "../../../results/three_stage_affordance_kg",
+  "alpha": 0.7,
+  "beta": 0.3,
+  "od_confidence_threshold": 0,
+  "missing_confidence_policy": "sanity_filter",
+  "near_full_image_area_ratio": 0.9,
+  "cross_query_cluster_iou": 0.8,
+  "top_k": 3,
+  "visualize": true,
+  "threads": 4,
+  "max_new_tokens": 100,
+  "use_affordances": true,
+  "use_hierarchy": true,
+  "use_kg_weights": true,
+  "use_detector_aliases": true,
+  "slm_prompt_template": "Normalize the user instruction into exactly one supported task. Supported tasks: {tasks}. Return ONLY JSON: {\"task\":\"canonical_name\",\"task_confidence\":0.0,\"constraints\":{}}. Use unknown for unrelated, multiple, ambiguous, or unsupported spatial/attribute constraints. Do not list objects. Confidence must be between 0 and 1."
+}

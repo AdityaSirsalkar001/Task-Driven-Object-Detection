@@ -1,0 +1,1148 @@
+kg_meta:
+  name: TaskAffordanceKG
+  version: 2.0.0
+  purpose: Persistent task-conditioned object retrieval knowledge for Qwen -> KG -> Florence.
+  design: Task -> Role -> Affordance -> ObjectClass -> DetectorAlias. This is not a scene graph.
+  matching_policy:
+    primary: deterministic graph traversal over task roles and affordances
+    secondary: attributes and safety conditions are metadata, not vector-search inputs
+    forbidden_fallback: never send raw task text to Florence when no KG candidates exist
+
+relations:
+  REQUIRES_ROLE: Task -> Role
+  REQUIRES_AFFORDANCE: Role -> Affordance
+  HAS_AFFORDANCE: ObjectClass/ObjectCategory -> Affordance
+  VALID_FOR_ROLE: ObjectClass -> Role
+  IS_A: ObjectClass/ObjectCategory -> ObjectCategory
+  HAS_ATTRIBUTE: ObjectClass -> Attribute
+  SYNONYM_OF: Alias -> canonical concept
+  DETECTOR_ALIAS: ObjectClass -> textual detector label
+  INCOMPATIBLE_WITH: ObjectClass/Affordance -> constraint
+  OPTIONAL_CONTEXT: Task -> contextual object
+
+roles: [target, instrument, material, destination, support, container, consumable, context, object]
+
+affordances:
+  digging_soil: {description: Excavates ordinary soil.}
+  breaking_hard_ground: {description: Breaks compacted or rocky ground.}
+  scooping_soil: {description: Scoops and removes loose soil.}
+  boring_hole: {description: Bores a narrow or post-sized hole.}
+  trenching: {description: Cuts a narrow trench.}
+  extinguishing_directly: {description: Directly suppresses a fire with a purpose-built agent.}
+  carrying_suppressant: {description: Carries water, sand, or another suppressant.}
+  delivering_water: {description: Delivers water toward a fire; suitability depends on fire type.}
+  delivering_sand: {description: Delivers sand for smothering a suitable fire.}
+  smothering_fire: {description: Restricts oxygen reaching a fire.}
+  automatic_fire_suppression: {description: Automatically releases a fire suppressant.}
+  cutting_packaging: {description: Cuts cardboard, wrapping, or packaging.}
+  slicing_tape: {description: Slices package tape or seals.}
+  opening_package: {description: Opens packaging without requiring a cutting edge.}
+  holding_flowers: {description: Holds a flower arrangement.}
+  containing_flower_stems: {description: Contains and supports cut flower stems.}
+  supporting_plant: {description: Supports a rooted flowering plant.}
+  temporary_flower_container: {description: Temporarily contains cut flowers.}
+  dispensing_granules: {description: Dispenses sugar or another granular food.}
+  scooping_granules: {description: Scoops a measured or small quantity of sugar.}
+  holding_sugar: {description: Holds sugar before transfer.}
+  funneling_granules: {description: Guides sugar into a narrow opening.}
+  supporting_seated_person: {description: Supports a person in a seated posture.}
+  cushioned_seating: {description: Provides padded or soft seating.}
+  reclining_support: {description: Supports a relaxed or reclined seated posture.}
+  spreading_soft_food: {description: Spreads butter or another soft food.}
+  brushing_soft_food: {description: Applies softened butter using bristles.}
+  supporting_body_weight: {description: Supports a standing person's body weight.}
+  elevated_step: {description: Provides a raised surface for stepping up.}
+  climbing_steps: {description: Provides multiple successive steps.}
+  holding_wine: {description: Contains wine for storage or serving.}
+  opening_wine: {description: Removes a cork or wine-bottle closure.}
+  pouring_wine: {description: Controls wine flow while pouring.}
+  serving_wine: {description: Presents wine for drinking.}
+
+categories:
+  digging_tool: {affordances: [digging_soil]}
+  soil_breaking_tool: {is_a: [digging_tool], affordances: [breaking_hard_ground]}
+  soil_scooping_tool: {is_a: [digging_tool], affordances: [scooping_soil]}
+  hole_boring_tool: {is_a: [digging_tool], affordances: [boring_hole]}
+  trenching_tool: {is_a: [digging_tool], affordances: [trenching]}
+  direct_fire_suppression_tool: {affordances: [extinguishing_directly]}
+  suppressant_container: {affordances: [carrying_suppressant]}
+  suppressant_delivery_tool: {affordances: [delivering_water, delivering_sand]}
+  smothering_tool: {affordances: [smothering_fire]}
+  fixed_fire_suppression_device: {affordances: [automatic_fire_suppression]}
+  packaging_cutting_tool: {affordances: [cutting_packaging]}
+  tape_slicing_tool: {affordances: [slicing_tape]}
+  package_opening_tool: {affordances: [opening_package]}
+  preferred_flower_container: {affordances: [holding_flowers, containing_flower_stems]}
+  plant_container: {affordances: [supporting_plant]}
+  temporary_flower_vessel: {affordances: [temporary_flower_container]}
+  granule_dispenser: {affordances: [dispensing_granules]}
+  granule_scoop: {affordances: [scooping_granules]}
+  sugar_container: {affordances: [holding_sugar]}
+  granule_funnel: {affordances: [funneling_granules]}
+  seating_furniture: {affordances: [supporting_seated_person]}
+  cushioned_seat: {is_a: [seating_furniture], affordances: [cushioned_seating]}
+  reclining_seat: {is_a: [cushioned_seat], affordances: [reclining_support]}
+  food_spreading_tool: {affordances: [spreading_soft_food]}
+  food_brush: {affordances: [brushing_soft_food]}
+  weight_support: {affordances: [supporting_body_weight]}
+  raised_step: {is_a: [weight_support], affordances: [elevated_step]}
+  climbing_support: {is_a: [weight_support], affordances: [climbing_steps]}
+  wine_container: {affordances: [holding_wine]}
+  wine_serving_vessel: {is_a: [wine_container], affordances: [serving_wine]}
+  wine_opening_tool: {affordances: [opening_wine]}
+  wine_pouring_accessory: {affordances: [pouring_wine]}
+  generic_container: {}
+
+objects:
+  shovel:
+    is_a: [digging_tool, soil_scooping_tool]
+    affordances: [digging_soil, scooping_soil]
+    conditional: false
+    preferred: true
+    detector_aliases: [shovel]
+  spade:
+    is_a: [digging_tool]
+    affordances: [digging_soil]
+    conditional: false
+    preferred: true
+    detector_aliases: [spade]
+  digging_shovel:
+    is_a: [digging_tool, soil_scooping_tool]
+    affordances: [digging_soil, scooping_soil]
+    conditional: false
+    preferred: true
+    detector_aliases: [digging shovel, round point shovel]
+  garden_spade:
+    is_a: [digging_tool]
+    affordances: [digging_soil]
+    conditional: false
+    preferred: true
+    detector_aliases: [garden spade]
+  garden_trowel:
+    is_a: [digging_tool, soil_scooping_tool]
+    affordances: [digging_soil, scooping_soil]
+    conditional: false
+    preferred: true
+    detector_aliases: [garden trowel]
+  hand_trowel:
+    is_a: [digging_tool, soil_scooping_tool]
+    affordances: [digging_soil, scooping_soil]
+    conditional: false
+    preferred: true
+    detector_aliases: [hand trowel]
+  hoe:
+    is_a: [digging_tool]
+    affordances: [digging_soil]
+    conditional: false
+    preferred: false
+    detector_aliases: [garden hoe]
+  mattock:
+    is_a: [soil_breaking_tool]
+    affordances: [breaking_hard_ground]
+    conditional: false
+    preferred: true
+    detector_aliases: [mattock, digging mattock]
+  pickaxe:
+    is_a: [soil_breaking_tool]
+    affordances: [breaking_hard_ground]
+    conditional: false
+    preferred: true
+    detector_aliases: [pickaxe, pick axe]
+  pick_mattock:
+    is_a: [soil_breaking_tool]
+    affordances: [breaking_hard_ground]
+    conditional: false
+    preferred: true
+    detector_aliases: [pick mattock]
+  post_hole_digger:
+    is_a: [hole_boring_tool]
+    affordances: [boring_hole]
+    conditional: false
+    preferred: true
+    detector_aliases: [post hole digger, manual post hole digger]
+  hand_auger:
+    is_a: [hole_boring_tool]
+    affordances: [boring_hole]
+    conditional: false
+    preferred: true
+    detector_aliases: [hand auger, manual earth auger]
+  earth_auger:
+    is_a: [hole_boring_tool]
+    affordances: [boring_hole]
+    conditional: false
+    preferred: true
+    detector_aliases: [earth auger, soil auger]
+  digging_bar:
+    is_a: [soil_breaking_tool]
+    affordances: [breaking_hard_ground]
+    conditional: false
+    preferred: false
+    detector_aliases: [digging bar, digging iron bar]
+  crowbar:
+    is_a: [soil_breaking_tool]
+    affordances: [breaking_hard_ground]
+    conditional: true
+    condition_note: Useful only for compacted ground or rocks.
+    preferred: false
+    detector_aliases: [crowbar, pry bar]
+  trenching_shovel:
+    is_a: [trenching_tool]
+    affordances: [trenching]
+    conditional: false
+    preferred: true
+    detector_aliases: [trenching shovel, drain spade]
+  garden_fork:
+    is_a: [soil_breaking_tool]
+    affordances: [breaking_hard_ground]
+    conditional: false
+    preferred: false
+    detector_aliases: [garden fork, digging fork]
+  soil_scoop:
+    is_a: [soil_scooping_tool]
+    affordances: [scooping_soil]
+    conditional: false
+    preferred: false
+    detector_aliases: [soil scoop, garden soil scoop]
+
+  fire_extinguisher:
+    is_a: [direct_fire_suppression_tool]
+    affordances: [extinguishing_directly]
+    conditional: false
+    preferred: true
+    detector_aliases: [fire extinguisher]
+  fire_blanket:
+    is_a: [direct_fire_suppression_tool, smothering_tool]
+    affordances: [extinguishing_directly, smothering_fire]
+    conditional: false
+    preferred: true
+    detector_aliases: [fire blanket]
+  fire_suppression_canister:
+    is_a: [direct_fire_suppression_tool]
+    affordances: [extinguishing_directly]
+    conditional: false
+    preferred: true
+    detector_aliases: [fire suppression canister, fire suppressant canister]
+  aerosol_fire_extinguisher:
+    is_a: [direct_fire_suppression_tool]
+    affordances: [extinguishing_directly]
+    conditional: false
+    preferred: true
+    detector_aliases: [aerosol fire extinguisher, fire extinguisher spray can]
+  fire_hose:
+    is_a: [suppressant_delivery_tool]
+    affordances: [delivering_water]
+    conditional: true
+    condition_note: water-based suppression is fire-type dependent
+    preferred: true
+    detector_aliases: [fire hose]
+  hose:
+    is_a: [suppressant_delivery_tool]
+    affordances: [delivering_water]
+    conditional: true
+    condition_note: water-based suppression is fire-type dependent
+    preferred: false
+    detector_aliases: [rubber water hose, coiled garden hose]
+  water_hose:
+    is_a: [suppressant_delivery_tool]
+    affordances: [delivering_water]
+    conditional: true
+    condition_note: water-based suppression is fire-type dependent
+    preferred: false
+    detector_aliases: [water hose, garden water hose]
+  bucket:
+    is_a: [suppressant_container, temporary_flower_vessel]
+    affordances: [carrying_suppressant, temporary_flower_container]
+    conditional: true
+    condition_note: water-based suppression is fire-type dependent when used for fire
+    preferred: false
+    detector_aliases: [bucket]
+  water_bucket:
+    is_a: [suppressant_container]
+    affordances: [carrying_suppressant, delivering_water]
+    conditional: true
+    condition_note: water-based suppression is fire-type dependent
+    preferred: false
+    detector_aliases: [water bucket, bucket of water]
+  pail:
+    is_a: [suppressant_container]
+    affordances: [carrying_suppressant]
+    conditional: true
+    condition_note: water-based suppression is fire-type dependent when filled with water
+    preferred: false
+    detector_aliases: [pail, metal pail]
+  water_container:
+    is_a: [suppressant_container]
+    affordances: [carrying_suppressant, delivering_water]
+    conditional: true
+    condition_note: water-based suppression is fire-type dependent
+    preferred: false
+    detector_aliases: [water canister, water storage can]
+  watering_can:
+    is_a: [suppressant_delivery_tool, temporary_flower_vessel]
+    affordances: [delivering_water, temporary_flower_container]
+    conditional: true
+    condition_note: water-based suppression is fire-type dependent when used for fire
+    preferred: false
+    detector_aliases: [watering can]
+  sand_bucket:
+    is_a: [suppressant_container, smothering_tool]
+    affordances: [carrying_suppressant, delivering_sand, smothering_fire]
+    conditional: true
+    condition_note: sand suppression is suitable only for compatible small fires
+    preferred: true
+    detector_aliases: [sand bucket]
+  sand_container:
+    is_a: [suppressant_container]
+    affordances: [carrying_suppressant, delivering_sand]
+    conditional: true
+    condition_note: sand suppression is suitable only for compatible small fires
+    preferred: false
+    detector_aliases: [sand container, fire sand container]
+  bucket_of_sand:
+    is_a: [suppressant_container, smothering_tool]
+    affordances: [carrying_suppressant, delivering_sand, smothering_fire]
+    conditional: true
+    condition_note: sand suppression is suitable only for compatible small fires
+    preferred: true
+    detector_aliases: [bucket filled with sand]
+  fire_bucket:
+    is_a: [suppressant_container]
+    affordances: [carrying_suppressant, delivering_sand]
+    conditional: true
+    condition_note: contents and fire type must be checked before use
+    preferred: true
+    detector_aliases: [red fire bucket]
+  fire_sprinkler:
+    is_a: [fixed_fire_suppression_device]
+    affordances: [automatic_fire_suppression]
+    conditional: false
+    preferred: true
+    detector_aliases: [fire sprinkler system, ceiling fire sprinkler]
+  sprinkler_head:
+    is_a: [fixed_fire_suppression_device]
+    affordances: [automatic_fire_suppression]
+    conditional: false
+    preferred: true
+    detector_aliases: [fire sprinkler head, ceiling sprinkler head]
+  fire_hose_reel:
+    is_a: [fixed_fire_suppression_device, suppressant_delivery_tool]
+    affordances: [automatic_fire_suppression, delivering_water]
+    conditional: true
+    condition_note: water-based suppression is fire-type dependent
+    preferred: true
+    detector_aliases: [fire hose reel, wall mounted fire hose reel]
+  fire:
+    is_a: []
+    affordances: []
+    conditional: false
+    preferred: false
+    detector_aliases: [fire, flames]
+
+  box_cutter:
+    is_a: [packaging_cutting_tool]
+    affordances: [cutting_packaging]
+    conditional: false
+    preferred: true
+    detector_aliases: [box cutter, utility knife]
+  scissors:
+    is_a: [packaging_cutting_tool]
+    affordances: [cutting_packaging]
+    conditional: false
+    preferred: true
+    detector_aliases: [scissors]
+  safety_cutter:
+    is_a: [packaging_cutting_tool]
+    affordances: [cutting_packaging]
+    conditional: false
+    preferred: true
+    detector_aliases: [safety box cutter, safety package opener]
+  craft_knife:
+    is_a: [packaging_cutting_tool]
+    affordances: [cutting_packaging]
+    conditional: false
+    preferred: false
+    detector_aliases: [craft knife, precision craft knife]
+  razor_blade:
+    is_a: [packaging_cutting_tool]
+    affordances: [cutting_packaging]
+    conditional: true
+    condition_note: Exposed blades require careful handling.
+    preferred: false
+    detector_aliases: [single edge razor blade]
+  knife:
+    is_a: [packaging_cutting_tool, food_spreading_tool]
+    affordances: [cutting_packaging, spreading_soft_food]
+    conditional: true
+    condition_note: Generic knives are a weaker package-opening fallback.
+    preferred: false
+    detector_aliases: [knife]
+  pocket_knife:
+    is_a: [packaging_cutting_tool]
+    affordances: [cutting_packaging]
+    conditional: true
+    condition_note: Use only when a purpose-built opener is unavailable.
+    preferred: false
+    detector_aliases: [pocket knife, folding pocket knife]
+  letter_opener:
+    is_a: [tape_slicing_tool]
+    affordances: [slicing_tape]
+    conditional: false
+    preferred: true
+    detector_aliases: [letter opener]
+  seam_ripper:
+    is_a: [tape_slicing_tool]
+    affordances: [slicing_tape]
+    conditional: true
+    condition_note: Useful only for light wrapping or tape.
+    preferred: false
+    detector_aliases: [seam ripper]
+  packaging_opener:
+    is_a: [package_opening_tool]
+    affordances: [opening_package]
+    conditional: false
+    preferred: true
+    detector_aliases: [package opening tool, clamshell package opener]
+  flathead_screwdriver:
+    is_a: [package_opening_tool]
+    affordances: [opening_package]
+    conditional: true
+    condition_note: A weak prying fallback that may damage packaging.
+    preferred: false
+    detector_aliases: [flathead screwdriver, flat blade screwdriver]
+  pry_tool:
+    is_a: [package_opening_tool]
+    affordances: [opening_package]
+    conditional: true
+    condition_note: Suitable for rigid packaging only.
+    preferred: false
+    detector_aliases: [plastic pry tool, package pry tool]
+  parcel:
+    is_a: [generic_container]
+    affordances: []
+    conditional: false
+    preferred: false
+    detector_aliases: [parcel, cardboard shipping box]
+
+  vase:
+    is_a: [preferred_flower_container]
+    affordances: [holding_flowers, containing_flower_stems]
+    conditional: false
+    preferred: true
+    detector_aliases: [vase, flower vase]
+  flower_pot:
+    is_a: [plant_container]
+    affordances: [supporting_plant]
+    conditional: false
+    preferred: true
+    detector_aliases: [flower pot]
+  plant_pot:
+    is_a: [plant_container]
+    affordances: [supporting_plant]
+    conditional: false
+    preferred: true
+    detector_aliases: [plant pot]
+  planter:
+    is_a: [plant_container]
+    affordances: [supporting_plant]
+    conditional: false
+    preferred: true
+    detector_aliases: [garden planter, indoor planter]
+  flower_planter:
+    is_a: [plant_container]
+    affordances: [supporting_plant]
+    conditional: false
+    preferred: true
+    detector_aliases: [flower planter]
+  decorative_pot:
+    is_a: [plant_container]
+    affordances: [supporting_plant]
+    conditional: false
+    preferred: true
+    detector_aliases: [decorative flower pot, ceramic plant pot]
+  urn:
+    is_a: [preferred_flower_container]
+    affordances: [holding_flowers, containing_flower_stems]
+    conditional: false
+    preferred: true
+    detector_aliases: [flower urn, decorative urn]
+  jar:
+    is_a: [temporary_flower_vessel, sugar_container]
+    affordances: [temporary_flower_container, holding_sugar, dispensing_granules]
+    conditional: false
+    preferred: false
+    detector_aliases: [glass jar]
+  mason_jar:
+    is_a: [temporary_flower_vessel]
+    affordances: [temporary_flower_container]
+    conditional: false
+    preferred: false
+    detector_aliases: [mason jar]
+  pitcher:
+    is_a: [temporary_flower_vessel, wine_serving_vessel]
+    affordances: [temporary_flower_container, holding_wine, pouring_wine, serving_wine]
+    conditional: false
+    preferred: false
+    detector_aliases: [glass pitcher, ceramic pitcher]
+  jug:
+    is_a: [temporary_flower_vessel]
+    affordances: [temporary_flower_container]
+    conditional: false
+    preferred: false
+    detector_aliases: [ceramic jug, water jug]
+  bottle_vase:
+    is_a: [temporary_flower_vessel]
+    affordances: [temporary_flower_container]
+    conditional: false
+    preferred: false
+    detector_aliases: [bottle vase, flower bottle]
+  glass_bottle:
+    is_a: [temporary_flower_vessel]
+    affordances: [temporary_flower_container]
+    conditional: false
+    preferred: false
+    detector_aliases: [empty glass bottle]
+  flower_bucket:
+    is_a: [temporary_flower_vessel]
+    affordances: [temporary_flower_container, holding_flowers]
+    conditional: false
+    preferred: false
+    detector_aliases: [flower bucket, florist bucket]
+  basket:
+    is_a: [temporary_flower_vessel]
+    affordances: [temporary_flower_container]
+    conditional: true
+    condition_note: Better for potted or wrapped flowers than loose stems.
+    preferred: false
+    detector_aliases: [woven basket]
+  flower_basket:
+    is_a: [preferred_flower_container]
+    affordances: [holding_flowers]
+    conditional: false
+    preferred: false
+    detector_aliases: [flower basket, floral basket]
+  cup:
+    is_a: [temporary_flower_vessel, generic_container]
+    affordances: [temporary_flower_container]
+    conditional: true
+    condition_note: Temporary fallback for short flower stems.
+    preferred: false
+    detector_aliases: [drinking cup, ceramic mug]
+  flower:
+    is_a: []
+    affordances: []
+    conditional: false
+    preferred: false
+    detector_aliases: [flower, bouquet of flowers]
+
+  sugar_dispenser:
+    is_a: [granule_dispenser, sugar_container]
+    affordances: [dispensing_granules, holding_sugar]
+    conditional: false
+    preferred: true
+    detector_aliases: [sugar dispenser, sugar shaker]
+  sugar_bowl:
+    is_a: [sugar_container]
+    affordances: [holding_sugar, dispensing_granules]
+    conditional: false
+    preferred: true
+    detector_aliases: [sugar bowl]
+  sugar_canister:
+    is_a: [sugar_container]
+    affordances: [holding_sugar, dispensing_granules]
+    conditional: false
+    preferred: true
+    detector_aliases: [sugar canister]
+  sugar_packet:
+    is_a: [granule_dispenser]
+    affordances: [dispensing_granules]
+    conditional: false
+    preferred: true
+    detector_aliases: [sugar packet, sugar sachet]
+  sugar_bag:
+    is_a: [granule_dispenser, sugar_container]
+    affordances: [dispensing_granules, holding_sugar]
+    conditional: false
+    preferred: false
+    detector_aliases: [bag of sugar, sugar bag]
+  spoon:
+    is_a: [granule_scoop, food_spreading_tool]
+    affordances: [scooping_granules, spreading_soft_food]
+    conditional: false
+    preferred: true
+    detector_aliases: [spoon, teaspoon]
+  measuring_spoon:
+    is_a: [granule_scoop]
+    affordances: [scooping_granules]
+    conditional: false
+    preferred: true
+    detector_aliases: [measuring spoon]
+  sugar_scoop:
+    is_a: [granule_scoop]
+    affordances: [scooping_granules]
+    conditional: false
+    preferred: true
+    detector_aliases: [sugar scoop]
+  kitchen_scoop:
+    is_a: [granule_scoop]
+    affordances: [scooping_granules]
+    conditional: false
+    preferred: false
+    detector_aliases: [kitchen scoop, food scoop]
+  measuring_cup:
+    is_a: [granule_scoop]
+    affordances: [scooping_granules, dispensing_granules]
+    conditional: false
+    preferred: true
+    detector_aliases: [measuring cup]
+  kitchen_funnel:
+    is_a: [granule_funnel]
+    affordances: [funneling_granules]
+    conditional: false
+    preferred: false
+    detector_aliases: [kitchen funnel, food funnel]
+  condiment_dispenser:
+    is_a: [granule_dispenser]
+    affordances: [dispensing_granules]
+    conditional: true
+    condition_note: Relevant only when it visibly contains sugar.
+    preferred: false
+    detector_aliases: [granulated condiment dispenser]
+  small_food_bowl:
+    is_a: [sugar_container]
+    affordances: [holding_sugar, dispensing_granules]
+    conditional: true
+    condition_note: Relevant only when it visibly contains sugar.
+    preferred: false
+    detector_aliases: [small food bowl]
+  lidded_food_container:
+    is_a: [sugar_container]
+    affordances: [holding_sugar]
+    conditional: true
+    condition_note: Must be open before sugar can be transferred.
+    preferred: false
+    detector_aliases: [lidded food container, kitchen storage container]
+  sugar:
+    is_a: []
+    affordances: []
+    conditional: false
+    preferred: false
+    detector_aliases: [granulated sugar, white sugar]
+
+  armchair:
+    is_a: [cushioned_seat]
+    affordances: [supporting_seated_person, cushioned_seating]
+    conditional: false
+    preferred: true
+    detector_aliases: [armchair]
+  sofa:
+    is_a: [cushioned_seat]
+    affordances: [supporting_seated_person, cushioned_seating]
+    conditional: false
+    preferred: true
+    detector_aliases: [sofa, couch]
+  recliner:
+    is_a: [reclining_seat]
+    affordances: [supporting_seated_person, cushioned_seating, reclining_support]
+    conditional: false
+    preferred: true
+    detector_aliases: [recliner chair, reclining armchair]
+  lounge_chair:
+    is_a: [reclining_seat]
+    affordances: [supporting_seated_person, cushioned_seating, reclining_support]
+    conditional: false
+    preferred: true
+    detector_aliases: [lounge chair]
+  office_chair:
+    is_a: [cushioned_seat]
+    affordances: [supporting_seated_person, cushioned_seating]
+    conditional: false
+    preferred: true
+    detector_aliases: [office chair, desk chair]
+  cushioned_chair:
+    is_a: [cushioned_seat]
+    affordances: [supporting_seated_person, cushioned_seating]
+    conditional: false
+    preferred: true
+    detector_aliases: [cushioned chair, padded chair]
+  rocking_chair:
+    is_a: [seating_furniture]
+    affordances: [supporting_seated_person]
+    conditional: false
+    preferred: true
+    detector_aliases: [rocking chair]
+  bean_bag_chair:
+    is_a: [cushioned_seat]
+    affordances: [supporting_seated_person, cushioned_seating]
+    conditional: false
+    preferred: true
+    detector_aliases: [bean bag chair]
+  chair:
+    is_a: [seating_furniture, weight_support]
+    affordances: [supporting_seated_person, supporting_body_weight]
+    conditional: false
+    preferred: true
+    detector_aliases: [chair]
+  dining_chair:
+    is_a: [seating_furniture]
+    affordances: [supporting_seated_person]
+    conditional: false
+    preferred: false
+    detector_aliases: [dining chair]
+  folding_chair:
+    is_a: [seating_furniture]
+    affordances: [supporting_seated_person]
+    conditional: false
+    preferred: false
+    detector_aliases: [folding chair]
+  bench:
+    is_a: [seating_furniture]
+    affordances: [supporting_seated_person]
+    conditional: false
+    preferred: false
+    detector_aliases: [bench]
+  park_bench:
+    is_a: [seating_furniture]
+    affordances: [supporting_seated_person]
+    conditional: false
+    preferred: false
+    detector_aliases: [park bench]
+  stool:
+    is_a: [seating_furniture, weight_support]
+    affordances: [supporting_seated_person, supporting_body_weight]
+    conditional: false
+    preferred: false
+    detector_aliases: [stool]
+  ottoman:
+    is_a: [cushioned_seat]
+    affordances: [supporting_seated_person, cushioned_seating]
+    conditional: false
+    preferred: false
+    detector_aliases: [ottoman seat, padded ottoman]
+
+  butter_knife:
+    is_a: [food_spreading_tool]
+    affordances: [spreading_soft_food]
+    conditional: false
+    preferred: true
+    detector_aliases: [butter knife, table knife]
+  spreader:
+    is_a: [food_spreading_tool]
+    affordances: [spreading_soft_food]
+    conditional: false
+    preferred: true
+    detector_aliases: [butter spreader, food spreader]
+  cheese_spreader:
+    is_a: [food_spreading_tool]
+    affordances: [spreading_soft_food]
+    conditional: false
+    preferred: true
+    detector_aliases: [cheese spreader]
+  small_spatula:
+    is_a: [food_spreading_tool]
+    affordances: [spreading_soft_food]
+    conditional: false
+    preferred: true
+    detector_aliases: [small kitchen spatula]
+  offset_spatula:
+    is_a: [food_spreading_tool]
+    affordances: [spreading_soft_food]
+    conditional: false
+    preferred: true
+    detector_aliases: [offset spatula]
+  icing_spatula:
+    is_a: [food_spreading_tool]
+    affordances: [spreading_soft_food]
+    conditional: false
+    preferred: true
+    detector_aliases: [icing spatula, frosting spatula]
+  silicone_spatula:
+    is_a: [food_spreading_tool]
+    affordances: [spreading_soft_food]
+    conditional: false
+    preferred: false
+    detector_aliases: [silicone spatula]
+  rubber_spatula:
+    is_a: [food_spreading_tool]
+    affordances: [spreading_soft_food]
+    conditional: false
+    preferred: false
+    detector_aliases: [rubber spatula]
+  palette_knife:
+    is_a: [food_spreading_tool]
+    affordances: [spreading_soft_food]
+    conditional: false
+    preferred: true
+    detector_aliases: [palette knife, cake palette knife]
+  pastry_brush:
+    is_a: [food_brush]
+    affordances: [brushing_soft_food]
+    conditional: true
+    condition_note: Butter must be softened or melted for brushing.
+    preferred: false
+    detector_aliases: [pastry brush, basting brush]
+  butter:
+    is_a: []
+    affordances: []
+    conditional: false
+    preferred: false
+    detector_aliases: [butter, butter pat]
+  bread:
+    is_a: []
+    affordances: []
+    conditional: false
+    preferred: false
+    detector_aliases: [bread slice, toast]
+
+  step_stool:
+    is_a: [raised_step]
+    affordances: [supporting_body_weight, elevated_step]
+    conditional: false
+    preferred: true
+    detector_aliases: [step stool]
+  ladder:
+    is_a: [climbing_support]
+    affordances: [supporting_body_weight, climbing_steps]
+    conditional: false
+    preferred: true
+    detector_aliases: [ladder, step ladder]
+  stairs:
+    is_a: [climbing_support]
+    affordances: [supporting_body_weight, climbing_steps]
+    conditional: false
+    preferred: true
+    detector_aliases: [staircase, stairs]
+  platform:
+    is_a: [raised_step]
+    affordances: [supporting_body_weight, elevated_step]
+    conditional: false
+    preferred: true
+    detector_aliases: [raised platform]
+  footstool:
+    is_a: [raised_step]
+    affordances: [supporting_body_weight, elevated_step]
+    conditional: false
+    preferred: true
+    detector_aliases: [footstool]
+  work_platform:
+    is_a: [raised_step]
+    affordances: [supporting_body_weight, elevated_step]
+    conditional: false
+    preferred: true
+    detector_aliases: [work platform, portable work platform]
+  doorstep:
+    is_a: [raised_step]
+    affordances: [supporting_body_weight, elevated_step]
+    conditional: false
+    preferred: false
+    detector_aliases: [doorstep, raised doorstep]
+  curb:
+    is_a: [raised_step]
+    affordances: [supporting_body_weight, elevated_step]
+    conditional: false
+    preferred: false
+    detector_aliases: [street curb, concrete curb]
+  wooden_crate:
+    is_a: [weight_support]
+    affordances: [supporting_body_weight]
+    conditional: true
+    condition_note: Use only when structurally sound and stable.
+    preferred: false
+    detector_aliases: [wooden crate]
+  sturdy_box:
+    is_a: [weight_support]
+    affordances: [supporting_body_weight]
+    conditional: true
+    condition_note: Use only when structurally sound and stable.
+    preferred: false
+    detector_aliases: [sturdy wooden box, reinforced storage box]
+  concrete_block:
+    is_a: [weight_support]
+    affordances: [supporting_body_weight]
+    conditional: true
+    condition_note: Surface must be stable and non-slipping.
+    preferred: false
+    detector_aliases: [concrete block, cinder block]
+  wooden_block:
+    is_a: [weight_support]
+    affordances: [supporting_body_weight]
+    conditional: true
+    condition_note: Surface must be stable and non-slipping.
+    preferred: false
+    detector_aliases: [large wooden block]
+  low_bench:
+    is_a: [weight_support]
+    affordances: [supporting_body_weight, elevated_step]
+    conditional: true
+    condition_note: Use only when the bench is stable.
+    preferred: false
+    detector_aliases: [low wooden bench]
+  wooden_pallet:
+    is_a: [weight_support]
+    affordances: [supporting_body_weight, elevated_step]
+    conditional: true
+    condition_note: Use only when intact and stable.
+    preferred: false
+    detector_aliases: [wooden pallet]
+
+  wine_glass:
+    is_a: [wine_serving_vessel]
+    affordances: [holding_wine, serving_wine]
+    conditional: false
+    preferred: true
+    detector_aliases: [wine glass]
+  stemless_wine_glass:
+    is_a: [wine_serving_vessel]
+    affordances: [holding_wine, serving_wine]
+    conditional: false
+    preferred: true
+    detector_aliases: [stemless wine glass]
+  champagne_flute:
+    is_a: [wine_serving_vessel]
+    affordances: [holding_wine, serving_wine]
+    conditional: false
+    preferred: true
+    detector_aliases: [champagne flute]
+  wine_goblet:
+    is_a: [wine_serving_vessel]
+    affordances: [holding_wine, serving_wine]
+    conditional: false
+    preferred: true
+    detector_aliases: [wine goblet]
+  wine_bottle:
+    is_a: [wine_container]
+    affordances: [holding_wine, pouring_wine]
+    conditional: false
+    preferred: true
+    detector_aliases: [wine bottle, bottle of wine]
+  decanter:
+    is_a: [wine_serving_vessel]
+    affordances: [holding_wine, pouring_wine, serving_wine]
+    conditional: false
+    preferred: true
+    detector_aliases: [wine decanter]
+  wine_carafe:
+    is_a: [wine_serving_vessel]
+    affordances: [holding_wine, pouring_wine, serving_wine]
+    conditional: false
+    preferred: true
+    detector_aliases: [wine carafe]
+  corkscrew:
+    is_a: [wine_opening_tool]
+    affordances: [opening_wine]
+    conditional: false
+    preferred: true
+    detector_aliases: [corkscrew]
+  waiters_corkscrew:
+    is_a: [wine_opening_tool]
+    affordances: [opening_wine]
+    conditional: false
+    preferred: true
+    detector_aliases: [waiters corkscrew, sommelier corkscrew]
+  wing_corkscrew:
+    is_a: [wine_opening_tool]
+    affordances: [opening_wine]
+    conditional: false
+    preferred: true
+    detector_aliases: [wing corkscrew, winged corkscrew]
+  electric_wine_opener:
+    is_a: [wine_opening_tool]
+    affordances: [opening_wine]
+    conditional: false
+    preferred: true
+    detector_aliases: [electric wine opener]
+  lever_corkscrew:
+    is_a: [wine_opening_tool]
+    affordances: [opening_wine]
+    conditional: false
+    preferred: true
+    detector_aliases: [lever corkscrew]
+  wine_pourer:
+    is_a: [wine_pouring_accessory]
+    affordances: [pouring_wine]
+    conditional: false
+    preferred: true
+    detector_aliases: [wine bottle pourer, wine pour spout]
+  wine_aerator:
+    is_a: [wine_pouring_accessory]
+    affordances: [pouring_wine]
+    conditional: false
+    preferred: false
+    detector_aliases: [wine aerator pourer, wine aerator]
+  wine_bucket:
+    is_a: [wine_container]
+    affordances: [serving_wine]
+    conditional: false
+    preferred: false
+    detector_aliases: [wine ice bucket, wine cooler bucket]
+
+tasks:
+  dig_hole:
+    aliases: [dig hole, dig a hole, make a hole in the ground]
+    roles:
+      instrument:
+        required: true
+        candidate_groups:
+        - affordance: digging_soil
+          candidates: {shovel: 1.0, spade: 0.98, digging_shovel: 0.98, garden_spade: 0.94, garden_trowel: 0.88, hand_trowel: 0.86, hoe: 0.82}
+        - affordance: breaking_hard_ground
+          candidates: {mattock: 0.92, pickaxe: 0.88, pick_mattock: 0.88, digging_bar: 0.82, crowbar: 0.55, garden_fork: 0.68}
+        - affordance: boring_hole
+          candidates: {post_hole_digger: 1.0, hand_auger: 0.96, earth_auger: 0.96}
+        - affordance: trenching
+          candidates: {trenching_shovel: 0.94}
+        - affordance: scooping_soil
+          candidates: {soil_scoop: 0.62}
+
+  extinguish_fire:
+    aliases: [extingh_fire, extinguish fire, put out fire, put out the fire]
+    roles:
+      target:
+        required: false
+        output: false
+        candidates: {fire: 1.0}
+      instrument:
+        required: true
+        candidate_groups:
+        - affordance: extinguishing_directly
+          candidates: {fire_extinguisher: 1.0, fire_suppression_canister: 0.90, aerosol_fire_extinguisher: 0.85}
+        - affordance: smothering_fire
+          candidates: {fire_blanket: 0.95}
+        - affordance: delivering_water
+          candidates: {fire_hose: 0.92, hose: 0.78, water_hose: 0.82, water_bucket: 0.82, water_container: 0.60, watering_can: 0.50}
+        - affordance: carrying_suppressant
+          candidates: {bucket: 0.72, pail: 0.68}
+        - affordance: delivering_sand
+          candidates: {sand_bucket: 0.88, sand_container: 0.78, bucket_of_sand: 0.88, fire_bucket: 0.90}
+        - affordance: automatic_fire_suppression
+          candidates: {fire_sprinkler: 0.90, sprinkler_head: 0.82, fire_hose_reel: 0.92}
+    constraints:
+    - Water-based suppression is fire-type dependent and must not be treated as universally safe.
+
+  open_parcel:
+    aliases: [open parcel, open package, open box, unpack parcel]
+    roles:
+      target:
+        required: false
+        output: false
+        candidates: {parcel: 1.0}
+      instrument:
+        required: true
+        candidate_groups:
+        - affordance: cutting_packaging
+          candidates: {box_cutter: 1.0, scissors: 0.92, safety_cutter: 0.94, craft_knife: 0.82, razor_blade: 0.66, knife: 0.72, pocket_knife: 0.70}
+        - affordance: slicing_tape
+          candidates: {letter_opener: 0.84, seam_ripper: 0.55}
+        - affordance: opening_package
+          candidates: {packaging_opener: 0.90, flathead_screwdriver: 0.48, pry_tool: 0.58}
+
+  place_flowers:
+    aliases: [place flower, place flowers, put flowers, keep flowers]
+    roles:
+      object:
+        required: false
+        candidates: {flower: 1.0}
+      destination:
+        required: true
+        candidate_groups:
+        - affordance: holding_flowers
+          candidates: {flower_basket: 0.78, flower_bucket: 0.82}
+        - affordance: containing_flower_stems
+          candidates: {vase: 1.0, urn: 0.82}
+        - affordance: supporting_plant
+          candidates: {flower_pot: 0.94, plant_pot: 0.90, planter: 0.90, flower_planter: 0.92, decorative_pot: 0.88}
+        - affordance: temporary_flower_container
+          candidates: {jar: 0.82, mason_jar: 0.82, pitcher: 0.76, jug: 0.72, bottle_vase: 0.62, glass_bottle: 0.66, bucket: 0.70, basket: 0.65, watering_can: 0.55, cup: 0.45}
+
+  pour_sugar:
+    aliases: [pour sugar, add sugar, dispense sugar]
+    roles:
+      material:
+        required: false
+        candidates: {sugar: 1.0}
+      instrument:
+        required: true
+        candidate_groups:
+        - affordance: dispensing_granules
+          candidates: {sugar_dispenser: 1.0, sugar_bowl: 0.88, sugar_canister: 0.90, sugar_packet: 0.86, sugar_bag: 0.74, measuring_cup: 0.82, jar: 0.70, condiment_dispenser: 0.58, small_food_bowl: 0.62}
+        - affordance: scooping_granules
+          candidates: {spoon: 0.84, measuring_spoon: 0.90, sugar_scoop: 0.92, kitchen_scoop: 0.72}
+        - affordance: funneling_granules
+          candidates: {kitchen_funnel: 0.60}
+        - affordance: holding_sugar
+          candidates: {lidded_food_container: 0.55}
+      destination:
+        required: false
+        candidates: {cup: 0.50}
+
+  sit_comfortably:
+    aliases: [sit comfortably, sit down comfortably, find a comfortable seat]
+    roles:
+      support:
+        required: true
+        candidate_groups:
+        - affordance: cushioned_seating
+          candidates: {armchair: 1.0, sofa: 0.98, recliner: 1.0, lounge_chair: 0.94, office_chair: 0.92, cushioned_chair: 0.92, bean_bag_chair: 0.90, ottoman: 0.72}
+        - affordance: supporting_seated_person
+          candidates: {rocking_chair: 0.88, chair: 0.82, dining_chair: 0.74, folding_chair: 0.66, bench: 0.68, park_bench: 0.70, stool: 0.58}
+
+  smear_butter:
+    aliases: [smear butter, spread butter, spread the butter]
+    roles:
+      material:
+        required: false
+        candidates: {butter: 1.0}
+      instrument:
+        required: true
+        candidate_groups:
+        - affordance: spreading_soft_food
+          candidates: {butter_knife: 1.0, spreader: 0.96, cheese_spreader: 0.92, small_spatula: 0.86, offset_spatula: 0.94, icing_spatula: 0.88, silicone_spatula: 0.76, rubber_spatula: 0.74, palette_knife: 0.90, knife: 0.62, spoon: 0.55}
+        - affordance: brushing_soft_food
+          candidates: {pastry_brush: 0.58}
+      target:
+        required: false
+        candidates: {bread: 0.78}
+
+  step_on:
+    aliases: [step on, stand on, step onto, use something to step up]
+    roles:
+      support:
+        required: true
+        candidate_groups:
+        - affordance: elevated_step
+          candidates: {step_stool: 1.0, platform: 0.90, footstool: 0.82, work_platform: 0.94, doorstep: 0.68, curb: 0.55, low_bench: 0.54, wooden_pallet: 0.52}
+        - affordance: climbing_steps
+          candidates: {ladder: 0.94, stairs: 0.92}
+        - affordance: supporting_body_weight
+          candidates: {stool: 0.70, chair: 0.38, wooden_crate: 0.64, sturdy_box: 0.58, concrete_block: 0.52, wooden_block: 0.45}
+
+  wine:
+    aliases: [wine, serve wine, drink wine, open wine, pour wine]
+    semantic_note: Broad benchmark task; roles keep holding, opening, pouring, and serving concepts separate.
+    roles:
+      container:
+        required: false
+        candidate_groups:
+        - affordance: serving_wine
+          candidates: {wine_glass: 1.0, stemless_wine_glass: 0.94, champagne_flute: 0.88, wine_goblet: 0.84, decanter: 0.86, wine_carafe: 0.82, pitcher: 0.58, wine_bucket: 0.55}
+        - affordance: holding_wine
+          candidates: {wine_bottle: 0.96}
+      instrument:
+        required: false
+        candidate_groups:
+        - affordance: opening_wine
+          candidates: {corkscrew: 1.0, waiters_corkscrew: 0.96, wing_corkscrew: 0.92, electric_wine_opener: 0.90, lever_corkscrew: 0.90}
+        - affordance: pouring_wine
+          candidates: {wine_pourer: 0.86, wine_aerator: 0.78}
+
+scoring:
+  principles:
+  - Affordance/path validity is a hard semantic gate.
+  - KG relevance is semantic suitability, not visual confidence.
+  - Conditional metadata must remain visible for safety-sensitive candidates.
+  - If no visually verified candidate survives, return no_suitable_object_detected.
+
+expansion_rules:
+  task_addition: Add task roles, sub-affordances, candidate priors, and precise aliases in this YAML.
+  object_addition: Add an ObjectClass, categories, affordances, safety metadata, and detector aliases.
+  detector_replacement: Change only the detector adapter, not the ontology.
+  slm_replacement: Change only the canonical task parser, not object knowledge.

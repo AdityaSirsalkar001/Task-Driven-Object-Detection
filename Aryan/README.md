@@ -1,6 +1,30 @@
-# Aryan - Two-Stage Task-Object Benchmarking
+# Aryan - Task-Oriented Object Retrieval
 
-This folder contains my work on two different two-stage pipelines for finding task-relevant objects in images.
+This folder contains two baseline pipelines and my new three-stage task-affordance Knowledge Graph pipeline.
+
+## Main Pipeline: Qwen -> KG -> Florence
+
+Folder: `three_stage_affordance_kg/`
+
+1. Qwen converts the user sentence into one supported task name.
+2. The YAML Knowledge Graph finds roles, affordances, object concepts, and Florence labels for that task.
+3. Florence checks which candidate objects are visible and returns boxes.
+4. Deterministic code groups same-family aliases, removes duplicate boxes, and ranks results inside each role.
+
+Standard Florence object detection is optional supporting evidence. It does not reject a text-conditioned box by itself. Because Florence does not provide calibrated confidence here, an unscored result needs either the canonical query or agreement from at least two overlapping aliases in the same semantic family.
+
+The KG is persistent semantic knowledge. It is not rebuilt from each image and it is not a scene graph.
+
+Run from the main project folder:
+
+```bash
+./run_three_stage.sh validate-kg
+./run_three_stage.sh query-kg --task open_parcel
+./run_three_stage.sh run --image Dataset/open_parcel/1.jpg --prompt "What can I use to open this parcel?" --debug-trace
+./run_three_stage.sh run --input-dir Dataset/open_parcel --start 20 --end 30 --task open_parcel --run-name parcel_20_to_30 --debug-trace
+```
+
+The same entry point stored inside my Git folder is `three_stage_affordance_kg/run_pipeline.py`; `run_pipeline.sh` starts it with the local research environment. See `three_stage_affordance_kg/COMMAND_GUIDE.md` for all commands and flags.
 
 ## Objective
 
